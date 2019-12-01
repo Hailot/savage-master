@@ -17,12 +17,12 @@ class CreateGearsTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('desription');
-            $table->string('damage');
+            $table->string('damage')->nullable();
             $table->string('cost');
-            $table->string('weight');
+            $table->string('weight')->nullable();
             $table->string('properties');
             $table->string('type');
-            $table->string('pic');
+            $table->string('pic')->nullable();
             $table->timestamps();
         });
     }

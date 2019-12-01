@@ -35,6 +35,27 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <!-- Left Side Of Navbar -->
                 <ul class="navbar-nav mr-auto">
+
+                </ul>
+
+                <!-- Right Side Of Navbar -->
+                <ul class="navbar-nav ml-auto">
+                    @guest
+
+                    @else
+                        <li class="nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                {{ 'Gear'}} <span class="caret"></span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('gear.index') }}">{{ __('Browse Gear') }}</a>
+                                    <a class="dropdown-item" href="{{ route('gear.create') }}">{{ __('Create Gear') }}</a>
+
+
+                            </div>
+                        </li>
+                    @endguest
                     @guest
 
                     @else
@@ -53,13 +74,7 @@
                                 @endif
                             </div>
                         </li>
-
-
                     @endguest
-                </ul>
-
-                <!-- Right Side Of Navbar -->
-                <ul class="navbar-nav ml-auto">
                     <!-- Authentication Links -->
                     @guest
                         <li class="nav-item">
@@ -97,6 +112,11 @@
     </nav>
 
     <main class="py-4">
+        @if (session('status'))
+            <div class="alert alert-success">
+                {{ session('status') }}
+            </div>
+        @endif
         @yield('content')
     </main>
 </div>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Gear;
+use App\Http\Requests\StoreGear;
 use Illuminate\Http\Request;
 
 class GearController extends Controller
@@ -14,7 +15,9 @@ class GearController extends Controller
      */
     public function index()
     {
-        //
+        $gears = Gear::all();
+
+        return view('gear.browse')->with('gears',$gears);
     }
 
     /**
@@ -24,7 +27,7 @@ class GearController extends Controller
      */
     public function create()
     {
-        //
+        return view('gear.create');
     }
 
     /**
@@ -33,9 +36,14 @@ class GearController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreGear $request)
     {
-        //
+        // Retrieve the validated input data...
+        $validated = $request->validated();
+
+        Gear::create($validated);
+
+        return redirect()->route('gear.index')->with('status','Gear Created!');
     }
 
     /**
