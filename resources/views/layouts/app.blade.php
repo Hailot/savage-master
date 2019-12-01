@@ -44,7 +44,7 @@
                                 @if (Route::has('images'))
                                         <a class="dropdown-item" href="{{ route('images') }}">{{ __('Browse Images') }}</a>
                                 @endif
-                                    @if (Route::has('uploadfileForm'))
+                                    @if (Route::has('upload-image'))
                                         <a class="dropdown-item" href="{{ route('upload-image') }}">{{ __('Upload Image') }}</a>
                                         @endif
                                 </form>
