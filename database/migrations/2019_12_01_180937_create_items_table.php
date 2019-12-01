@@ -21,7 +21,6 @@ class CreateItemsTable extends Migration
             $table->string('type');
             $table->string('rarity');
             $table->string('source');
-
             $table->timestamps();
         });
     }
