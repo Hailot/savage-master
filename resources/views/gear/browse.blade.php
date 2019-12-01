@@ -9,6 +9,7 @@
                     <div class="card-body">
                         <table class="table table-striped">
                             <tr>
+                                <th>pic</th>
                                 <th>Name</th>
                                 <th>Description</th>
                                 <th>Damage</th>

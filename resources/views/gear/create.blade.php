@@ -8,15 +8,15 @@
                     <div class="card-header">Create new gear</div>
 
                     <div class="card-body">
-                        <form action="{{ route('gear.store') }}" enctype="multipart/form-data" method="post">
+                        <form action="/gear/store" enctype="multipart/form-data" method="post">
                             @csrf
-                            <div class="form-group">
-                                <input type="file" name="pic" id="">
-                                <span class="help-block text-danger">{{$errors->first('pic')}}</span>
-                            </div>
+{{--                            <div class="form-group">--}}
+{{--                                <input type="file" name="pic" id="">--}}
+{{--                                <span class="help-block text-danger">{{$errors->first('pic')}}</span>--}}
+{{--                            </div>--}}
                             <div class="form-group">
                                 <label for="name">Name</label>
-                                <input type="text" name="title" id="name" class="form-control">
+                                <input type="text" name="name" id="name" class="form-control">
                                 <span class="help-block text-danger">{{$errors->first('name')}}</span>
 
                             </div>
@@ -51,9 +51,9 @@
 
                             </div>
                             <div class="form-group">
-                                <label for="weight">Type</label>
-                                <input type="text" name="weight" id="weight" class="form-control">
-                                <span class="help-block text-danger">{{$errors->first('weight')}}</span>
+                                <label for="type">Type</label>
+                                <input type="text" name="type" id="type" class="form-control">
+                                <span class="help-block text-danger">{{$errors->first('type')}}</span>
 
                             </div>
                             <button class="btn btn-primary">Create</button>

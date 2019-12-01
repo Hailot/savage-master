@@ -36,14 +36,13 @@ class GearController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreGear $request)
+    public function store(Request $request)
     {
         // Retrieve the validated input data...
-        $validated = $request->validated();
 
-        Gear::create($validated);
+        Gear::create($request->all());
 
-        return redirect()->route('gear.index')->with('status','Gear Created!');
+        return redirect('/gear/browse');
     }
 
     /**

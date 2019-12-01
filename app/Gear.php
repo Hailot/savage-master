@@ -49,15 +49,16 @@ class Gear extends Model
 
     public function getUrlAttribute()
     {
-        return Storage::disk('s3')->url($this->path);
+        if($this->pic != null)
+        {
+            return Storage::disk('s3')->url($this->pic);
+        }
+        return '';
     }
     public function getUploadedTimeAttribute()
     {
         return $this->created_at->diffForHumans();
     }
-    public function getSizeInKbAttribute()
-    {
-        return round($this->size / 1024, 2);
-    }
+
 
 }

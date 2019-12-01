@@ -16,7 +16,7 @@ class CreateGearsTable extends Migration
         Schema::create('gears', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
-            $table->string('desription');
+            $table->string('description');
             $table->string('damage')->nullable();
             $table->string('cost');
             $table->string('weight')->nullable();
