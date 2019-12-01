@@ -33,7 +33,26 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
+                        @guest
 
+                        @else
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    {{ 'Images'}} <span class="caret"></span>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdown">
+                                @if (Route::has('images'))
+                                        <a class="dropdown-item" href="{{ route('images') }}">{{ __('Browse Images') }}</a>
+                                @endif
+                                    @if (Route::has('uploadfileForm'))
+                                        <a class="dropdown-item" href="{{ route('upload-image') }}">{{ __('Upload Image') }}</a>
+                                        @endif
+                                </form>
+                                </div>
+                            </li>
+
+
+                        @endguest
                     </ul>
 
                     <!-- Right Side Of Navbar -->
