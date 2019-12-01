@@ -1,7 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
 
 .navbar-brand {
-  color: #c183ff;
+  color: #c183ff !important;
 }
 
 .dndtomeColor {
