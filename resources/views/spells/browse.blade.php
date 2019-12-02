@@ -14,6 +14,10 @@
                                     <th>Name</th>
                                     <th>School</th>
                                     <th>Classes</th>
+                                    <th>Components</th>
+                                    <th>Casting Time</th>
+                                    <th>Duration</th>
+                                    <th>Range</th>
                                     <th>Source</th>
 
                                 </tr>
@@ -23,6 +27,10 @@
                                         <td>{{$spell->name}}</td>
                                         <td>{{$spell->school->name}}</td>
                                         <td>{{$spell->classes}}</td>
+                                        <td>{{$spell->components}}</td>
+                                        <td>{{$spell->casting_time}}</td>
+                                        <td>{{$spell->duration}}</td>
+                                        <td>{{$spell->range}}</td>
                                         <td>{{$spell->source}}</td>
 
                                     </tr>
