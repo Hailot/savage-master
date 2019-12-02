@@ -2,19 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ad8dbdc2-c2a2-4ee4-8e10-494efdb92d37" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/database/json/monstersSRD.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/json/spellsEE.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/json/spellsPHB.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/json/spellsSRD.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/json/spellsXGTE.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/app.dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Gear.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Gear.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Spell.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Spell.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_12_01_180854_create_spells_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_12_01_180854_create_spells_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_12_01_181017_create_creatures_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_12_01_181017_create_creatures_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env.example" beforeDir="false" afterPath="$PROJECT_DIR$/.env.example" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -203,7 +192,7 @@
       <updated>1575215495661</updated>
       <workItem from="1575215496872" duration="3564000" />
       <workItem from="1575221380317" duration="30342000" />
-      <workItem from="1575303350420" duration="433000" />
+      <workItem from="1575303350420" duration="651000" />
     </task>
     <servers />
   </component>
