@@ -34,4 +34,5 @@ class Spell extends Model
     {
         return $this->belongsTo(SpellSchool::class);
     }
+
 }

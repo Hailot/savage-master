@@ -18,7 +18,7 @@
                                 </tr>
                                 @foreach ($spells as $spell)
                                     <tr>
-                                        <td>{{$spell->level}}</td>
+                                        <td>{{ ($spell->level == 0) ? 'Cantrip': $spell->level}}</td>
                                         <td>{{$spell->name}}</td>
                                         <td>{{$spell->school->name}}</td>
                                         <td>{{$spell->classes}}</td>
