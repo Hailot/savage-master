@@ -17,7 +17,12 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
+    <script src="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css"></script>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+
 </head>
 <body>
 <div id="app" class="dndtomeColor">
@@ -40,6 +45,22 @@
 
                 <!-- Right Side Of Navbar -->
                 <ul class="navbar-nav ml-auto">
+                    @guest
+
+                    @else
+                        <li class="nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                {{ 'Spells'}} <span class="caret"></span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{ route('spell.index') }}">{{ __('Browse Spells') }}</a>
+                                <a class="dropdown-item" href="{{ route('spell.create') }}">{{ __('Create Spell') }}</a>
+
+
+                            </div>
+                        </li>
+                    @endguest
                     @guest
 
                     @else
@@ -122,5 +143,6 @@
 
     </main>
 </div>
+        @yield('scripts')
 </body>
 </html>
