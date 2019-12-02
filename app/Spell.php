@@ -32,6 +32,6 @@ class Spell extends Model
 
     public function school()
     {
-        return $this->hasOne(SpellSchool::class,'school_id');
+        return $this->belongsTo(SpellSchool::class);
     }
 }

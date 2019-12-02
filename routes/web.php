@@ -33,4 +33,17 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/delete', 'GearController@destroy')->name('gear.edit');
         Route::post('/store', 'GearController@store')->name('gear.store');
     });
+    Route::prefix('spells')->group(function () {
+        Route::get('/browse', 'SpellController@index')->name('spell.index');
+        Route::get('/create', 'SpellController@create')->name('spell.create');
+        Route::get('/show', 'SpellController@show')->name('spell.show');
+        Route::get('/edit', 'SpellController@edit')->name('spell.edit');
+        Route::get('/delete', 'SpellController@destroy')->name('spell.edit');
+        Route::post('/store', 'SpellController@store')->name('spell.store');
+    });
+
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

@@ -18,6 +18,9 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+
+
 </head>
 <body>
 <div id="app" class="dndtomeColor">
@@ -46,11 +49,27 @@
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                {{ 'Spells'}} <span class="caret"></span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{ route('spell.index') }}">{{ __('Browse Spells') }}</a>
+                                <a class="dropdown-item" href="{{ route('spell.create') }}">{{ __('Create Spell') }}</a>
+
+
+                            </div>
+                        </li>
+                    @endguest
+                    @guest
+
+                    @else
+                        <li class="nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 {{ 'Gear'}} <span class="caret"></span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('gear.index') }}">{{ __('Browse Gear') }}</a>
-                                    <a class="dropdown-item" href="{{ route('gear.create') }}">{{ __('Create Gear') }}</a>
+                                <a class="dropdown-item" href="{{ route('gear.index') }}">{{ __('Browse Gear') }}</a>
+                                <a class="dropdown-item" href="{{ route('gear.create') }}">{{ __('Create Gear') }}</a>
 
 
                             </div>
@@ -75,7 +94,7 @@
                             </div>
                         </li>
                     @endguest
-                    <!-- Authentication Links -->
+                <!-- Authentication Links -->
                     @guest
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
@@ -118,9 +137,10 @@
             </div>
         @endif
         @yield('content')
-            @include('cookieConsent::index')
+        @include('cookieConsent::index')
 
     </main>
 </div>
+@yield('scripts')
 </body>
 </html>

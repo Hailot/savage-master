@@ -17,7 +17,7 @@ class SpellSchool extends Model
 
     public function spells()
     {
-        return $this->belongsToMany(Spell::class);
+        return $this->hasMany(Spell::class);
     }
 
 }

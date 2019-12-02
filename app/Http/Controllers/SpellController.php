@@ -14,7 +14,10 @@ class SpellController extends Controller
      */
     public function index()
     {
-        //
+       // $spells = Spell::paginate(25);
+        $spells = Spell::orderBy('level')->get();
+
+        return view('spells.browse')->with('spells',$spells);
     }
 
     /**
