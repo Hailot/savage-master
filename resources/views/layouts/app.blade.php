@@ -118,6 +118,8 @@
             </div>
         @endif
         @yield('content')
+            @include('cookieConsent::index')
+
     </main>
 </div>
 </body>

@@ -66,6 +66,7 @@
 {{--                <a href="#" class="btn btn-lg btn-secondary">Learn more</a>--}}
             </p>
         </main>
+        @include('cookieConsent::index')
 
         <footer class="mastfoot mt-auto">
             <div class="inner">

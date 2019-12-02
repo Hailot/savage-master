@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Storage;
  * @property string $source
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @p   roperty-read mixed $size_in_kb
+ * @p roperty-read mixed $size_in_kb
  * @property-read mixed $uploaded_time
  * @property-read mixed $url
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Item newModelQuery()
@@ -33,6 +33,7 @@ use Illuminate\Support\Facades\Storage;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Item whereType($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Item whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property-read mixed $size_in_kb
  */
 class Item extends Model
 {

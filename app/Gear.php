@@ -37,6 +37,8 @@ use Illuminate\Support\Facades\Storage;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Gear whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Gear whereWeight($value)
  * @mixin \Eloquent
+ * @property string $description
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Gear whereDescription($value)
  */
 class Gear extends Model
 {

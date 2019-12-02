@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
 
 Route::group(['middleware' => ['auth']], function () {
@@ -28,6 +28,9 @@ Route::group(['middleware' => ['auth']], function () {
     Route::prefix('gear')->group(function () {
         Route::get('/browse', 'GearController@index')->name('gear.index');
         Route::get('/create', 'GearController@create')->name('gear.create');
+        Route::get('/show', 'GearController@show')->name('gear.show');
+        Route::get('/edit', 'GearController@edit')->name('gear.edit');
+        Route::get('/delete', 'GearController@destroy')->name('gear.edit');
         Route::post('/store', 'GearController@store')->name('gear.store');
     });
 });
