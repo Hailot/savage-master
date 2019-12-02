@@ -19,36 +19,67 @@ class SpellsTableSeeder extends Seeder
         $data = new ArrayObject();
 
         //Load json file
-        $phbjson = File::get("database/json/spellsPHB.json");
+        $phbjson = File::get("database/json/spells/spellsPHB.json");
         $phb = json_decode($phbjson);
-        foreach ($phb as $item)
-        {
-         $data->offsetSet(null,$item);
+        foreach ($phb as $item) {
+            $data->offsetSet(null, $item);
         }
-        $srdjson = File::get("database/json/spellsPHB.json");
+        $srdjson = File::get("database/json/spells/spellsPHB.json");
         $srd = json_decode($srdjson);
-        foreach ($srd as $item)
-        {
-            $data->offsetSet(null,$item);
+        foreach ($srd as $item) {
+            $data->offsetSet(null, $item);
         }
-        $eejson = File::get("database/json/spellsEE.json");
+        $eejson = File::get("database/json/spells/spellsEE.json");
         $ee = json_decode($eejson);
-        foreach ($phb as $item)
-        {
-            $data->offsetSet(null,$item);
+        foreach ($phb as $item) {
+            $data->offsetSet(null, $item);
         }
-        $xgtejson = File::get("database/json/spellsXGTE.json");
+        $xgtejson = File::get("database/json/spells/spellsXGTE.json");
         $xgte = json_decode($xgtejson);
-        foreach ($xgte as $item)
-        {
-            $data->offsetSet(null,$item);
+        foreach ($xgte as $item) {
+            $data->offsetSet(null, $item);
+        }
+
+        $balajson = File::get("database/json/spells/spellsBalasarsGuide.json");
+        $boefjson = File::get("database/json/spells/spellsBoEF.json");
+        $lightjson = File::get("database/json/spells/spellsCompendiumAlltheLights.json");
+        $arcajson = File::get("database/json/spells/spellsCompendiumArcana.json");
+        $secrjson = File::get("database/json/spells/spellsTheCompendiumOfForgottenSecrets.json");
+        $grimjson = File::get("database/json/spells/spellsGrimloresGrimoire.json");
+
+        $bala = json_decode($balajson);
+        $boef = json_decode($boefjson);
+        $light = json_decode($lightjson);
+        $arca = json_decode($arcajson);
+        $secr = json_decode($secrjson);
+        $grim = json_decode($grimjson);
+
+        foreach ($bala as $item) {
+            $data->offsetSet(null, $item);
+        }
+        foreach ($boef as $item) {
+            $data->offsetSet(null, $item);
+        }
+        foreach ($light as $item) {
+            $data->offsetSet(null, $item);
+        }
+        foreach ($arca as $item) {
+            $data->offsetSet(null, $item);
+        }
+        foreach ($secr as $item) {
+            $data->offsetSet(null, $item);
+        }
+        foreach ($grim as $item) {
+            $data->offsetSet(null, $item);
         }
 
 
         foreach ($data as $spell) {
-            $school = SpellSchool::where('name',strtolower($spell->spell_school))->first();
-
-Spell::create(array(
+            $school = SpellSchool::where('name', strtolower($spell->spell_school))->first();
+            if(!$school){
+                dd($spell);
+            }
+            Spell::create(array(
                 'name' => $spell->spell_name,
                 'classes' => $spell->spell_classes,
                 'source' => $spell->spell_sources,

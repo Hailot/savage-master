@@ -14,6 +14,7 @@
                                     <th>Name</th>
                                     <th>School</th>
                                     <th>Classes</th>
+                                    <th>Source</th>
 
                                 </tr>
                                 @foreach ($spells as $spell)
@@ -22,6 +23,7 @@
                                         <td>{{$spell->name}}</td>
                                         <td>{{$spell->school->name}}</td>
                                         <td>{{$spell->classes}}</td>
+                                        <td>{{$spell->source}}</td>
 
                                     </tr>
                                 @endforeach
