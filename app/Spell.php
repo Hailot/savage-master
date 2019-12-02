@@ -24,5 +24,14 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Spell extends Model
 {
-    //
+    /* Fillable */
+    protected $fillable = [
+        'name', 'classes', 'source', 'level', 'school_id',  'casting_time', 'range',
+        'components', 'duration', 'ritual', 'description', 'pic'
+    ];
+
+    public function school()
+    {
+        return $this->hasOne(SpellSchool::class,'school_id');
+    }
 }

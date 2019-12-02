@@ -47,7 +47,7 @@ class Gear extends Model
         'name', 'description', 'damage', 'cost', 'weight', 'properties', 'type', 'pic'
     ];
     /* @array $appends */
-    public $appends = ['url', 'uploaded_time', 'size_in_kb'];
+    public $appends = ['url', 'uploaded_time'];
 
     public function getUrlAttribute()
     {
