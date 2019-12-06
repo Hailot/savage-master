@@ -20,6 +20,14 @@ class SpellController extends Controller
         return view('spells.browse')->with('spells',$spells);
     }
 
+    public function apiData()
+    {
+        $spells = Spell::with('school')->orderBy('level')->get();
+
+        return response()->json($spells);
+
+    }
+
     /**
      * Show the form for creating a new resource.
      *

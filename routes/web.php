@@ -35,6 +35,7 @@ Route::group(['middleware' => ['auth']], function () {
     });
     Route::prefix('spells')->group(function () {
         Route::get('/browse', 'SpellController@index')->name('spell.index');
+        Route::get('/api-data', 'SpellController@apiData')->name('spell.apidata');
         Route::get('/create', 'SpellController@create')->name('spell.create');
         Route::get('/show', 'SpellController@show')->name('spell.show');
         Route::get('/edit', 'SpellController@edit')->name('spell.edit');

@@ -7,6 +7,8 @@
 require('./bootstrap');
 
 window.Vue = require('vue');
+Vue.use(require('vue-resource'));
+
 
 /**
  * The following block of code may be used to automatically register your
@@ -20,6 +22,10 @@ window.Vue = require('vue');
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+Vue.component('spells-table', require('./components/SpellsTable.vue').default);
+Vue.component('pagination', require('./components/PaginationComponent.vue'));
+
+
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

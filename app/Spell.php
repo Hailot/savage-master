@@ -29,6 +29,17 @@ class Spell extends Model
         'name', 'classes', 'source', 'level', 'school_id',  'casting_time', 'range',
         'components', 'duration', 'ritual', 'description', 'pic'
     ];
+    protected $appends = ['level_name'];
+
+    public function getLevelNameAttribute()
+    {
+        if($this->level == 0){
+            return 'Cantrip';
+        }
+        else{
+            return $this->level;
+        }
+    }
 
     public function school()
     {

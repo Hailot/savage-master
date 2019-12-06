@@ -15,7 +15,8 @@
         "laravel/telescope": "^2.1",
         "laravel/tinker": "^1.0",
         "league/flysystem-aws-s3-v3": "^1.0",
-        "spatie/laravel-cookie-consent": "^2.10"
+        "spatie/laravel-cookie-consent": "^2.10",
+        "yajra/laravel-datatables-oracle": "^9.7"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^2.6",
