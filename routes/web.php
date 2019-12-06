@@ -27,6 +27,7 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::prefix('gear')->group(function () {
         Route::get('/browse', 'GearController@index')->name('gear.index');
+        Route::get('/api-data', 'GearController@apiData')->name('gear.apidata');
         Route::get('/create', 'GearController@create')->name('gear.create');
         Route::get('/show', 'GearController@show')->name('gear.show');
         Route::get('/edit', 'GearController@edit')->name('gear.edit');

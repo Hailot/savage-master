@@ -7,33 +7,27 @@
         <section v-else>
             <div v-if="loading">Loading...</div>
 
-        <table class="table table-hoved table-dark ">
-            <tr>
-                <th>Level</th>
-                <th>Name</th>
-                <th>School</th>
-                <th>Classes</th>
-                <th>Components</th>
-                <th>Casting Time</th>
-                <th>Duration</th>
-                <th>Range</th>
-                <th>Source</th>
+            <table class="table table-hoved table-dark ">
+                <tr>
+                    <th>Type</th>
+                    <th>Name</th>
+                    <th>Cost</th>
+                    <th>Weight</th>
+                    <th>Properties</th>
 
-            </tr>
 
-            <tr v-for="spell in displayedSpells" :key="spell.id">
-                <td>{{ spell.level_name }}</td>
-                <td>{{ spell.name}}</td>
-                <td>{{ spell.school.name}}</td>
-                <td>{{ spell.classes}}</td>
-                <td>{{ spell.components}}</td>
-                <td>{{ spell.casting_time}}</td>
-                <td>{{ spell.duration}}</td>
-                <td>{{ spell.range}}</td>
-                <td>{{ spell.source}}</td>
+                </tr>
 
-            </tr>
-        </table>
+                <tr v-for="gear in displayedGear" :key="gear.id">
+                    <td>{{ gear.type}}</td>
+                    <td>{{ gear.name}}</td>
+                    <td>{{ gear.cost}}</td>
+                    <td>{{ gear.weight}}</td>
+                    <td>{{ gear.properties}}</td>
+
+
+                </tr>
+            </table>
             <div class="clearfix btn-group col-md-2 offset-md-5">
                 <button type="button" class="btn btn-sm btn-outline-primary" v-if="page != 1" @click="page--"> << </button>
                 <button type="button" class="btn btn-sm btn-outline-primary" v-for="pageNumber in pages.slice(page-1, page+5)" @click="page = pageNumber"> {{pageNumber}} </button>
@@ -45,10 +39,10 @@
 
 <script>
     export default {
-        name: "SpellsTable.vue",
+        name: "GearTable.vue",
         data () {
             return {
-                spells: [],
+                gears: [],
                 loading: true,
                 errored: false,
                 page: 1,
@@ -64,42 +58,42 @@
 
         },
         created() {
-            this.fetchSpells();
+            this.fetchGear();
         },
         methods: {
-            fetchSpells() {
+            fetchGear() {
 
-                axios.get('/spells/api-data')
+                axios.get('/gear/api-data')
                     .then(response => {
-                        this.spells = response.data;
+                        this.gears = response.data;
                         console.log(response);
                     }).finally( this.loading = false)
 
             },
             setPages () {
-                let numberOfPages = Math.ceil(this.spells.length / this.perPage);
+                let numberOfPages = Math.ceil(this.gears.length / this.perPage);
                 for (let index = 1; index <= numberOfPages; index++) {
                     this.pages.push(index);
                 }
             },
-            paginate (spells) {
+            paginate (gears) {
                 let page = this.page;
                 let perPage = this.perPage;
                 let from = (page * perPage) - perPage;
                 let to = (page * perPage);
-                return  spells.slice(from, to);
+                return  gears.slice(from, to);
             }
 
 
         },
         watch: {
-            spells () {
+            gears () {
                 this.setPages();
             }
         },
         computed: {
-            displayedSpells () {
-                return this.paginate(this.spells);
+            displayedGear () {
+                return this.paginate(this.gears);
             }
         },
     }

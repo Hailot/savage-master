@@ -23,6 +23,7 @@ Vue.use(require('vue-resource'));
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('spells-table', require('./components/SpellsTable.vue').default);
+Vue.component('gear-table', require('./components/GearTable.vue').default);
 Vue.component('pagination', require('./components/PaginationComponent.vue'));
 
 

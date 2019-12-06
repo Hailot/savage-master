@@ -20,6 +20,14 @@ class GearController extends Controller
         return view('gear.browse')->with('gears',$gears);
     }
 
+    public function apiData()
+    {
+        $gear = Gear::all();
+
+        return response()->json($gear);
+
+    }
+
     /**
      * Show the form for creating a new resource.
      *
