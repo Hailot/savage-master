@@ -21,6 +21,7 @@ Vue.use(require('vue-resource'));
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
+
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('spells-table', require('./components/SpellsTable.vue').default);
 Vue.component('gear-table', require('./components/GearTable.vue').default);

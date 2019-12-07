@@ -1886,6 +1886,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "CreaturesTable.vue",
   data: function data() {
@@ -2033,6 +2036,22 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "GearTable.vue",
   data: function data() {
@@ -2042,7 +2061,9 @@ __webpack_require__.r(__webpack_exports__);
       errored: false,
       page: 1,
       perPage: 10,
-      pages: []
+      pages: [],
+      selected: [],
+      selectAll: false
     };
   },
   filters: {},
@@ -38398,7 +38419,9 @@ var render = function() {
                 _vm._v(" "),
                 _c("th", [_vm._v("Avg. Hitpoints")]),
                 _vm._v(" "),
-                _c("th", [_vm._v("Source")])
+                _c("th", [_vm._v("Source")]),
+                _vm._v(" "),
+                _c("th")
               ]),
               _vm._v(" "),
               _vm._l(_vm.displayedCreatures, function(creature) {
@@ -38456,7 +38479,9 @@ var render = function() {
                   _vm._v(" "),
                   _c("td", [_vm._v(_vm._s(creature.average_hitpoints))]),
                   _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(creature.source))])
+                  _c("td", [_vm._v(_vm._s(creature.source))]),
+                  _vm._v(" "),
+                  _vm._m(0, true)
                 ])
               })
             ],
@@ -38522,7 +38547,16 @@ var render = function() {
         ])
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("td", [
+      _c("a", { attrs: { href: "#creature-modal" } }, [_vm._v("Full Info")])
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -38607,17 +38641,115 @@ var render = function() {
             "table",
             { staticClass: "table table-hoved table-dark " },
             [
-              _vm._m(0),
+              _c("tr", [
+                _c("th", [
+                  _c("label", { staticClass: "form-checkbox" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.selectAll,
+                          expression: "selectAll"
+                        }
+                      ],
+                      attrs: { type: "checkbox" },
+                      domProps: {
+                        checked: Array.isArray(_vm.selectAll)
+                          ? _vm._i(_vm.selectAll, null) > -1
+                          : _vm.selectAll
+                      },
+                      on: {
+                        click: _vm.select,
+                        change: function($event) {
+                          var $$a = _vm.selectAll,
+                            $$el = $event.target,
+                            $$c = $$el.checked ? true : false
+                          if (Array.isArray($$a)) {
+                            var $$v = null,
+                              $$i = _vm._i($$a, $$v)
+                            if ($$el.checked) {
+                              $$i < 0 && (_vm.selectAll = $$a.concat([$$v]))
+                            } else {
+                              $$i > -1 &&
+                                (_vm.selectAll = $$a
+                                  .slice(0, $$i)
+                                  .concat($$a.slice($$i + 1)))
+                            }
+                          } else {
+                            _vm.selectAll = $$c
+                          }
+                        }
+                      }
+                    })
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("th", [_vm._v("Type")]),
+                _vm._v(" "),
+                _c("th", [_vm._v("Name")]),
+                _vm._v(" "),
+                _c("th", [_vm._v("Cost")]),
+                _vm._v(" "),
+                _c("th", [_vm._v("Weight")]),
+                _vm._v(" "),
+                _c("th", [_vm._v("Properties")])
+              ]),
               _vm._v(" "),
               _vm._l(_vm.displayedGear, function(gear) {
                 return _c("tr", { key: gear.id }, [
+                  _c("td", [
+                    _c("label", { staticClass: "form-checkbox" }, [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.selected,
+                            expression: "selected"
+                          }
+                        ],
+                        attrs: { type: "checkbox" },
+                        domProps: {
+                          value: gear.id,
+                          checked: Array.isArray(_vm.selected)
+                            ? _vm._i(_vm.selected, gear.id) > -1
+                            : _vm.selected
+                        },
+                        on: {
+                          change: function($event) {
+                            var $$a = _vm.selected,
+                              $$el = $event.target,
+                              $$c = $$el.checked ? true : false
+                            if (Array.isArray($$a)) {
+                              var $$v = gear.id,
+                                $$i = _vm._i($$a, $$v)
+                              if ($$el.checked) {
+                                $$i < 0 && (_vm.selected = $$a.concat([$$v]))
+                              } else {
+                                $$i > -1 &&
+                                  (_vm.selected = $$a
+                                    .slice(0, $$i)
+                                    .concat($$a.slice($$i + 1)))
+                              }
+                            } else {
+                              _vm.selected = $$c
+                            }
+                          }
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("i", { staticClass: "form-icon" })
+                    ])
+                  ]),
+                  _vm._v(" "),
                   _c("td", [_vm._v(_vm._s(gear.type))]),
                   _vm._v(" "),
                   _c("td", [_vm._v(_vm._s(gear.name))]),
                   _vm._v(" "),
                   _c("td", [_vm._v(_vm._s(gear.cost))]),
                   _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(gear.weight))]),
+                  _c("td", [_vm._v(_vm._s(gear.weight) + " Lbs")]),
                   _vm._v(" "),
                   _c("td", [_vm._v(_vm._s(gear.properties))])
                 ])
@@ -38642,7 +38774,7 @@ var render = function() {
                         }
                       }
                     },
-                    [_vm._v(" << ")]
+                    [_vm._v(" <<\n            ")]
                   )
                 : _vm._e(),
               _vm._v(" "),
@@ -38660,7 +38792,7 @@ var render = function() {
                       }
                     }
                   },
-                  [_vm._v(" " + _vm._s(pageNumber) + " ")]
+                  [_vm._v(" " + _vm._s(pageNumber) + "\n            ")]
                 )
               }),
               _vm._v(" "),
@@ -38676,7 +38808,7 @@ var render = function() {
                         }
                       }
                     },
-                    [_vm._v(" >> ")]
+                    [_vm._v("\n                >>\n            ")]
                   )
                 : _vm._e()
             ],
@@ -38685,24 +38817,7 @@ var render = function() {
         ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("tr", [
-      _c("th", [_vm._v("Type")]),
-      _vm._v(" "),
-      _c("th", [_vm._v("Name")]),
-      _vm._v(" "),
-      _c("th", [_vm._v("Cost")]),
-      _vm._v(" "),
-      _c("th", [_vm._v("Weight")]),
-      _vm._v(" "),
-      _c("th", [_vm._v("Properties")])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
