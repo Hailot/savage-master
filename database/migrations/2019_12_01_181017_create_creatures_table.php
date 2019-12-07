@@ -22,7 +22,7 @@ class CreateCreaturesTable extends Migration
             $table->string('languages')->nullable();
             $table->string('size');
             $table->string('speed');
-            $table->decimal('challenge_rating',8,2);
+            $table->string('challenge_rating');
             $table->integer('average_hitpoints');
             $table->string('hitpoint_dice');
             $table->integer('armor_class');

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCreatureTypesTable extends Migration
+class CreateUserJsonFilesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,13 @@ class CreateCreatureTypesTable extends Migration
      */
     public function up()
     {
-        Schema::create('creature_types', function (Blueprint $table) {
+        Schema::create('user_json_files', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
-            $table->text('description')->nullable();
+            $table->string('file_name');
+            $table->string('path');
+            $table->double('size', 8, 2)->default(0);
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -28,6 +31,6 @@ class CreateCreatureTypesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('creature_types');
+        Schema::dropIfExists('user_json_files');
     }
 }

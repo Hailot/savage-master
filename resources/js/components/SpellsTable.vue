@@ -5,10 +5,15 @@
         </section>
 
         <section v-else>
-            <div v-if="loading">Loading...</div>
 
-        <table class="table table-hoved table-dark ">
+
+        <table class="table table-striped table-hover table-dark">
             <tr>
+                <th>
+                    <label class="form-checkbox">
+                        <input type="checkbox" v-model="selectAll" @click="select">
+                    </label>
+                </th>
                 <th>Level</th>
                 <th>Name</th>
                 <th>School</th>
@@ -21,7 +26,16 @@
 
             </tr>
 
+            <div v-if="loading" class="spinner-border" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
             <tr v-for="spell in displayedSpells" :key="spell.id">
+                <td>
+                    <label class="form-checkbox">
+                        <input type="checkbox" :value="spell.id" v-model="selected">
+                        <i class="form-icon"></i>
+                    </label>
+                </td>
                 <td>{{ spell.level_name }}</td>
                 <td>{{ spell.name}}</td>
                 <td>{{ spell.school.name}}</td>
@@ -54,6 +68,8 @@
                 page: 1,
                 perPage: 10,
                 pages: [],
+                selected: [],
+                selectAll: false
 
             }
         },
@@ -68,7 +84,6 @@
         },
         methods: {
             fetchSpells() {
-
                 axios.get('/spells/api-data')
                     .then(response => {
                         this.spells = response.data;
@@ -88,6 +103,14 @@
                 let from = (page * perPage) - perPage;
                 let to = (page * perPage);
                 return  spells.slice(from, to);
+            },
+            select() {
+                this.selected = [];
+                if (!this.selectAll) {
+                    for (let i in this.spells) {
+                        this.selected.push(this.spells[i].id);
+                    }
+                }
             }
 
 

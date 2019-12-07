@@ -1829,6 +1829,129 @@ module.exports = {
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/CreaturesTable.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/CreaturesTable.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "CreaturesTable.vue",
+  data: function data() {
+    return {
+      creatures: [],
+      loading: true,
+      errored: false,
+      page: 1,
+      perPage: 10,
+      pages: [],
+      selected: [],
+      selectAll: false
+    };
+  },
+  filters: {},
+  mounted: function mounted() {},
+  created: function created() {
+    this.fetchCreatures();
+  },
+  methods: {
+    fetchCreatures: function fetchCreatures() {
+      var _this = this;
+
+      axios.get('/creatures/api-data').then(function (response) {
+        _this.creatures = response.data;
+        console.log(response);
+      })["finally"](this.loading = false);
+    },
+    setPages: function setPages() {
+      var numberOfPages = Math.ceil(this.creatures.length / this.perPage);
+
+      for (var index = 1; index <= numberOfPages; index++) {
+        this.pages.push(index);
+      }
+    },
+    paginate: function paginate(creatures) {
+      var page = this.page;
+      var perPage = this.perPage;
+      var from = page * perPage - perPage;
+      var to = page * perPage;
+      return creatures.slice(from, to);
+    },
+    select: function select() {
+      this.selected = [];
+
+      if (!this.selectAll) {
+        for (var i in this.creatures) {
+          this.selected.push(this.creatures[i].id);
+        }
+      }
+    }
+  },
+  watch: {
+    creatures: function creatures() {
+      this.setPages();
+    }
+  },
+  computed: {
+    displayedCreatures: function displayedCreatures() {
+      return this.paginate(this.creatures);
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ExampleComponent.vue?vue&type=script&lang=js&":
 /*!***************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/ExampleComponent.vue?vue&type=script&lang=js& ***!
@@ -2090,6 +2213,20 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "SpellsTable.vue",
   data: function data() {
@@ -2099,7 +2236,9 @@ __webpack_require__.r(__webpack_exports__);
       errored: false,
       page: 1,
       perPage: 10,
-      pages: []
+      pages: [],
+      selected: [],
+      selectAll: false
     };
   },
   filters: {},
@@ -2129,6 +2268,15 @@ __webpack_require__.r(__webpack_exports__);
       var from = page * perPage - perPage;
       var to = page * perPage;
       return spells.slice(from, to);
+    },
+    select: function select() {
+      this.selected = [];
+
+      if (!this.selectAll) {
+        for (var i in this.spells) {
+          this.selected.push(this.spells[i].id);
+        }
+      }
     }
   },
   watch: {
@@ -38167,6 +38315,220 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/CreaturesTable.vue?vue&type=template&id=65009a45&scoped=true&":
+/*!*****************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/CreaturesTable.vue?vue&type=template&id=65009a45&scoped=true& ***!
+  \*****************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "table-responsive" }, [
+    _vm.errored
+      ? _c("section", [
+          _c("p", [
+            _vm._v(
+              "We're sorry, we're not able to retrieve this information at the moment, please try back later"
+            )
+          ])
+        ])
+      : _c("section", [
+          _vm.loading ? _c("div", [_vm._v("Loading...")]) : _vm._e(),
+          _vm._v(" "),
+          _c(
+            "table",
+            { staticClass: "table table-striped table-hover table-dark " },
+            [
+              _c("tr", [
+                _c("th", [
+                  _c("label", { staticClass: "form-checkbox" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.selectAll,
+                          expression: "selectAll"
+                        }
+                      ],
+                      attrs: { type: "checkbox" },
+                      domProps: {
+                        checked: Array.isArray(_vm.selectAll)
+                          ? _vm._i(_vm.selectAll, null) > -1
+                          : _vm.selectAll
+                      },
+                      on: {
+                        click: _vm.select,
+                        change: function($event) {
+                          var $$a = _vm.selectAll,
+                            $$el = $event.target,
+                            $$c = $$el.checked ? true : false
+                          if (Array.isArray($$a)) {
+                            var $$v = null,
+                              $$i = _vm._i($$a, $$v)
+                            if ($$el.checked) {
+                              $$i < 0 && (_vm.selectAll = $$a.concat([$$v]))
+                            } else {
+                              $$i > -1 &&
+                                (_vm.selectAll = $$a
+                                  .slice(0, $$i)
+                                  .concat($$a.slice($$i + 1)))
+                            }
+                          } else {
+                            _vm.selectAll = $$c
+                          }
+                        }
+                      }
+                    })
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("th", [_vm._v("CR")]),
+                _vm._v(" "),
+                _c("th", [_vm._v("Name")]),
+                _vm._v(" "),
+                _c("th", [_vm._v("Type")]),
+                _vm._v(" "),
+                _c("th", [_vm._v("Avg. Hitpoints")]),
+                _vm._v(" "),
+                _c("th", [_vm._v("Source")])
+              ]),
+              _vm._v(" "),
+              _vm._l(_vm.displayedCreatures, function(creature) {
+                return _c("tr", { key: creature.id }, [
+                  _c("td", [
+                    _c("label", { staticClass: "form-checkbox" }, [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.selected,
+                            expression: "selected"
+                          }
+                        ],
+                        attrs: { type: "checkbox" },
+                        domProps: {
+                          value: creature.id,
+                          checked: Array.isArray(_vm.selected)
+                            ? _vm._i(_vm.selected, creature.id) > -1
+                            : _vm.selected
+                        },
+                        on: {
+                          change: function($event) {
+                            var $$a = _vm.selected,
+                              $$el = $event.target,
+                              $$c = $$el.checked ? true : false
+                            if (Array.isArray($$a)) {
+                              var $$v = creature.id,
+                                $$i = _vm._i($$a, $$v)
+                              if ($$el.checked) {
+                                $$i < 0 && (_vm.selected = $$a.concat([$$v]))
+                              } else {
+                                $$i > -1 &&
+                                  (_vm.selected = $$a
+                                    .slice(0, $$i)
+                                    .concat($$a.slice($$i + 1)))
+                              }
+                            } else {
+                              _vm.selected = $$c
+                            }
+                          }
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("i", { staticClass: "form-icon" })
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(creature.challenge_rating))]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(creature.name))]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(creature.type.name))]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(creature.average_hitpoints))]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(creature.source))])
+                ])
+              })
+            ],
+            2
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "clearfix btn-group col-md-2 offset-md-5" },
+            [
+              _vm.page != 1
+                ? _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-sm btn-outline-primary",
+                      attrs: { type: "button" },
+                      on: {
+                        click: function($event) {
+                          _vm.page--
+                        }
+                      }
+                    },
+                    [_vm._v(" << ")]
+                  )
+                : _vm._e(),
+              _vm._v(" "),
+              _vm._l(_vm.pages.slice(_vm.page - 1, _vm.page + 5), function(
+                pageNumber
+              ) {
+                return _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-sm btn-outline-primary",
+                    attrs: { type: "button" },
+                    on: {
+                      click: function($event) {
+                        _vm.page = pageNumber
+                      }
+                    }
+                  },
+                  [_vm._v(" " + _vm._s(pageNumber) + " ")]
+                )
+              }),
+              _vm._v(" "),
+              _vm.page < _vm.pages.length
+                ? _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-sm btn-outline-primary",
+                      attrs: { type: "button" },
+                      on: {
+                        click: function($event) {
+                          _vm.page++
+                        }
+                      }
+                    },
+                    [_vm._v(" >> ")]
+                  )
+                : _vm._e()
+            ],
+            2
+          )
+        ])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ExampleComponent.vue?vue&type=template&id=299e239e&":
 /*!*******************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/ExampleComponent.vue?vue&type=template&id=299e239e& ***!
@@ -38491,16 +38853,135 @@ var render = function() {
           ])
         ])
       : _c("section", [
-          _vm.loading ? _c("div", [_vm._v("Loading...")]) : _vm._e(),
-          _vm._v(" "),
           _c(
             "table",
-            { staticClass: "table table-hoved table-dark " },
+            { staticClass: "table table-striped table-hover table-dark" },
             [
-              _vm._m(0),
+              _c("tr", [
+                _c("th", [
+                  _c("label", { staticClass: "form-checkbox" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.selectAll,
+                          expression: "selectAll"
+                        }
+                      ],
+                      attrs: { type: "checkbox" },
+                      domProps: {
+                        checked: Array.isArray(_vm.selectAll)
+                          ? _vm._i(_vm.selectAll, null) > -1
+                          : _vm.selectAll
+                      },
+                      on: {
+                        click: _vm.select,
+                        change: function($event) {
+                          var $$a = _vm.selectAll,
+                            $$el = $event.target,
+                            $$c = $$el.checked ? true : false
+                          if (Array.isArray($$a)) {
+                            var $$v = null,
+                              $$i = _vm._i($$a, $$v)
+                            if ($$el.checked) {
+                              $$i < 0 && (_vm.selectAll = $$a.concat([$$v]))
+                            } else {
+                              $$i > -1 &&
+                                (_vm.selectAll = $$a
+                                  .slice(0, $$i)
+                                  .concat($$a.slice($$i + 1)))
+                            }
+                          } else {
+                            _vm.selectAll = $$c
+                          }
+                        }
+                      }
+                    })
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("th", [_vm._v("Level")]),
+                _vm._v(" "),
+                _c("th", [_vm._v("Name")]),
+                _vm._v(" "),
+                _c("th", [_vm._v("School")]),
+                _vm._v(" "),
+                _c("th", [_vm._v("Classes")]),
+                _vm._v(" "),
+                _c("th", [_vm._v("Components")]),
+                _vm._v(" "),
+                _c("th", [_vm._v("Casting Time")]),
+                _vm._v(" "),
+                _c("th", [_vm._v("Duration")]),
+                _vm._v(" "),
+                _c("th", [_vm._v("Range")]),
+                _vm._v(" "),
+                _c("th", [_vm._v("Source")])
+              ]),
+              _vm._v(" "),
+              _vm.loading
+                ? _c(
+                    "div",
+                    {
+                      staticClass: "spinner-border",
+                      attrs: { role: "status" }
+                    },
+                    [
+                      _c("span", { staticClass: "sr-only" }, [
+                        _vm._v("Loading...")
+                      ])
+                    ]
+                  )
+                : _vm._e(),
               _vm._v(" "),
               _vm._l(_vm.displayedSpells, function(spell) {
                 return _c("tr", { key: spell.id }, [
+                  _c("td", [
+                    _c("label", { staticClass: "form-checkbox" }, [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.selected,
+                            expression: "selected"
+                          }
+                        ],
+                        attrs: { type: "checkbox" },
+                        domProps: {
+                          value: spell.id,
+                          checked: Array.isArray(_vm.selected)
+                            ? _vm._i(_vm.selected, spell.id) > -1
+                            : _vm.selected
+                        },
+                        on: {
+                          change: function($event) {
+                            var $$a = _vm.selected,
+                              $$el = $event.target,
+                              $$c = $$el.checked ? true : false
+                            if (Array.isArray($$a)) {
+                              var $$v = spell.id,
+                                $$i = _vm._i($$a, $$v)
+                              if ($$el.checked) {
+                                $$i < 0 && (_vm.selected = $$a.concat([$$v]))
+                              } else {
+                                $$i > -1 &&
+                                  (_vm.selected = $$a
+                                    .slice(0, $$i)
+                                    .concat($$a.slice($$i + 1)))
+                              }
+                            } else {
+                              _vm.selected = $$c
+                            }
+                          }
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("i", { staticClass: "form-icon" })
+                    ])
+                  ]),
+                  _vm._v(" "),
                   _c("td", [_vm._v(_vm._s(spell.level_name))]),
                   _vm._v(" "),
                   _c("td", [_vm._v(_vm._s(spell.name))]),
@@ -38583,32 +39064,7 @@ var render = function() {
         ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("tr", [
-      _c("th", [_vm._v("Level")]),
-      _vm._v(" "),
-      _c("th", [_vm._v("Name")]),
-      _vm._v(" "),
-      _c("th", [_vm._v("School")]),
-      _vm._v(" "),
-      _c("th", [_vm._v("Classes")]),
-      _vm._v(" "),
-      _c("th", [_vm._v("Components")]),
-      _vm._v(" "),
-      _c("th", [_vm._v("Casting Time")]),
-      _vm._v(" "),
-      _c("th", [_vm._v("Duration")]),
-      _vm._v(" "),
-      _c("th", [_vm._v("Range")]),
-      _vm._v(" "),
-      _c("th", [_vm._v("Source")])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -52352,6 +52808,7 @@ Vue.use(__webpack_require__(/*! vue-resource */ "./node_modules/vue-resource/dis
 Vue.component('example-component', __webpack_require__(/*! ./components/ExampleComponent.vue */ "./resources/js/components/ExampleComponent.vue")["default"]);
 Vue.component('spells-table', __webpack_require__(/*! ./components/SpellsTable.vue */ "./resources/js/components/SpellsTable.vue")["default"]);
 Vue.component('gear-table', __webpack_require__(/*! ./components/GearTable.vue */ "./resources/js/components/GearTable.vue")["default"]);
+Vue.component('creature-table', __webpack_require__(/*! ./components/CreaturesTable.vue */ "./resources/js/components/CreaturesTable.vue")["default"]);
 Vue.component('pagination', __webpack_require__(/*! ./components/PaginationComponent.vue */ "./resources/js/components/PaginationComponent.vue"));
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -52407,6 +52864,75 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     encrypted: true
 // });
+
+/***/ }),
+
+/***/ "./resources/js/components/CreaturesTable.vue":
+/*!****************************************************!*\
+  !*** ./resources/js/components/CreaturesTable.vue ***!
+  \****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _CreaturesTable_vue_vue_type_template_id_65009a45_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CreaturesTable.vue?vue&type=template&id=65009a45&scoped=true& */ "./resources/js/components/CreaturesTable.vue?vue&type=template&id=65009a45&scoped=true&");
+/* harmony import */ var _CreaturesTable_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CreaturesTable.vue?vue&type=script&lang=js& */ "./resources/js/components/CreaturesTable.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _CreaturesTable_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _CreaturesTable_vue_vue_type_template_id_65009a45_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _CreaturesTable_vue_vue_type_template_id_65009a45_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "65009a45",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/CreaturesTable.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/CreaturesTable.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************!*\
+  !*** ./resources/js/components/CreaturesTable.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CreaturesTable_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./CreaturesTable.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/CreaturesTable.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CreaturesTable_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/CreaturesTable.vue?vue&type=template&id=65009a45&scoped=true&":
+/*!***********************************************************************************************!*\
+  !*** ./resources/js/components/CreaturesTable.vue?vue&type=template&id=65009a45&scoped=true& ***!
+  \***********************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CreaturesTable_vue_vue_type_template_id_65009a45_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./CreaturesTable.vue?vue&type=template&id=65009a45&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/CreaturesTable.vue?vue&type=template&id=65009a45&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CreaturesTable_vue_vue_type_template_id_65009a45_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CreaturesTable_vue_vue_type_template_id_65009a45_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
 
 /***/ }),
 

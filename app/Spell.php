@@ -21,6 +21,30 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Spell whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Spell whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property string $classes
+ * @property string|null $source
+ * @property int $level
+ * @property int $school_id
+ * @property string $casting_time
+ * @property string $range
+ * @property string $components
+ * @property string $duration
+ * @property int $ritual
+ * @property string|null $description
+ * @property string|null $pic
+ * @property-read mixed $level_name
+ * @property-read \App\SpellSchool $school
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Spell whereCastingTime($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Spell whereClasses($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Spell whereComponents($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Spell whereDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Spell whereDuration($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Spell whereLevel($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Spell wherePic($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Spell whereRange($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Spell whereRitual($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Spell whereSchoolId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Spell whereSource($value)
  */
 class Spell extends Model
 {
