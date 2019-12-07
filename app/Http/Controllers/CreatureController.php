@@ -14,7 +14,14 @@ class CreatureController extends Controller
      */
     public function index()
     {
-        //
+        return view('creatures.browse');
+    }
+
+    public function apiData()
+    {
+        $creatures = Creature::with('type')->get();
+
+        return response()->json($creatures);
     }
 
     /**

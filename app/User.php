@@ -33,6 +33,8 @@ use Illuminate\Notifications\Notifiable;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereRememberToken($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\UserJsonFile[] $jsonFiles
+ * @property-read int|null $json_files_count
  */
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -68,5 +70,10 @@ class User extends Authenticatable implements MustVerifyEmail
     public function images()
     {
         return $this->hasMany(Image::class, 'auth_by')->latest();
+    }
+
+    public function jsonFiles()
+    {
+        return $this->hasMany(UserJsonFile::class);
     }
 }

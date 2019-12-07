@@ -3451,7 +3451,7 @@
     }, {
         "monster_name": "Bandit Lord",
         "monster_size": "Medium",
-        "monster_type": "Humanoid (Any Race)",
+        "monster_type": "Humanoid ",
         "monster_subtype": "",
         "monster_cr": "4",
         "monster_alignment": "any non-lawful",
@@ -3481,7 +3481,7 @@
     }, {
         "monster_name": "Bar Brawl",
         "monster_size": "Huge",
-        "monster_type": "humanoids",
+        "monster_type": "humanoid",
         "monster_subtype": "",
         "monster_cr": "3",
         "monster_alignment": "unaligned",
@@ -4141,7 +4141,7 @@
     }, {
         "monster_name": "Black Knight Commander",
         "monster_size": "Medium",
-        "monster_type": "Humanoid (Any Race)",
+        "monster_type": "Humanoid ",
         "monster_subtype": "",
         "monster_cr": "5",
         "monster_alignment": "lawful evil",
@@ -4741,7 +4741,7 @@
     }, {
         "monster_name": "Bone Swarm",
         "monster_size": "Large",
-        "monster_type": "swarm of Tiny undead",
+        "monster_type": "undead",
         "monster_subtype": "",
         "monster_cr": "10",
         "monster_alignment": "chaotic evil",
@@ -5461,7 +5461,7 @@
     }, {
         "monster_name": "Cats of Ulthar",
         "monster_size": "Huge",
-        "monster_type": "beasts",
+        "monster_type": "beast",
         "monster_subtype": "",
         "monster_cr": "4",
         "monster_alignment": "unaligned",
@@ -6091,7 +6091,7 @@
     }, {
         "monster_name": "City Watch Captian",
         "monster_size": "Medium",
-        "monster_type": "Humanoid (Any Race)",
+        "monster_type": "Humanoid ",
         "monster_subtype": "",
         "monster_cr": "4",
         "monster_alignment": "lawful neutral",
@@ -6301,7 +6301,7 @@
     }, {
         "monster_name": "Clockwork Beetle Swarm",
         "monster_size": "Large",
-        "monster_type": "Swarm of Tiny constructs",
+        "monster_type": "construct",
         "monster_subtype": "",
         "monster_cr": "3",
         "monster_alignment": "neutral",
@@ -6571,7 +6571,7 @@
     }, {
         "monster_name": "Cobbleswarm",
         "monster_size": "Medium",
-        "monster_type": "swarm of Tiny monstrosities",
+        "monster_type": "monstrosity",
         "monster_subtype": "",
         "monster_cr": "2",
         "monster_alignment": "unaligned",
@@ -7471,7 +7471,7 @@
     }, {
         "monster_name": "Death Butterfly Swarm",
         "monster_size": "Large",
-        "monster_type": "swarm of tiny beasts",
+        "monster_type": "beast",
         "monster_subtype": "",
         "monster_cr": "4",
         "monster_alignment": "chaotic evil",
@@ -9871,7 +9871,7 @@
     }, {
         "monster_name": "Emerald Order Cult Leader",
         "monster_size": "Medium",
-        "monster_type": "Humanoid (any race)",
+        "monster_type": "Humanoid ",
         "monster_subtype": "",
         "monster_cr": "8",
         "monster_alignment": "lawful neutral or evil",
@@ -10651,7 +10651,7 @@
     }, {
         "monster_name": "Fire Dancer Swarm",
         "monster_size": "Medium",
-        "monster_type": "swarm of Tiny elementals",
+        "monster_type": "elemental",
         "monster_subtype": "",
         "monster_cr": "7",
         "monster_alignment": "neutral evil",
@@ -10891,7 +10891,7 @@
     }, {
         "monster_name": "Flame Eater Swarm",
         "monster_size": "Medium",
-        "monster_type": "beasts",
+        "monster_type": "beast",
         "monster_subtype": "",
         "monster_cr": "2",
         "monster_alignment": "unaligned",
@@ -13921,7 +13921,7 @@
     }, {
         "monster_name": "Greater Death Butterfly Swarm",
         "monster_size": "Huge",
-        "monster_type": "swarm of tiny beasts",
+        "monster_type": "beast",
         "monster_subtype": "",
         "monster_cr": "6",
         "monster_alignment": "chaotic evil",
@@ -15391,7 +15391,7 @@
     }, {
         "monster_name": "Ia'affrat",
         "monster_size": "Large",
-        "monster_type": "swarm of Tiny elementals",
+        "monster_type": "elemental",
         "monster_subtype": "",
         "monster_cr": "15",
         "monster_alignment": "lawful evil",
@@ -18391,7 +18391,7 @@
     }, {
         "monster_name": "Manabane Scarab Swarm",
         "monster_size": "Medium",
-        "monster_type": "Swarm of Tiny beasts",
+        "monster_type": "beast",
         "monster_subtype": "",
         "monster_cr": "4",
         "monster_alignment": "unaligned",
@@ -20311,7 +20311,7 @@
     }, {
         "monster_name": "Nkosi",
         "monster_size": "Medium",
-        "monster_type": "humanoid (shapechanger",
+        "monster_type": "humanoid",
         "monster_subtype": "",
         "monster_cr": "1/2",
         "monster_alignment": "nkosi), lawful neutral",
@@ -20341,7 +20341,7 @@
     }, {
         "monster_name": "Nkosi Pridelord",
         "monster_size": "Medium",
-        "monster_type": "humanoid (shapechanger",
+        "monster_type": "humanoid",
         "monster_subtype": "",
         "monster_cr": "4",
         "monster_alignment": "nkosi), lawful neutral",
@@ -20551,7 +20551,7 @@
     }, {
         "monster_name": "Oculo Swarm",
         "monster_size": "Large",
-        "monster_type": "swarm of Tiny aberrations",
+        "monster_type": "aberration",
         "monster_subtype": "",
         "monster_cr": "4",
         "monster_alignment": "neutral evil",
@@ -21301,7 +21301,7 @@
     }, {
         "monster_name": "Paper Golem Swarm",
         "monster_size": "Medium",
-        "monster_type": "constructs",
+        "monster_type": "construct",
         "monster_subtype": "",
         "monster_cr": "3",
         "monster_alignment": "unaligned",
@@ -21781,7 +21781,7 @@
     }, {
         "monster_name": "Plaresh",
         "monster_size": "Medium",
-        "monster_type": "fiends",
+        "monster_type": "fiend",
         "monster_subtype": "demon",
         "monster_cr": "3",
         "monster_alignment": "chaotic evil",
@@ -22051,7 +22051,7 @@
     }, {
         "monster_name": "Prismatic Beetle Swarm",
         "monster_size": "Medium",
-        "monster_type": "swarm of Tiny beasts",
+        "monster_type": "beast",
         "monster_subtype": "",
         "monster_cr": "3",
         "monster_alignment": "unaligned",
@@ -24451,7 +24451,7 @@
     }, {
         "monster_name": "Scorpion Cultist",
         "monster_size": "Medium",
-        "monster_type": "humanoid (any race)",
+        "monster_type": "humanoid ",
         "monster_subtype": "",
         "monster_cr": "1/2",
         "monster_alignment": "neutral",
@@ -25051,7 +25051,7 @@
     }, {
         "monster_name": "Shadow Fey Enchantress",
         "monster_size": "Medium",
-        "monster_type": "humanoid (shadow fey)",
+        "monster_type": "humanoid",
         "monster_subtype": "",
         "monster_cr": "7",
         "monster_alignment": "lawful evil",
@@ -25351,7 +25351,7 @@
     }, {
         "monster_name": "Shard Swarm",
         "monster_size": "Medium",
-        "monster_type": "constructs",
+        "monster_type": "construct",
         "monster_subtype": "",
         "monster_cr": "1/2",
         "monster_alignment": "unaligned",
@@ -25981,7 +25981,7 @@
     }, {
         "monster_name": "Sluagh Swarm",
         "monster_size": "Medium",
-        "monster_type": "swarm of Tiny fey",
+        "monster_type": "fey",
         "monster_subtype": "",
         "monster_cr": "3",
         "monster_alignment": "chaotic evil",
@@ -27421,7 +27421,7 @@
     }, {
         "monster_name": "Swarm of Bats",
         "monster_size": "Medium",
-        "monster_type": "swarm of Tiny beasts",
+        "monster_type": "beast",
         "monster_subtype": "",
         "monster_cr": "1/4",
         "monster_alignment": "unaligned",
@@ -27451,7 +27451,7 @@
     }, {
         "monster_name": "Swarm of Beetles",
         "monster_size": "Medium",
-        "monster_type": "swarm of Tiny beasts",
+        "monster_type": "beast",
         "monster_subtype": "",
         "monster_cr": "1/2",
         "monster_alignment": "unaligned",
@@ -27481,7 +27481,7 @@
     }, {
         "monster_name": "Swarm of Centipedes",
         "monster_size": "Medium",
-        "monster_type": "swarm of Tiny beasts",
+        "monster_type": "beast",
         "monster_subtype": "",
         "monster_cr": "1/2",
         "monster_alignment": "unaligned",
@@ -27511,7 +27511,7 @@
     }, {
         "monster_name": "Swarm of Insects",
         "monster_size": "Medium",
-        "monster_type": "swarm of Tiny beasts",
+        "monster_type": "beast",
         "monster_subtype": "",
         "monster_cr": "1/2",
         "monster_alignment": "unaligned",
@@ -27541,7 +27541,7 @@
     }, {
         "monster_name": "Swarm of Poisonous Snakes",
         "monster_size": "Medium",
-        "monster_type": "swarm of Tiny beasts",
+        "monster_type": "beast",
         "monster_subtype": "",
         "monster_cr": "2",
         "monster_alignment": "unaligned",
@@ -27571,7 +27571,7 @@
     }, {
         "monster_name": "Swarm of Quippers",
         "monster_size": "Medium",
-        "monster_type": "swarm of Tiny beasts",
+        "monster_type": "beast",
         "monster_subtype": "",
         "monster_cr": "1",
         "monster_alignment": "unaligned",
@@ -27601,7 +27601,7 @@
     }, {
         "monster_name": "Swarm of Rats",
         "monster_size": "Medium",
-        "monster_type": "swarm of Tiny beasts",
+        "monster_type": "beast",
         "monster_subtype": "",
         "monster_cr": "1/4",
         "monster_alignment": "unaligned",
@@ -27631,7 +27631,7 @@
     }, {
         "monster_name": "Swarm of Ravens",
         "monster_size": "Medium",
-        "monster_type": "swarm of Tiny beasts",
+        "monster_type": "beast",
         "monster_subtype": "",
         "monster_cr": "1/4",
         "monster_alignment": "unaligned",
@@ -27661,7 +27661,7 @@
     }, {
         "monster_name": "Swarm of Spiders",
         "monster_size": "Medium",
-        "monster_type": "swarm of Tiny beasts",
+        "monster_type": "beast",
         "monster_subtype": "",
         "monster_cr": "1/2",
         "monster_alignment": "unaligned",
@@ -27691,7 +27691,7 @@
     }, {
         "monster_name": "Swarm of Wasps",
         "monster_size": "Medium",
-        "monster_type": "swarm of Tiny beasts",
+        "monster_type": "beast",
         "monster_subtype": "",
         "monster_cr": "1/2",
         "monster_alignment": "unaligned",
@@ -30571,7 +30571,7 @@
     }, {
         "monster_name": "Wharfling Swarm",
         "monster_size": "Large",
-        "monster_type": "swarm of Tiny beasts",
+        "monster_type": "beast",
         "monster_subtype": "",
         "monster_cr": "4",
         "monster_alignment": "unaligned",
@@ -31141,7 +31141,7 @@
     }, {
         "monster_name": "Wolf Spirit Swarm",
         "monster_size": "Large",
-        "monster_type": "swarm of Medium undead",
+        "monster_type": "undead",
         "monster_subtype": "",
         "monster_cr": "6",
         "monster_alignment": "neutral evil",

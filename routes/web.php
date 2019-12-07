@@ -34,6 +34,7 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/delete', 'GearController@destroy')->name('gear.edit');
         Route::post('/store', 'GearController@store')->name('gear.store');
     });
+
     Route::prefix('spells')->group(function () {
         Route::get('/browse', 'SpellController@index')->name('spell.index');
         Route::get('/api-data', 'SpellController@apiData')->name('spell.apidata');
@@ -42,6 +43,21 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/edit', 'SpellController@edit')->name('spell.edit');
         Route::get('/delete', 'SpellController@destroy')->name('spell.edit');
         Route::post('/store', 'SpellController@store')->name('spell.store');
+    });
+
+    Route::prefix('creatures')->group(function () {
+        Route::get('/browse', 'CreatureController@index')->name('creature.index');
+        Route::get('/api-data', 'CreatureController@apiData')->name('creature.apidata');
+        Route::get('/create', 'CreatureController@create')->name('creature.create');
+        Route::get('/show', 'CreatureController@show')->name('creature.show');
+        Route::get('/edit', 'CreatureController@edit')->name('creature.edit');
+        Route::get('/delete', 'CreatureController@destroy')->name('creature.edit');
+        Route::post('/store', 'CreatureController@store')->name('creature.store');
+    });
+
+    Route::prefix('jsonfile')->group(function () {
+        Route::get('/download//{user}//{file}','UserJsonFileController@download');
+        Route::get('/{user}/makeFile','UserJsonFileController@makeFile');
     });
 
 });

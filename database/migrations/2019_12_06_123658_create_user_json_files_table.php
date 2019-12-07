@@ -16,9 +16,10 @@ class CreateUserJsonFilesTable extends Migration
         Schema::create('user_json_files', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('file_name');
-            $table->string('file_url');
+            $table->string('path');
+            $table->double('size', 8, 2)->default(0);
             $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }
