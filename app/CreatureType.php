@@ -35,4 +35,8 @@ class CreatureType extends Model
     {
         return $this->hasMany(Creature::class);
     }
+    public function getNameAttribute($value)
+    {
+        return ucfirst($value);
+    }
 }

@@ -26,7 +26,8 @@ services:
 
   # The Database
   database:
-    image: mysql:5.7
+    image: mariadb:10.4
+    restart: always
     volumes:
       - dbdata:/var/lib/mysql
     environment:

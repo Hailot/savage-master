@@ -19,6 +19,7 @@
                     <th>Type</th>
                     <th>Avg. Hitpoints</th>
                     <th>Source</th>
+                    <th></th>
                 </tr>
 
                 <tr v-for="creature in displayedCreatures" :key="creature.id">
@@ -33,6 +34,7 @@
                     <td>{{ creature.type.name}}</td>
                     <td>{{ creature.average_hitpoints}}</td>
                     <td>{{ creature.source}}</td>
+                    <td><a href="#creature-modal">Full Info</a> </td>
 
 
                 </tr>
@@ -44,6 +46,7 @@
             </div>
         </section>
     </div>
+
 </template>
 
 <script>
@@ -65,6 +68,7 @@
         filters: {
 
         },
+
         mounted () {
 
         },
