@@ -8,12 +8,16 @@ use App\Spell;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use function GuzzleHttp\Promise\all;
 
 class UserJsonFileController extends Controller
 {
-    public function download(Request $request, User $user)
+    public function download()
     {
-
+        $spells =  \App\Http\Resources\Spell::collection( Spell::with('school')->get());
+        $json = json_encode($spells->jsonSerialize());
+        Storage::disk('s3')->put('spells.json',$json);
+        return Storage::disk('s3')->download('spells.json');
     }
     public function makeJsonFile(Request $request)
     {

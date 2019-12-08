@@ -51,7 +51,7 @@ class Spell extends Model
     /* Fillable */
     protected $fillable = [
         'name', 'classes', 'source', 'level', 'school_id',  'casting_time', 'range',
-        'components', 'duration', 'ritual', 'description', 'pic'
+        'components', 'component_materials', 'duration', 'ritual', 'description', 'pic'
     ];
     protected $appends = ['level_name'];
 

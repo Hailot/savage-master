@@ -56,7 +56,7 @@ Route::group(['middleware' => ['auth']], function () {
     });
 
     Route::prefix('jsonfile')->group(function () {
-        Route::get('/download//{user}//{file}','UserJsonFileController@download');
+        Route::get('/download','UserJsonFileController@download');
         Route::get('/{user}/makeFile','UserJsonFileController@makeFile');
     });
 

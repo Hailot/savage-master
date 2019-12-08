@@ -89,8 +89,8 @@ class SpellsTableSeeder extends Seeder
                 'range' => $spell->spell_range,
                 'components' => $spell->spell_components,
                 'duration' => $spell->spell_duration,
-                'ritual' => ($spell->spell_ritual = NULL) ? 0 : 1,
-                'description' => '',
+                'ritual' => ($spell->spell_ritual == NULL) ? 0 : 1,
+                'description' => $spell->spell_text,
                 'pic' => ''
             ));
         }
