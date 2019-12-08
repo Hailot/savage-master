@@ -8,16 +8,19 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Savage Masters Tome') }}</title>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.js"></script>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <script type="text/javascript">
+        window.csrf_token = "{{ csrf_token() }}"
+    </script>
 
 
 
@@ -133,6 +136,7 @@
             </div>
         </div>
     </nav>
+    <div id="particles-js"></div>
 
     <main class="py-4">
         @if (session('status'))

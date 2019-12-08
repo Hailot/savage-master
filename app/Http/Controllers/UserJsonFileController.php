@@ -4,21 +4,25 @@ namespace App\Http\Controllers;
 
 use App\Creature;
 use App\Gear;
+use App\Http\Resources\CreatureResource;
+use App\Http\Resources\GearResource;
+use App\Http\Resources\SpellResource;
 use App\Spell;
 use App\User;
+use App\UserJsonFile;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Response;
 use function GuzzleHttp\Promise\all;
 
 class UserJsonFileController extends Controller
 {
-    public function download()
+    public function download($file)
     {
-        $spells =  \App\Http\Resources\Spell::collection( Spell::with('school')->get());
-        $json = json_encode($spells->jsonSerialize());
-        Storage::disk('s3')->put('spells.json',$json);
-        return Storage::disk('s3')->download('spells.json');
+        return Response::download(Storage::disk('s3')->download('userfiles/tomejson/'.$file.'.json'), 'spells.json', ['location' => '/spells/browse']);
     }
+
     public function makeJsonFile(Request $request)
     {
         $dataType = $request->get('dataType');
@@ -27,23 +31,36 @@ class UserJsonFileController extends Controller
         $data = null;
         switch ($dataType) {
             case 'spells':
-                $data = Spell::whereIn('id', $selectedIds)->get();
-                $filename = time() .rand(). '_spells.json';
+                $data = SpellResource::collection(Spell::all());
+                $filename = time() . mt_rand() . '_spells';
                 break;
             case 'gear':
-                $data = Gear::whereIn('id', $selectedIds)->get();
-                $filename = time() .rand(). '_gear.json';
+                $data = GearResource::collection(Gear::all());
+                $filename = time() . mt_rand() . '_gear';
                 break;
             case 'creatures':
-                $data = Creature::whereIn('id', $selectedIds)->get();
-                $filename = time() .rand(). '_creatures.json';
+                $data = CreatureResource::collection(Creature::all());
+                $filename = time() . mt_rand() . '_creatures';
                 break;
         }
         if ($data === null) {
             return ['error' => true, 'message' => 'No Data was found'];
         }
-        Storage::disk('local')->put('userFiles/json/'.$filename, json_encode($data),'public');
+        $filtered = $data->wherein('id',$selectedIds);
+        $json = json_encode($filtered->all());
+        $path = 'userfiles/tomejson/' .$filename;
+        Storage::disk('s3')->put($path.'.json', $json.'.json', 'public');
 
+        $userfile = UserJsonFile::create([
+            'file_name' => $filename,
+            'path' => $path.'.json',
+            'user_id' => auth()->user()->id
+        ]);
+
+
+
+
+        return $filename;
     }
 
     public function formatOutput($type)

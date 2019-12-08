@@ -56,8 +56,10 @@ Route::group(['middleware' => ['auth']], function () {
     });
 
     Route::prefix('jsonfile')->group(function () {
-        Route::get('/download','UserJsonFileController@download');
-        Route::get('/{user}/makeFile','UserJsonFileController@makeFile');
+        Route::get('/download/{file}','UserJsonFileController@download')->name('json.download');
+        Route::post('/make-file','UserJsonFileController@makeJsonFile');
+
+
     });
 
 });

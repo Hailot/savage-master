@@ -32,7 +32,7 @@ class UserJsonFile extends Model
 {
     /* Fillable */
     protected $fillable = [
-        'file_name', 'path', 'user_id', 'size'
+        'file_name', 'path', 'user_id',
     ];
     /* @array $appends */
     public $appends = ['url',  'size_in_kb'];
@@ -53,11 +53,5 @@ class UserJsonFile extends Model
     {
         return round($this->size / 1024, 2);
     }
-    public static function boot()
-    {
-        parent::boot();
-        static::creating(function ($jsonFile) {
-            $jsonFile->auth_by = auth()->user()->id;
-        });
-    }
+
 }

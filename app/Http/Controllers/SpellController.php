@@ -5,20 +5,20 @@ namespace App\Http\Controllers;
 use App\Spell;
 use Illuminate\Http\Request;
 
-class SpellController extends Controller
-{
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    class SpellController extends Controller
     {
-       // $spells = Spell::paginate(25);
-        $spells = Spell::orderBy('level')->get();
+        /**
+         * Display a listing of the resource.
+         *
+         * @return \Illuminate\Http\Response
+         */
+        public function index()
+        {
+           // $spells = Spell::paginate(25);
+            $spells = Spell::orderBy('level')->get();
 
-        return view('spells.browse')->with('spells',$spells);
-    }
+            return view('spells.browse')->with('spells',$spells);
+        }
 
     public function apiData()
     {

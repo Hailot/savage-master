@@ -28,6 +28,7 @@
         "@fortawesome/fontawesome-free": "^5.11.2",
         "bootstrap-icons": "^1.0.0-alpha",
         "datatables.net-bs4": "^1.10.20",
+        "fuzzaldrin-plus": "^0.6.0",
         "laravel-vue-pagination": "^2.3.1",
         "vue-resource": "^1.5.1"
     }

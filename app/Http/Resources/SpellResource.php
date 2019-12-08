@@ -4,7 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class Spell extends JsonResource
+class SpellResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -29,6 +29,5 @@ class Spell extends JsonResource
             'spell_text' => $this->description,
             'spell_pic' => $this->pic
         ];
-        return parent::toArray($request);
     }
 }

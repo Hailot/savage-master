@@ -17,7 +17,6 @@ class CreateUserJsonFilesTable extends Migration
             $table->bigIncrements('id');
             $table->string('file_name');
             $table->string('path');
-            $table->double('size', 8, 2)->default(0);
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
