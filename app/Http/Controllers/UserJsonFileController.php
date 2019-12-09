@@ -20,7 +20,7 @@ class UserJsonFileController extends Controller
 {
     public function download($file)
     {
-        return Response::download(Storage::disk('s3')->download('userfiles/tomejson/'.$file.'.json'), 'spells.json', ['location' => '/spells/browse']);
+        return Storage::disk('s3')->download('userfiles/tomejson/'.$file.'.json');
     }
 
     public function makeJsonFile(Request $request)
@@ -63,18 +63,11 @@ class UserJsonFileController extends Controller
         return $filename;
     }
 
-    public function formatOutput($type)
+    public function getUserFiles(Request $request)
     {
-        switch ($type) {
-            case 0:
-                echo "i equals 0";
-                break;
-            case 1:
-                echo "i equals 1";
-                break;
-            case 2:
-                echo "i equals 2";
-                break;
-        }
+        $files = UserJsonFile::where('user_id',auth()->user()->id)->get();
+
+        return view('user.files')->with('files', $files);
+
     }
 }

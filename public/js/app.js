@@ -2315,57 +2315,12 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
         }
       }
     },
-    downloadspell: function downloadspell(file) {
-      var _this2 = this;
-
-      this.$http.get('/jsonfile/download/' + file, {
-        responseType: 'arraybuffer'
-      }).then(function (response) {
-        _this2.downloadFile(response, 'spells.json');
-      }, function (response) {
-        console.warn('error from download_contract');
-        console.log(response); // Manage errors
-      });
-    },
-    downloadFile: function downloadFile(response, filename) {
-      // It is necessary to create a new blob object with mime-type explicitly set
-      // otherwise only Chrome works like it should
-      var newBlob = new Blob([response.body], {
-        type: 'application/pdf'
-      }); // IE doesn't allow using a blob object directly as link href
-      // instead it is necessary to use msSaveOrOpenBlob
-
-      if (window.navigator && window.navigator.msSaveOrOpenBlob) {
-        window.navigator.msSaveOrOpenBlob(newBlob);
-        return;
-      } // For other browsers:
-      // Create a link pointing to the ObjectURL containing the blob.
-
-
-      var data = window.URL.createObjectURL(newBlob);
-      var link = document.createElement('a');
-      link.href = data;
-      link.download = filename + '.pdf';
-      link.click();
-      setTimeout(function () {
-        // For Firefox it is necessary to delay revoking the ObjectURL
-        window.URL.revokeObjectURL(data);
-      }, 100);
-    },
     makefile: function makefile() {
-      var _this3 = this;
-
       axios.post('/jsonfile/make-file', {
         'selectedIds': this.selected,
         'dataType': 'spells'
       }).then(function (response) {
-        axios({
-          url: response,
-          method: 'GET',
-          responseType: 'blob'
-        }).then(function (response) {
-          _this3.downloadspell(response.data);
-        });
+        window.location.replace('/user-files');
       });
     },
     forceFileDownload: function forceFileDownload(response) {
@@ -2388,14 +2343,14 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
       return this.paginate(this.spells);
     },
     queryResults: function queryResults() {
-      var _this4 = this;
+      var _this2 = this;
 
       if (!this.query) return this.displayedSpells;
       var preparedQuery = fuzzaldrin_plus__WEBPACK_IMPORTED_MODULE_0___default.a.prepareQuery(this.query);
       var scores = {};
       return this.displayedSpells.map(function (spell, index) {
         var scorableFields = [spell.name, spell.school.name, spell.classes, spell.source].map(function (toScore) {
-          return fuzzaldrin_plus__WEBPACK_IMPORTED_MODULE_0___default.a.score(toScore, _this4.query, {
+          return fuzzaldrin_plus__WEBPACK_IMPORTED_MODULE_0___default.a.score(toScore, _this2.query, {
             preparedQuery: preparedQuery
           });
         });
@@ -54111,9 +54066,6 @@ Vue.component('gear-table', __webpack_require__(/*! ./components/GearTable.vue *
 Vue.component('creature-table', __webpack_require__(/*! ./components/CreaturesTable.vue */ "./resources/js/components/CreaturesTable.vue")["default"]);
 Vue.component('user-profile', __webpack_require__(/*! ./components/UserProfile.vue */ "./resources/js/components/UserProfile.vue")["default"]);
 Vue.component('pagination', __webpack_require__(/*! ./components/PaginationComponent.vue */ "./resources/js/components/PaginationComponent.vue"));
-particlesJS.load('particles-js', 'https://cdn.jsdelivr.net/npm/particles.js@2.0.0/package.json', function () {
-  console.log('callback - particles.js config loaded');
-});
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

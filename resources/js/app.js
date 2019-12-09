@@ -29,9 +29,6 @@ Vue.component('creature-table', require('./components/CreaturesTable.vue').defau
 Vue.component('user-profile', require('./components/UserProfile.vue').default);
 Vue.component('pagination', require('./components/PaginationComponent.vue'));
 
-particlesJS.load('particles-js','https://cdn.jsdelivr.net/npm/particles.js@2.0.0/package.json', function() {
-    console.log('callback - particles.js config loaded');
-});
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

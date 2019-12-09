@@ -24,6 +24,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/images', 'ImageController@getImages')->name('images');
     Route::get('/upload-image', 'ImageController@uploadPhotoView')->name('upload-image');
     Route::post('/upload-image', 'ImageController@postUpload')->name('uploadfile');
+    Route::get('/user-files', 'UserJsonFileController@getUserFiles')->name('user-files');
 
     Route::prefix('gear')->group(function () {
         Route::get('/browse', 'GearController@index')->name('gear.index');

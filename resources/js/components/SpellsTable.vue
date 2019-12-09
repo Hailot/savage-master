@@ -117,42 +117,10 @@
                         this.selected.push(this.spells[i].id);
                     }
                 }
-            },downloadspell(file) {
-                this.$http.get( '/jsonfile/download/' + file, {responseType: 'arraybuffer'})
-                    .then(response => {
-                        this.downloadFile(response, 'spells.json')
-                    }, response => {
-                        console.warn('error from download_contract')
-                        console.log(response)
-                        // Manage errors
-                    }
-            )
-    },
+            },
 
-    downloadFile(response, filename) {
-        // It is necessary to create a new blob object with mime-type explicitly set
-        // otherwise only Chrome works like it should
-        var newBlob = new Blob([response.body], {type: 'application/pdf'})
 
-        // IE doesn't allow using a blob object directly as link href
-        // instead it is necessary to use msSaveOrOpenBlob
-        if (window.navigator && window.navigator.msSaveOrOpenBlob) {
-            window.navigator.msSaveOrOpenBlob(newBlob)
-            return
-        }
 
-        // For other browsers:
-        // Create a link pointing to the ObjectURL containing the blob.
-        const data = window.URL.createObjectURL(newBlob)
-        var link = document.createElement('a')
-        link.href = data
-        link.download = filename + '.pdf'
-        link.click()
-        setTimeout(function () {
-            // For Firefox it is necessary to delay revoking the ObjectURL
-            window.URL.revokeObjectURL(data)
-        }, 100)
-    },
             makefile(){
 
                 axios.post('/jsonfile/make-file', {
@@ -160,13 +128,9 @@
                     'dataType': 'spells'
                 }
                 ).then(response => {
-                    axios({
-                        url: response,
-                        method: 'GET',
-                        responseType: 'blob',
-                    }).then((response) => {
-                       this.downloadspell(response.data)
-                    });
+
+                      window.location.replace('/user-files')
+
                 })
 
             },

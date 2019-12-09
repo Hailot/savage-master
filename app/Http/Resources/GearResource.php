@@ -23,7 +23,7 @@ class GearResource extends JsonResource
             'gear_pic' => $this->pic,
             'gear_properties' => $this->properties,
             'gear_type' => $this->types,
-            'gear_weight' => $this->
+            'gear_weight' => $this->weight
         ];
     }
 }
