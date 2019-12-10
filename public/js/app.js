@@ -1891,6 +1891,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "CreaturesTable.vue",
   data: function data() {
@@ -1902,7 +1906,8 @@ __webpack_require__.r(__webpack_exports__);
       perPage: 10,
       pages: [],
       selected: [],
-      selectAll: false
+      selectAll: false,
+      disButton: false
     };
   },
   filters: {},
@@ -1914,6 +1919,7 @@ __webpack_require__.r(__webpack_exports__);
     fetchCreatures: function fetchCreatures() {
       var _this = this;
 
+      this.loading = true;
       axios.get('/creatures/api-data').then(function (response) {
         _this.creatures = response.data;
         console.log(response);
@@ -1943,6 +1949,8 @@ __webpack_require__.r(__webpack_exports__);
       }
     },
     makefile: function makefile() {
+      this.loading = true;
+      this.disButton = true;
       axios.post('/jsonfile/make-file', {
         'selectedIds': this.selected,
         'dataType': 'creatures'
@@ -1957,6 +1965,9 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   computed: {
+    isDisabled: function isDisabled() {
+      return this.disButton;
+    },
     displayedCreatures: function displayedCreatures() {
       return this.paginate(this.creatures);
     }
@@ -2064,18 +2075,23 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "GearTable.vue",
   data: function data() {
     return {
       gears: [],
-      loading: true,
+      loading: false,
       errored: false,
       page: 1,
       perPage: 10,
       pages: [],
       selected: [],
-      selectAll: false
+      selectAll: false,
+      disButton: false
     };
   },
   filters: {},
@@ -2087,6 +2103,7 @@ __webpack_require__.r(__webpack_exports__);
     fetchGear: function fetchGear() {
       var _this = this;
 
+      this.loading = true;
       axios.get('/gear/api-data').then(function (response) {
         _this.gears = response.data;
         console.log(response);
@@ -2116,6 +2133,8 @@ __webpack_require__.r(__webpack_exports__);
       }
     },
     makefile: function makefile() {
+      this.loading = true;
+      this.disButton = true;
       axios.post('/jsonfile/make-file', {
         'selectedIds': this.selected,
         'dataType': 'gear'
@@ -2130,6 +2149,9 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   computed: {
+    isDisabled: function isDisabled() {
+      return this.disButton;
+    },
     displayedGear: function displayedGear() {
       return this.paginate(this.gears);
     }
@@ -2291,20 +2313,23 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "SpellsTable.vue",
   data: function data() {
     return {
       spells: [],
-      loading: true,
+      loading: false,
       errored: false,
       page: 1,
       perPage: 10,
       pages: [],
       selected: [],
       selectAll: false,
-      query: ''
+      query: '',
+      disButton: false
     };
   },
   filters: {},
@@ -2316,6 +2341,7 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
     fetchSpells: function fetchSpells() {
       var _this = this;
 
+      this.loading = true;
       axios.get('/spells/api-data').then(function (response) {
         _this.spells = response.data;
         console.log(response);
@@ -2345,6 +2371,8 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
       }
     },
     makefile: function makefile() {
+      this.loading = true;
+      this.disButton = true;
       axios.post('/jsonfile/make-file', {
         'selectedIds': this.selected,
         'dataType': 'spells'
@@ -2368,6 +2396,9 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
     }
   },
   computed: {
+    isDisabled: function isDisabled() {
+      return this.disButton;
+    },
     displayedSpells: function displayedSpells() {
       return this.paginate(this.spells);
     },
@@ -39438,11 +39469,17 @@ var render = function() {
                 "button",
                 {
                   staticClass: "btn btn-primary",
-                  attrs: { type: "button" },
+                  attrs: { disabled: _vm.isDisabled, type: "button" },
                   on: { click: _vm.makefile }
                 },
                 [_vm._v("Create Json")]
               ),
+              _vm._v(" "),
+              _vm.loading
+                ? _c("div", { staticClass: "d-flex justify-content-center" }, [
+                    _vm._m(0)
+                  ])
+                : _vm._e(),
               _vm._v(" "),
               _c("tr", [
                 _c("th", [
@@ -39558,7 +39595,7 @@ var render = function() {
                   _vm._v(" "),
                   _c("td", [_vm._v(_vm._s(creature.source))]),
                   _vm._v(" "),
-                  _vm._m(0, true)
+                  _vm._m(1, true)
                 ])
               })
             ],
@@ -39625,6 +39662,16 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "spinner-border", attrs: { role: "status" } },
+      [_c("span", { staticClass: "sr-only" }, [_vm._v("Loading...")])]
+    )
+  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -39722,11 +39769,17 @@ var render = function() {
                 "button",
                 {
                   staticClass: "btn btn-primary",
-                  attrs: { type: "button" },
+                  attrs: { disabled: _vm.isDisabled, type: "button" },
                   on: { click: _vm.makefile }
                 },
                 [_vm._v("Create Json")]
               ),
+              _vm._v(" "),
+              _vm.loading
+                ? _c("div", { staticClass: "d-flex justify-content-center" }, [
+                    _vm._m(0)
+                  ])
+                : _vm._e(),
               _vm._v(" "),
               _c("tr", [
                 _c("th", [
@@ -39904,7 +39957,18 @@ var render = function() {
         ])
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "spinner-border", attrs: { role: "status" } },
+      [_c("span", { staticClass: "sr-only" }, [_vm._v("Loading...")])]
+    )
+  }
+]
 render._withStripped = true
 
 
@@ -40063,11 +40127,17 @@ var render = function() {
                 "button",
                 {
                   staticClass: "btn btn-primary",
-                  attrs: { type: "button" },
+                  attrs: { disabled: _vm.isDisabled, type: "button" },
                   on: { click: _vm.makefile }
                 },
                 [_vm._v("Create Json")]
               ),
+              _vm._v(" "),
+              _vm.loading
+                ? _c("div", { staticClass: "d-flex justify-content-center" }, [
+                    _vm._m(0)
+                  ])
+                : _vm._e(),
               _vm._v(" "),
               _c("tr", [
                 _c("th", [
@@ -40131,21 +40201,6 @@ var render = function() {
                 _vm._v(" "),
                 _c("th", [_vm._v("Source")])
               ]),
-              _vm._v(" "),
-              _vm.loading
-                ? _c(
-                    "div",
-                    {
-                      staticClass: "spinner-border",
-                      attrs: { role: "status" }
-                    },
-                    [
-                      _c("span", { staticClass: "sr-only" }, [
-                        _vm._v("Loading...")
-                      ])
-                    ]
-                  )
-                : _vm._e(),
               _vm._v(" "),
               _vm._l(_vm.queryResults, function(spell) {
                 return _c("tr", { key: spell.id }, [
@@ -40276,7 +40331,18 @@ var render = function() {
         ])
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "spinner-border", attrs: { role: "status" } },
+      [_c("span", { staticClass: "sr-only" }, [_vm._v("Loading...")])]
+    )
+  }
+]
 render._withStripped = true
 
 

@@ -11,7 +11,12 @@
 <!--            <input v-model="query"/>-->
 <!--        </label>-->
         <table class="table table-striped table-hover table-dark">
-            <button type="button" class="btn btn-primary" v-on:click="makefile">Create Json</button>
+            <button :disabled='isDisabled' type="button" class="btn btn-primary" v-on:click="makefile">Create Json</button>
+            <div v-if="loading" class="d-flex justify-content-center">
+                <div class="spinner-border" role="status">
+                    <span class="sr-only">Loading...</span>
+                </div>
+            </div>
             <tr>
                 <th>
                     <label class="form-checkbox">
@@ -30,9 +35,6 @@
 
             </tr>
 
-            <div v-if="loading" class="spinner-border" role="status">
-                <span class="sr-only">Loading...</span>
-            </div>
             <tr v-for="spell in queryResults" :key="spell.id">
                 <td>
                     <label class="form-checkbox">
@@ -68,7 +70,7 @@
         data () {
             return {
                 spells: [],
-                loading: true,
+                loading: false,
                 errored: false,
                 page: 1,
                 perPage: 10,
@@ -76,6 +78,8 @@
                 selected: [],
                 selectAll: false,
                 query: '',
+                disButton: false,
+
 
             }
         },
@@ -90,6 +94,7 @@
         },
         methods: {
             fetchSpells() {
+                this.loading = true;
                 axios.get('/spells/api-data')
                     .then(response => {
                         this.spells = response.data;
@@ -122,7 +127,8 @@
 
 
             makefile(){
-
+                this.loading = true;
+                this.disButton = true;
                 axios.post('/jsonfile/make-file', {
                         'selectedIds': this.selected,
                     'dataType': 'spells'
@@ -152,6 +158,9 @@
             }
         },
         computed: {
+            isDisabled: function(){
+                return this.disButton;
+            },
             displayedSpells () {
                 return this.paginate(this.spells);
             },

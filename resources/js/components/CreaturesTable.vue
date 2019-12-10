@@ -5,11 +5,13 @@
         </section>
 
         <section v-else>
-            <div v-if="loading">Loading...</div>
-
             <table class="table table-striped table-hover table-dark ">
-                <button type="button" class="btn btn-primary" v-on:click="makefile">Create Json</button>
-
+                <button :disabled='isDisabled' type="button" class="btn btn-primary" v-on:click="makefile">Create Json</button>
+                <div v-if="loading" class="d-flex justify-content-center">
+                    <div class="spinner-border" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                </div>
                 <tr>
                     <th>
                         <label class="form-checkbox">
@@ -63,7 +65,9 @@
                 perPage: 10,
                 pages: [],
                 selected: [],
-                selectAll: false
+                selectAll: false,
+                disButton: false,
+
 
             }
         },
@@ -79,6 +83,7 @@
         },
         methods: {
             fetchCreatures() {
+                this.loading = true;
                 axios.get('/creatures/api-data')
                     .then(response => {
                         this.creatures = response.data;
@@ -108,7 +113,8 @@
                 }
             },
             makefile(){
-
+                this.loading = true;
+                this.disButton = true;
                 axios.post('/jsonfile/make-file', {
                         'selectedIds': this.selected,
                         'dataType': 'creatures'
@@ -130,6 +136,9 @@
             }
         },
         computed: {
+            isDisabled: function(){
+                return this.disButton;
+            },
             displayedCreatures () {
                 return this.paginate(this.creatures);
             }
