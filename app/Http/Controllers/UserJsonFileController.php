@@ -65,7 +65,7 @@ class UserJsonFileController extends Controller
 
     public function getUserFiles(Request $request)
     {
-        $files = UserJsonFile::where('user_id',auth()->user()->id)->get();
+        $files = UserJsonFile::where('user_id',auth()->user()->id)->orderByDesc('id')->get();
 
         return view('user.files')->with('files', $files);
 
