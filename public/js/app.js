@@ -1895,6 +1895,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "CreaturesTable.vue",
   data: function data() {
@@ -1907,7 +1910,8 @@ __webpack_require__.r(__webpack_exports__);
       pages: [],
       selected: [],
       selectAll: false,
-      disButton: false
+      disButton: false,
+      search: ''
     };
   },
   filters: {},
@@ -1969,7 +1973,14 @@ __webpack_require__.r(__webpack_exports__);
       return this.disButton;
     },
     displayedCreatures: function displayedCreatures() {
-      return this.paginate(this.creatures);
+      return this.paginate(this.filteredList);
+    },
+    filteredList: function filteredList() {
+      var _this2 = this;
+
+      return this.creatures.filter(function (creature) {
+        return creature.name.toLowerCase().includes(_this2.search.toLowerCase());
+      });
     }
   }
 });
@@ -2079,6 +2090,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "GearTable.vue",
   data: function data() {
@@ -2091,7 +2105,8 @@ __webpack_require__.r(__webpack_exports__);
       pages: [],
       selected: [],
       selectAll: false,
-      disButton: false
+      disButton: false,
+      search: ''
     };
   },
   filters: {},
@@ -2153,7 +2168,14 @@ __webpack_require__.r(__webpack_exports__);
       return this.disButton;
     },
     displayedGear: function displayedGear() {
-      return this.paginate(this.gears);
+      return this.paginate(this.filteredList);
+    },
+    filteredList: function filteredList() {
+      var _this2 = this;
+
+      return this.gears.filter(function (gear) {
+        return gear.name.toLowerCase().includes(_this2.search.toLowerCase());
+      });
     }
   }
 });
@@ -2242,14 +2264,17 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var fuzzaldrin_plus__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! fuzzaldrin-plus */ "./node_modules/fuzzaldrin-plus/lib/fuzzaldrin.js");
 /* harmony import */ var fuzzaldrin_plus__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(fuzzaldrin_plus__WEBPACK_IMPORTED_MODULE_0__);
-function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
-
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
-
-function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
-
-function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
-
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2328,7 +2353,7 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
       pages: [],
       selected: [],
       selectAll: false,
-      query: '',
+      search: '',
       disButton: false
     };
   },
@@ -2355,6 +2380,7 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
       }
     },
     paginate: function paginate(spells) {
+      this.setPages();
       var page = this.page;
       var perPage = this.perPage;
       var from = page * perPage - perPage;
@@ -2400,26 +2426,13 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
       return this.disButton;
     },
     displayedSpells: function displayedSpells() {
-      return this.paginate(this.spells);
+      return this.paginate(this.filteredList);
     },
-    queryResults: function queryResults() {
+    filteredList: function filteredList() {
       var _this2 = this;
 
-      if (!this.query) return this.displayedSpells;
-      var preparedQuery = fuzzaldrin_plus__WEBPACK_IMPORTED_MODULE_0___default.a.prepareQuery(this.query);
-      var scores = {};
-      return this.displayedSpells.map(function (spell, index) {
-        var scorableFields = [spell.name, spell.school.name, spell.classes, spell.source].map(function (toScore) {
-          return fuzzaldrin_plus__WEBPACK_IMPORTED_MODULE_0___default.a.score(toScore, _this2.query, {
-            preparedQuery: preparedQuery
-          });
-        });
-        scores[spell.uuid] = Math.max.apply(Math, _toConsumableArray(scorableFields));
-        return spell;
-      }).filter(function (spell) {
-        return scores[spell.uuid] > 1;
-      }).sort(function (a, b) {
-        return scores[b.uuid] - scores[a.uuid];
+      return this.spells.filter(function (spell) {
+        return spell.name.toLowerCase().includes(_this2.search.toLowerCase());
       });
     }
   }
@@ -39459,12 +39472,39 @@ var render = function() {
           ])
         ])
       : _c("section", [
-          _vm.loading ? _c("div", [_vm._v("Loading...")]) : _vm._e(),
-          _vm._v(" "),
           _c(
             "table",
             { staticClass: "table table-striped table-hover table-dark " },
             [
+              _c(
+                "div",
+                { staticClass: "search-wrapper justify-content-center" },
+                [
+                  _c("label", [_vm._v("Search title:")]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.search,
+                        expression: "search"
+                      }
+                    ],
+                    attrs: { type: "text", placeholder: "Search title.." },
+                    domProps: { value: _vm.search },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.search = $event.target.value
+                      }
+                    }
+                  })
+                ]
+              ),
+              _vm._v(" "),
               _c(
                 "button",
                 {
@@ -39759,12 +39799,39 @@ var render = function() {
           ])
         ])
       : _c("section", [
-          _vm.loading ? _c("div", [_vm._v("Loading...")]) : _vm._e(),
-          _vm._v(" "),
           _c(
             "table",
             { staticClass: "table table-hoved table-dark " },
             [
+              _c(
+                "div",
+                { staticClass: "search-wrapper justify-content-center" },
+                [
+                  _c("label", [_vm._v("Search title:")]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.search,
+                        expression: "search"
+                      }
+                    ],
+                    attrs: { type: "text", placeholder: "Search title.." },
+                    domProps: { value: _vm.search },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.search = $event.target.value
+                      }
+                    }
+                  })
+                ]
+              ),
+              _vm._v(" "),
               _c(
                 "button",
                 {
@@ -40124,13 +40191,42 @@ var render = function() {
             { staticClass: "table table-striped table-hover table-dark" },
             [
               _c(
+                "div",
+                { staticClass: "search-wrapper justify-content-center" },
+                [
+                  _c("label", [_vm._v("Search title:")]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.search,
+                        expression: "search"
+                      }
+                    ],
+                    attrs: { type: "text", placeholder: "Search title.." },
+                    domProps: { value: _vm.search },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.search = $event.target.value
+                      }
+                    }
+                  })
+                ]
+              ),
+              _vm._v(" "),
+              _c(
                 "button",
                 {
                   staticClass: "btn btn-primary",
                   attrs: { disabled: _vm.isDisabled, type: "button" },
                   on: { click: _vm.makefile }
                 },
-                [_vm._v("Create Json")]
+                [_vm._v("Create Json\n            ")]
               ),
               _vm._v(" "),
               _vm.loading
@@ -40202,7 +40298,7 @@ var render = function() {
                 _c("th", [_vm._v("Source")])
               ]),
               _vm._v(" "),
-              _vm._l(_vm.queryResults, function(spell) {
+              _vm._l(_vm.displayedSpells, function(spell) {
                 return _c("tr", { key: spell.id }, [
                   _c("td", [
                     _c("label", { staticClass: "form-checkbox" }, [
@@ -40288,7 +40384,7 @@ var render = function() {
                         }
                       }
                     },
-                    [_vm._v(" << ")]
+                    [_vm._v(" <<\n            ")]
                   )
                 : _vm._e(),
               _vm._v(" "),
@@ -40306,7 +40402,7 @@ var render = function() {
                       }
                     }
                   },
-                  [_vm._v(" " + _vm._s(pageNumber) + " ")]
+                  [_vm._v(" " + _vm._s(pageNumber) + "\n            ")]
                 )
               }),
               _vm._v(" "),
@@ -40322,7 +40418,7 @@ var render = function() {
                         }
                       }
                     },
-                    [_vm._v(" >> ")]
+                    [_vm._v("\n                >>\n            ")]
                   )
                 : _vm._e()
             ],

@@ -6,58 +6,69 @@
 
         <section v-else>
 
-<!--        <label>-->
-<!--            Search-->
-<!--            <input v-model="query"/>-->
-<!--        </label>-->
-        <table class="table table-striped table-hover table-dark">
-            <button :disabled='isDisabled' type="button" class="btn btn-primary" v-on:click="makefile">Create Json</button>
-            <div v-if="loading" class="d-flex justify-content-center">
-                <div class="spinner-border" role="status">
-                    <span class="sr-only">Loading...</span>
+            <!--        <label>-->
+            <!--            Search-->
+            <!--            <input v-model="query"/>-->
+            <!--        </label>-->
+            <table class="table table-striped table-hover table-dark">
+                <div class="search-wrapper justify-content-center">
+                    <label>Search title:</label>
+
+                    <input type="text" v-model="search" placeholder="Search title.."/>
                 </div>
-            </div>
-            <tr>
-                <th>
-                    <label class="form-checkbox">
-                        <input type="checkbox" v-model="selectAll" @click="select">
-                    </label>
-                </th>
-                <th>Level</th>
-                <th>Name</th>
-                <th>School</th>
-                <th>Classes</th>
-                <th>Components</th>
-                <th>Casting Time</th>
-                <th>Duration</th>
-                <th>Range</th>
-                <th>Source</th>
+                <button :disabled='isDisabled' type="button" class="btn btn-primary" v-on:click="makefile">Create Json
+                </button>
+                <div v-if="loading" class="d-flex justify-content-center">
+                    <div class="spinner-border" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                </div>
+                <tr>
+                    <th>
+                        <label class="form-checkbox">
+                            <input type="checkbox" v-model="selectAll" @click="select">
+                        </label>
+                    </th>
+                    <th>Level</th>
+                    <th>Name</th>
+                    <th>School</th>
+                    <th>Classes</th>
+                    <th>Components</th>
+                    <th>Casting Time</th>
+                    <th>Duration</th>
+                    <th>Range</th>
+                    <th>Source</th>
 
-            </tr>
+                </tr>
 
-            <tr v-for="spell in queryResults" :key="spell.id">
-                <td>
-                    <label class="form-checkbox">
-                        <input type="checkbox" :value="spell.id" v-model="selected">
-                        <i class="form-icon"></i>
-                    </label>
-                </td>
-                <td>{{ spell.level_name }}</td>
-                <td>{{ spell.name}}</td>
-                <td>{{ spell.school.name}}</td>
-                <td>{{ spell.classes}}</td>
-                <td>{{ spell.components}}</td>
-                <td>{{ spell.casting_time}}</td>
-                <td>{{ spell.duration}}</td>
-                <td>{{ spell.range}}</td>
-                <td>{{ spell.source}}</td>
+                <tr v-for="spell in displayedSpells" :key="spell.id">
+                    <td>
+                        <label class="form-checkbox">
+                            <input type="checkbox" :value="spell.id" v-model="selected">
+                            <i class="form-icon"></i>
+                        </label>
+                    </td>
+                    <td>{{ spell.level_name }}</td>
+                    <td>{{ spell.name}}</td>
+                    <td>{{ spell.school.name}}</td>
+                    <td>{{ spell.classes}}</td>
+                    <td>{{ spell.components}}</td>
+                    <td>{{ spell.casting_time}}</td>
+                    <td>{{ spell.duration}}</td>
+                    <td>{{ spell.range}}</td>
+                    <td>{{ spell.source}}</td>
 
-            </tr>
-        </table>
+                </tr>
+            </table>
             <div class="clearfix btn-group col-md-2 offset-md-5">
-                <button type="button" class="btn btn-sm btn-outline-primary" v-if="page != 1" @click="page--"> << </button>
-                <button type="button" class="btn btn-sm btn-outline-primary" v-for="pageNumber in pages.slice(page-1, page+5)" @click="page = pageNumber"> {{pageNumber}} </button>
-                <button type="button" @click="page++" v-if="page < pages.length" class="btn btn-sm btn-outline-primary"> >> </button>
+                <button type="button" class="btn btn-sm btn-outline-primary" v-if="page != 1" @click="page--"> <<
+                </button>
+                <button type="button" class="btn btn-sm btn-outline-primary"
+                        v-for="pageNumber in pages.slice(page-1, page+5)" @click="page = pageNumber"> {{pageNumber}}
+                </button>
+                <button type="button" @click="page++" v-if="page < pages.length" class="btn btn-sm btn-outline-primary">
+                    >>
+                </button>
             </div>
         </section>
     </div>
@@ -65,9 +76,10 @@
 
 <script>
     import fz from 'fuzzaldrin-plus';
+
     export default {
         name: "SpellsTable.vue",
-        data () {
+        data() {
             return {
                 spells: [],
                 loading: false,
@@ -77,16 +89,14 @@
                 pages: [],
                 selected: [],
                 selectAll: false,
-                query: '',
+                search: '',
                 disButton: false,
 
 
             }
         },
-        filters: {
-
-        },
-        mounted () {
+        filters: {},
+        mounted() {
 
         },
         created() {
@@ -99,21 +109,22 @@
                     .then(response => {
                         this.spells = response.data;
                         console.log(response);
-                    }).finally( this.loading = false)
+                    }).finally(this.loading = false)
 
             },
-            setPages () {
+            setPages() {
                 let numberOfPages = Math.ceil(this.spells.length / this.perPage);
                 for (let index = 1; index <= numberOfPages; index++) {
                     this.pages.push(index);
                 }
             },
-            paginate (spells) {
+            paginate(spells) {
+                this.setPages()
                 let page = this.page;
                 let perPage = this.perPage;
                 let from = (page * perPage) - perPage;
                 let to = (page * perPage);
-                return  spells.slice(from, to);
+                return spells.slice(from, to);
             },
             select() {
                 this.selected = [];
@@ -125,23 +136,22 @@
             },
 
 
-
-            makefile(){
+            makefile() {
                 this.loading = true;
                 this.disButton = true;
                 axios.post('/jsonfile/make-file', {
                         'selectedIds': this.selected,
-                    'dataType': 'spells'
-                }
+                        'dataType': 'spells'
+                    }
                 ).then(response => {
 
-                      window.location.replace('/user-files')
+                    window.location.replace('/user-files')
 
                 })
 
             },
 
-            forceFileDownload(response){
+            forceFileDownload(response) {
                 const url = window.URL.createObjectURL(new Blob([response.data]))
                 const link = document.createElement('a')
                 link.href = url
@@ -153,40 +163,21 @@
 
         },
         watch: {
-            spells () {
+            spells() {
                 this.setPages();
             }
         },
         computed: {
-            isDisabled: function(){
+            isDisabled: function () {
                 return this.disButton;
             },
-            displayedSpells () {
-                return this.paginate(this.spells);
+            displayedSpells() {
+                return this.paginate(this.filteredList);
             },
-            queryResults() {
-                if(!this.query) return this.displayedSpells;
-
-                const preparedQuery = fz.prepareQuery(this.query);
-                const scores = {};
-
-                return this.displayedSpells
-                    .map((spell, index) => {
-                        const scorableFields = [
-                            spell.name,
-                            spell.school.name,
-                            spell.classes,
-                            spell.source,
-
-                        ].map(toScore => fz.score(toScore, this.query, { preparedQuery }));
-
-                        scores[spell.uuid] = Math.max(...scorableFields);
-
-                        return spell;
-                    })
-                    .filter(spell => scores[spell.uuid] > 1)
-                    .sort((a, b) => scores[b.uuid] - scores[a.uuid])
-                    ;
+            filteredList() {
+               return this.spells.filter(spell => {
+                   return spell.name.toLowerCase().includes(this.search.toLowerCase())
+               })
             }
         },
     }

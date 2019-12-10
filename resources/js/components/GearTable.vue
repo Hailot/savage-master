@@ -6,6 +6,11 @@
 
         <section v-else>
             <table class="table table-hoved table-dark ">
+                <div class="search-wrapper justify-content-center">
+                    <label>Search title:</label>
+
+                    <input type="text" v-model="search" placeholder="Search title.."/>
+                </div>
                 <button :disabled='isDisabled' type="button" class="btn btn-primary" v-on:click="makefile">Create Json</button>
                 <div v-if="loading" class="d-flex justify-content-center">
                     <div class="spinner-border" role="status">
@@ -71,6 +76,8 @@
                 selected: [],
                 selectAll: false,
                 disButton: false,
+                search: '',
+
 
 
             }
@@ -144,8 +151,13 @@
                 return this.disButton;
             },
             displayedGear() {
-                return this.paginate(this.gears);
-            }
+                return this.paginate(this.filteredList);
+            },
+            filteredList() {
+                return this.gears.filter(gear => {
+                    return gear.name.toLowerCase().includes(this.search.toLowerCase())
+                })
+            },
         },
     }
 </script>
