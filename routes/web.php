@@ -11,9 +11,15 @@
 |
 */
 
+use GrahamCampbell\GitHub\Facades\GitHub;
+
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/github', function () {
+   dd( GitHub::repo()->contents()->show('hailot','dndTomeDataExports'));
+});
+
 
 Auth::routes(['verify' => true]);
 

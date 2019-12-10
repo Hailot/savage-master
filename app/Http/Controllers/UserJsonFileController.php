@@ -49,7 +49,7 @@ class UserJsonFileController extends Controller
         $filtered = $data->wherein('id',$selectedIds);
         $json = json_encode($filtered->all());
         $path = 'userfiles/tomejson/' .$filename;
-        Storage::disk('s3')->put($path.'.json', $json.'.json', 'public');
+        Storage::disk('s3')->put($path.'.json', $json, 'public');
 
         $userfile = UserJsonFile::create([
             'file_name' => $filename,

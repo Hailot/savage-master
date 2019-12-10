@@ -8,6 +8,8 @@
             <div v-if="loading">Loading...</div>
 
             <table class="table table-hoved table-dark ">
+                <button type="button" class="btn btn-primary" v-on:click="makefile">Create Json</button>
+
                 <tr>
                     <th>
                         <label class="form-checkbox">
@@ -98,7 +100,31 @@
                 let from = (page * perPage) - perPage;
                 let to = (page * perPage);
                 return gears.slice(from, to);
-            }
+            },
+            select() {
+                this.selected = [];
+                if (!this.selectAll) {
+                    for (let i in this.gears) {
+                        this.selected.push(this.gears[i].id);
+                    }
+                }
+            },
+
+
+
+            makefile(){
+
+                axios.post('/jsonfile/make-file', {
+                        'selectedIds': this.selected,
+                        'dataType': 'gear'
+                    }
+                ).then(response => {
+
+                    window.location.replace('/user-files')
+
+                })
+
+            },
 
 
         },

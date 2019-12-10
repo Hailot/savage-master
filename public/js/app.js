@@ -1889,6 +1889,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "CreaturesTable.vue",
   data: function data() {
@@ -1939,6 +1941,14 @@ __webpack_require__.r(__webpack_exports__);
           this.selected.push(this.creatures[i].id);
         }
       }
+    },
+    makefile: function makefile() {
+      axios.post('/jsonfile/make-file', {
+        'selectedIds': this.selected,
+        'dataType': 'creatures'
+      }).then(function (response) {
+        window.location.replace('/user-files');
+      });
     }
   },
   watch: {
@@ -2052,6 +2062,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "GearTable.vue",
   data: function data() {
@@ -2093,6 +2105,23 @@ __webpack_require__.r(__webpack_exports__);
       var from = page * perPage - perPage;
       var to = page * perPage;
       return gears.slice(from, to);
+    },
+    select: function select() {
+      this.selected = [];
+
+      if (!this.selectAll) {
+        for (var i in this.gears) {
+          this.selected.push(this.gears[i].id);
+        }
+      }
+    },
+    makefile: function makefile() {
+      axios.post('/jsonfile/make-file', {
+        'selectedIds': this.selected,
+        'dataType': 'gear'
+      }).then(function (response) {
+        window.location.replace('/user-files');
+      });
     }
   },
   watch: {
@@ -39405,6 +39434,16 @@ var render = function() {
             "table",
             { staticClass: "table table-striped table-hover table-dark " },
             [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-primary",
+                  attrs: { type: "button" },
+                  on: { click: _vm.makefile }
+                },
+                [_vm._v("Create Json")]
+              ),
+              _vm._v(" "),
               _c("tr", [
                 _c("th", [
                   _c("label", { staticClass: "form-checkbox" }, [
@@ -39679,6 +39718,16 @@ var render = function() {
             "table",
             { staticClass: "table table-hoved table-dark " },
             [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-primary",
+                  attrs: { type: "button" },
+                  on: { click: _vm.makefile }
+                },
+                [_vm._v("Create Json")]
+              ),
+              _vm._v(" "),
               _c("tr", [
                 _c("th", [
                   _c("label", { staticClass: "form-checkbox" }, [

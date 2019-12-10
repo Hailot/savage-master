@@ -8,6 +8,8 @@
             <div v-if="loading">Loading...</div>
 
             <table class="table table-striped table-hover table-dark ">
+                <button type="button" class="btn btn-primary" v-on:click="makefile">Create Json</button>
+
                 <tr>
                     <th>
                         <label class="form-checkbox">
@@ -104,7 +106,21 @@
                         this.selected.push(this.creatures   [i].id);
                     }
                 }
-            }
+            },
+            makefile(){
+
+                axios.post('/jsonfile/make-file', {
+                        'selectedIds': this.selected,
+                        'dataType': 'creatures'
+                    }
+                ).then(response => {
+
+                    window.location.replace('/user-files')
+
+                })
+
+            },
+
 
 
         },
