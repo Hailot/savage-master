@@ -20,7 +20,7 @@ class CreatureResource extends JsonResource
             'monster_alignment' => $this->alignment ,
             'monster_armorClass' => $this->armor_class ,
             'monster_strength' => $this->strength ,
-            'monster_dexterity' => $this->dexterirty ,
+            'monster_dexterity' => $this->dexterity ,
             'monster_constitution' => $this->constitution ,
             'monster_intelligence' => $this->intelligence ,
             'monster_wisdom' => $this->wisdom ,
