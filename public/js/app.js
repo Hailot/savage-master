@@ -1972,6 +1972,172 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "CreatureModal",
   data: function data() {
@@ -7273,7 +7439,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.modal-mask[data-v-45dc5b5a] {\n    position: fixed;\n    z-index: 9998;\n    top: 0;\n    left: 0;\n    background-color: rgba(0, 0, 0, .5);\n    display: table;\n    -webkit-transition: opacity .3s ease;\n    transition: opacity .3s ease;\n}\n.modal-wrapper[data-v-45dc5b5a] {\n    vertical-align: middle;\n}\n.modal-container[data-v-45dc5b5a] {\n    margin: 0px auto;\n    padding: 20px 30px;\n    background-color: #fff;\n    border-radius: 2px;\n    box-shadow: 0 2px 8px rgba(0, 0, 0, .33);\n    -webkit-transition: all .3s ease;\n    transition: all .3s ease;\n    font-family: Helvetica, Arial, sans-serif;\n}\n.modal-header h3[data-v-45dc5b5a] {\n    margin-top: 0;\n    color: #42b983;\n}\n.modal-body[data-v-45dc5b5a] {\n    margin: 20px 0;\n}\n.modal-default-button[data-v-45dc5b5a] {\n    float: right;\n}\n\n/*\n * The following styles are auto-applied to elements with\n * transition=\"modal\" when their visibility is toggled\n * by Vue.js.\n *\n * You can easily play with the modal transition by editing\n * these styles.\n */\n.modal-enter[data-v-45dc5b5a] {\n    opacity: 0;\n}\n.modal-leave-active[data-v-45dc5b5a] {\n    opacity: 0;\n}\n.modal-enter .modal-container[data-v-45dc5b5a],\n.modal-leave-active .modal-container[data-v-45dc5b5a] {\n    -webkit-transform: scale(1.1);\n    transform: scale(1.1);\n}\nbody[data-v-45dc5b5a] {\n    height: 100%;\n    margin: 0px;\n    background-color: #1f2532;\n    overflow: hidden;\n}\n#monsterView[data-v-45dc5b5a] {\n    height: calc(100% - 0px);\n    width: calc(100% - 0px);\n    overflow: hidden;\n    color: darkgrey;\n    padding: 10px;\n    font-family: 'Quicksand', sans-serif;\n}\n#monsterView input[data-v-45dc5b5a], #monsterView select[data-v-45dc5b5a] {\n    height: 30px;\n    width: 200px;\n    border: none;\n    border-radius: 3px;\n    padding-left: 10px;\n    padding-right: 10px;\n    margin-left: 5px;\n    margin-bottom: 5px;\n    float: right;\n    font-family: inherit;\n    font-size: 14px;\n    box-shadow: 0px 0px 10px 0px rgba(0,0,0, 0.2);\n    background-color: #475062;\n    color: lightgrey;\n}\n#monsterView .smallLabel input[data-v-45dc5b5a] {\n    width: 100px;\n}\n#monsterView select[data-v-45dc5b5a] {\n    width: 220px;\n}\n#monsterView button[data-v-45dc5b5a] {\n    height: 32px;\n    width: auto;\n    border: none;\n    border-radius: 5px;\n    padding-left: 10px;\n    padding-right: 10px;\n    margin-bottom: 5px;\n    margin-left: 5px;\n    text-align: center;\n    float: right;\n    font-family: inherit;\n    font-size: 14px;\n    background-color: #522a82;\n    color: #cfc8d8;\n    cursor: pointer;\n}\n#monsterView button[data-v-45dc5b5a]:hover {\n    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.7);\n    cursor: pointer;\n}\n#monsterView button.delete[data-v-45dc5b5a] {\n    background-color: darkred;\n}\n#monsterView textarea[data-v-45dc5b5a] {\n\n    float: left;\n    resize: none;\n    border-radius: 3px;\n    border-bottom-right-radius: 0px;\n    border: none;\n    font-family: inherit;\n    font-size: 14px;\n    margin-bottom: 5px;\n    box-shadow: 0px 0px 10px 0px rgba(0,0,0, 0.2);\n    background-color: #475062;\n    color: lightgrey;\n}\n#monsterView textarea.small[data-v-45dc5b5a] {\n    height: 28px;\n    width: 300px;\n    line-height: 15px;\n}\n#monsterView label[data-v-45dc5b5a] {\n    display: inline-block;\n    width: 320px;\n    text-align: right;\n    line-height: 30px;\n}\n#monsterView label.smallLabel[data-v-45dc5b5a] {\n    display: inline-block;\n    width: 150px;\n    text-align: right;\n    line-height: 30px;\n    margin-left: 10px;\n}\n#monsterView .top[data-v-45dc5b5a] {\n    float: left;\n    width: 320px;\n    height: 220px;\n    margin-right: 5px;\n    margin-bottom: 5px;\n}\n#monsterView .image[data-v-45dc5b5a] {\n    float: left;\n    width: 220px;\n    height: 220px;\n    overflow: hidden;\n    margin-right: 5px;\n    margin-bottom: 5px;\n    box-shadow: 0px 0px 10px 0px rgba(172, 172, 172, 0.2);\n    background-color: white;\n}\n#monsterView .abilityScores[data-v-45dc5b5a] {\n    height: 220px;\n    width: 220px;\n    margin-right: 5px;\n    margin-bottom: 5px;\n    float: left;\n}\n#monsterView .abilityScores .score[data-v-45dc5b5a] {\n    width: 210px;\n    float: left;\n    height: 35px;\n    line-height: 30px;\n}\n#monsterView .abilityScores .score input[data-v-45dc5b5a] {\n    width: 40px;\n    margin-right: 5px;\n}\n#monsterView .abilityScores .score label[data-v-45dc5b5a] {\n    float: left;\n    width: 180px;\n}\n#monsterView .abilityScores .score .abilityBonus[data-v-45dc5b5a] {\n    width: 30px;\n    height: 30px;\n    line-height: 30px;\n    float: right;\n    text-align: center;\n    border-top-right-radius: 3px;\n    box-shadow: 0px 0px 10px 0px rgba(0,0,0, 0.2);\n    border-radius: 30px;\n    background-color: #475062;\n}\n#monsterView[data-v-45dc5b5a]::-webkit-scrollbar,\n#monsterView textarea[data-v-45dc5b5a]::-webkit-scrollbar {\n    width: 6px;\n    background-color: rgba(0, 0, 0, 0.425);\n    border-radius: 5px;\n}\n#monsterView[data-v-45dc5b5a]::-webkit-scrollbar-thumb,\n#monsterView textarea[data-v-45dc5b5a]::-webkit-scrollbar-thumb {\n    background-color: #8000ff;\n    border-radius: 5px;\n}\n", ""]);
+exports.push([module.i, "\n.modal-mask[data-v-45dc5b5a] {\n    position: fixed;\n    z-index: 9998;\n    top: 0;\n    left: 0;\n    background-color: rgba(0, 0, 0, .5);\n    display: table;\n    -webkit-transition: opacity .3s ease;\n    transition: opacity .3s ease;\n}\n.modal-wrapper[data-v-45dc5b5a] {\n    vertical-align: middle;\n}\n.modal-container[data-v-45dc5b5a] {\n    margin: 0px auto;\n    padding: 20px 30px;\n    background-color: #fff;\n    border-radius: 2px;\n    box-shadow: 0 2px 8px rgba(0, 0, 0, .33);\n    -webkit-transition: all .3s ease;\n    transition: all .3s ease;\n    font-family: Helvetica, Arial, sans-serif;\n}\n.modal-header h3[data-v-45dc5b5a] {\n    margin-top: 0;\n    color: #42b983;\n}\n.modal-body[data-v-45dc5b5a] {\n    margin: 20px 0;\n}\n.modal-default-button[data-v-45dc5b5a] {\n    float: right;\n}\n\n/*\n * The following styles are auto-applied to elements with\n * transition=\"modal\" when their visibility is toggled\n * by Vue.js.\n *\n * You can easily play with the modal transition by editing\n * these styles.\n */\n.modal-enter[data-v-45dc5b5a] {\n    opacity: 0;\n}\n.modal-leave-active[data-v-45dc5b5a] {\n    opacity: 0;\n}\n.modal-enter .modal-container[data-v-45dc5b5a],\n.modal-leave-active .modal-container[data-v-45dc5b5a] {\n    -webkit-transform: scale(1.1);\n    transform: scale(1.1);\n}\n#monsterView[data-v-45dc5b5a] {\n    height: calc(100% - 0px);\n    width: calc(100% - 0px);\n\n    color: darkgrey;\n    font-family: 'Quicksand', sans-serif;\n}\n#monsterView input[data-v-45dc5b5a], #monsterView select[data-v-45dc5b5a] {\n\n    border: none;\n    border-radius: 3px;\n    font-family: inherit;\n    font-size: 14px;\n    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);\n    background-color: #475062;\n    color: lightgrey;\n}\n#monsterView .smallLabel input[data-v-45dc5b5a] {\n}\n#monsterView select[data-v-45dc5b5a] {\n}\n#monsterView button[data-v-45dc5b5a] {\n    height: 32px;\n    width: auto;\n    border: none;\n    border-radius: 5px;\n    padding-left: 10px;\n    padding-right: 10px;\n    margin-bottom: 5px;\n    margin-left: 5px;\n    text-align: center;\n    float: right;\n    font-family: inherit;\n    font-size: 14px;\n    background-color: #522a82;\n    color: #cfc8d8;\n    cursor: pointer;\n}\n#monsterView button[data-v-45dc5b5a]:hover {\n    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.7);\n    cursor: pointer;\n}\n#monsterView button.delete[data-v-45dc5b5a] {\n    background-color: darkred;\n}\n#monsterView textarea[data-v-45dc5b5a] {\n\n    float: left;\n    resize: none;\n    border-radius: 3px;\n    border-bottom-right-radius: 0px;\n    border: none;\n    font-family: inherit;\n    font-size: 14px;\n    margin-bottom: 5px;\n    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);\n    background-color: #475062;\n    color: lightgrey;\n}\n#monsterView textarea.small[data-v-45dc5b5a] {\n}\n#monsterView label[data-v-45dc5b5a] {\n    text-align: right;\n}\n#monsterView label.smallLabel[data-v-45dc5b5a] {\n}\n#monsterView .top[data-v-45dc5b5a] {\n    float: left;\n    width: 320px;\n    height: 220px;\n    margin-right: 5px;\n    margin-bottom: 5px;\n}\n.img-thumbnail[data-v-45dc5b5a] {\n    background-color: transparent;\n    box-shadow: 0px 0px 10px 0px rgba(172, 172, 172, 0.2);\n}\n#monsterView .image[data-v-45dc5b5a] {\n    padding: 0.25rem;\n    max-width: 100%;\n    height: auto;\n    max-height: 100%;\n}\n#monsterView .abilityScores[data-v-45dc5b5a] {\n    text-align: right;\n}\n#monsterView .abilityScores .score[data-v-45dc5b5a] {\n}\n#monsterView .abilityScores .score input[data-v-45dc5b5a] {\n    text-align: center;\n}\n#monsterView .abilityScores .score label[data-v-45dc5b5a] {\n}\n#monsterView .abilityScores .score .abilityBonus[data-v-45dc5b5a] {\n\n    text-align: center;\n    border-top-right-radius: 3px;\n    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);\n    border-radius: 30px;\n    background-color: #475062;\n}\n#monsterView[data-v-45dc5b5a]::-webkit-scrollbar,\n#monsterView textarea[data-v-45dc5b5a]::-webkit-scrollbar {\n    width: 6px;\n    background-color: rgba(0, 0, 0, 0.425);\n    border-radius: 5px;\n}\n#monsterView[data-v-45dc5b5a]::-webkit-scrollbar-thumb,\n#monsterView textarea[data-v-45dc5b5a]::-webkit-scrollbar-thumb {\n    background-color: #8000ff;\n    border-radius: 5px;\n}\n", ""]);
 
 // exports
 
@@ -39814,7 +39980,7 @@ var render = function() {
           "div",
           {
             staticClass:
-              "modal-dialog modal-dialog-scrollable modal-wrapper modal-lg",
+              "modal-dialog modal-dialog-scrollable modal-wrapper modal-xl",
             attrs: { role: "document" }
           },
           [
@@ -39830,7 +39996,1221 @@ var render = function() {
                   _c(
                     "button",
                     {
-                      staticClass: "modal-default-button float-right",
+                      staticClass: "close float-right bg-white",
+                      attrs: { type: "button", "aria-label": "Close" },
+                      on: {
+                        click: function($event) {
+                          return _vm.$emit("close")
+                        }
+                      }
+                    },
+                    [
+                      _c("span", { attrs: { "aria-hidden": "true" } }, [
+                        _vm._v("×")
+                      ])
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "modal-body" }, [
+                  _c("div", { staticClass: "container-fluid" }, [
+                    _c("div", { attrs: { id: "monsterView" } }, [
+                      _c("form", [
+                        _c("div", { staticClass: "row ml-3" }, [
+                          _c("div", { staticClass: "col-12" }, [
+                            _c("div", { staticClass: "row mb-2" }, [
+                              _vm.creature.pic != ""
+                                ? _c(
+                                    "div",
+                                    { staticClass: "col-4 img-thumbnail" },
+                                    [
+                                      _c("img", {
+                                        staticClass: "image",
+                                        attrs: {
+                                          src: _vm.creature.url,
+                                          alt: "..."
+                                        }
+                                      })
+                                    ]
+                                  )
+                                : _c(
+                                    "div",
+                                    { staticClass: "col-4 img-thumbnail" },
+                                    [_c("div", { staticClass: "image" })]
+                                  ),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "col-1" }),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "col-7" }, [
+                                _c("div", { staticClass: "form-group row" }, [
+                                  _c(
+                                    "label",
+                                    {
+                                      staticClass: "col-sm-4 col-form-label",
+                                      attrs: { for: "name" }
+                                    },
+                                    [_vm._v("Name")]
+                                  ),
+                                  _vm._v(" "),
+                                  _c("div", { staticClass: "col-sm-6" }, [
+                                    _c("input", {
+                                      directives: [
+                                        {
+                                          name: "model",
+                                          rawName: "v-model",
+                                          value: _vm.creature.name,
+                                          expression: "creature.name"
+                                        }
+                                      ],
+                                      staticClass: "form-control",
+                                      attrs: {
+                                        name: "name",
+                                        id: "name",
+                                        type: "text"
+                                      },
+                                      domProps: { value: _vm.creature.name },
+                                      on: {
+                                        input: function($event) {
+                                          if ($event.target.composing) {
+                                            return
+                                          }
+                                          _vm.$set(
+                                            _vm.creature,
+                                            "name",
+                                            $event.target.value
+                                          )
+                                        }
+                                      }
+                                    })
+                                  ])
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "form-group row" }, [
+                                  _c(
+                                    "label",
+                                    {
+                                      staticClass: "col-sm-4 col-form-label",
+                                      attrs: { for: "type" }
+                                    },
+                                    [_vm._v("Type")]
+                                  ),
+                                  _vm._v(" "),
+                                  _c("div", { staticClass: "col-sm-6" }, [
+                                    _c("input", {
+                                      directives: [
+                                        {
+                                          name: "model",
+                                          rawName: "v-model",
+                                          value: _vm.creature.type.name,
+                                          expression: "creature.type.name"
+                                        }
+                                      ],
+                                      staticClass: "form-control",
+                                      attrs: {
+                                        name: "type",
+                                        id: "type",
+                                        type: "text"
+                                      },
+                                      domProps: {
+                                        value: _vm.creature.type.name
+                                      },
+                                      on: {
+                                        input: function($event) {
+                                          if ($event.target.composing) {
+                                            return
+                                          }
+                                          _vm.$set(
+                                            _vm.creature.type,
+                                            "name",
+                                            $event.target.value
+                                          )
+                                        }
+                                      }
+                                    })
+                                  ])
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "form-group row" }, [
+                                  _c(
+                                    "label",
+                                    {
+                                      staticClass: "col-sm-4 col-form-label",
+                                      attrs: { for: "subtype" }
+                                    },
+                                    [_vm._v("SubType")]
+                                  ),
+                                  _vm._v(" "),
+                                  _c("div", { staticClass: "col-sm-6" }, [
+                                    _c("input", {
+                                      staticClass: "form-control",
+                                      attrs: {
+                                        name: "subtype",
+                                        type: "text",
+                                        id: "subtype"
+                                      }
+                                    })
+                                  ])
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "form-group row" }, [
+                                  _c(
+                                    "label",
+                                    {
+                                      staticClass: "col-sm-4 col-form-label",
+                                      attrs: { for: "pic" }
+                                    },
+                                    [_vm._v("Pic")]
+                                  ),
+                                  _vm._v(" "),
+                                  _c("div", { staticClass: "col-sm-6" }, [
+                                    _c("input", {
+                                      directives: [
+                                        {
+                                          name: "model",
+                                          rawName: "v-model",
+                                          value: _vm.creature.url,
+                                          expression: "creature.url"
+                                        }
+                                      ],
+                                      staticClass: "form-control",
+                                      attrs: {
+                                        name: "pic",
+                                        type: "text",
+                                        id: "pic"
+                                      },
+                                      domProps: { value: _vm.creature.url },
+                                      on: {
+                                        input: function($event) {
+                                          if ($event.target.composing) {
+                                            return
+                                          }
+                                          _vm.$set(
+                                            _vm.creature,
+                                            "url",
+                                            $event.target.value
+                                          )
+                                        }
+                                      }
+                                    })
+                                  ])
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "form-group row" }, [
+                                  _c(
+                                    "label",
+                                    {
+                                      staticClass: "col-sm-4 col-form-label",
+                                      attrs: { for: "source" }
+                                    },
+                                    [_vm._v("Source")]
+                                  ),
+                                  _vm._v(" "),
+                                  _c("div", { staticClass: "col-sm-6" }, [
+                                    _c("input", {
+                                      directives: [
+                                        {
+                                          name: "model",
+                                          rawName: "v-model",
+                                          value: _vm.creature.source,
+                                          expression: "creature.source"
+                                        }
+                                      ],
+                                      staticClass: "form-control",
+                                      attrs: {
+                                        name: "source",
+                                        id: "source",
+                                        type: "text"
+                                      },
+                                      domProps: { value: _vm.creature.source },
+                                      on: {
+                                        input: function($event) {
+                                          if ($event.target.composing) {
+                                            return
+                                          }
+                                          _vm.$set(
+                                            _vm.creature,
+                                            "source",
+                                            $event.target.value
+                                          )
+                                        }
+                                      }
+                                    })
+                                  ])
+                                ])
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "row mb-2" }, [
+                              _c(
+                                "div",
+                                { staticClass: "col-4 abilityScores" },
+                                [
+                                  _c(
+                                    "div",
+                                    { staticClass: "form-group row score" },
+                                    [
+                                      _c(
+                                        "label",
+                                        {
+                                          staticClass:
+                                            "col-sm-5 col-form-label",
+                                          attrs: { for: "strength" }
+                                        },
+                                        [_vm._v("Strength:")]
+                                      ),
+                                      _vm._v(" "),
+                                      _c("div", { staticClass: "col-sm-3" }, [
+                                        _c("input", {
+                                          directives: [
+                                            {
+                                              name: "model",
+                                              rawName: "v-model",
+                                              value: _vm.creature.strength,
+                                              expression: "creature.strength"
+                                            }
+                                          ],
+                                          staticClass: "form-control",
+                                          attrs: {
+                                            type: "text",
+                                            id: "strength"
+                                          },
+                                          domProps: {
+                                            value: _vm.creature.strength
+                                          },
+                                          on: {
+                                            input: function($event) {
+                                              if ($event.target.composing) {
+                                                return
+                                              }
+                                              _vm.$set(
+                                                _vm.creature,
+                                                "strength",
+                                                $event.target.value
+                                              )
+                                            }
+                                          }
+                                        })
+                                      ]),
+                                      _vm._v(" "),
+                                      _c("div", {
+                                        staticClass: "col-2 abilityBonus"
+                                      })
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    { staticClass: "form-group row score" },
+                                    [
+                                      _c(
+                                        "label",
+                                        {
+                                          staticClass:
+                                            "col-sm-5 col-form-label ",
+                                          attrs: { for: "dexterity" }
+                                        },
+                                        [_vm._v("Dexterity:")]
+                                      ),
+                                      _vm._v(" "),
+                                      _c("div", { staticClass: "col-sm-3" }, [
+                                        _c("input", {
+                                          directives: [
+                                            {
+                                              name: "model",
+                                              rawName: "v-model",
+                                              value: _vm.creature.dexterity,
+                                              expression: "creature.dexterity"
+                                            }
+                                          ],
+                                          staticClass: "form-control ",
+                                          attrs: {
+                                            type: "text",
+                                            id: "dexterity"
+                                          },
+                                          domProps: {
+                                            value: _vm.creature.dexterity
+                                          },
+                                          on: {
+                                            input: function($event) {
+                                              if ($event.target.composing) {
+                                                return
+                                              }
+                                              _vm.$set(
+                                                _vm.creature,
+                                                "dexterity",
+                                                $event.target.value
+                                              )
+                                            }
+                                          }
+                                        })
+                                      ]),
+                                      _vm._v(" "),
+                                      _c("div", {
+                                        staticClass: "col-2 abilityBonus"
+                                      })
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    { staticClass: "form-group row score" },
+                                    [
+                                      _c(
+                                        "label",
+                                        {
+                                          staticClass:
+                                            "col-sm-5 col-form-label ",
+                                          attrs: { for: "constitution" }
+                                        },
+                                        [_vm._v("Constitution:")]
+                                      ),
+                                      _vm._v(" "),
+                                      _c("div", { staticClass: "col-sm-3" }, [
+                                        _c("input", {
+                                          directives: [
+                                            {
+                                              name: "model",
+                                              rawName: "v-model",
+                                              value: _vm.creature.constitution,
+                                              expression:
+                                                "creature.constitution"
+                                            }
+                                          ],
+                                          staticClass: "form-control ",
+                                          attrs: {
+                                            type: "text",
+                                            id: "constitution"
+                                          },
+                                          domProps: {
+                                            value: _vm.creature.constitution
+                                          },
+                                          on: {
+                                            input: function($event) {
+                                              if ($event.target.composing) {
+                                                return
+                                              }
+                                              _vm.$set(
+                                                _vm.creature,
+                                                "constitution",
+                                                $event.target.value
+                                              )
+                                            }
+                                          }
+                                        })
+                                      ]),
+                                      _vm._v(" "),
+                                      _c("div", {
+                                        staticClass: "col-2 abilityBonus"
+                                      })
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    { staticClass: "form-group row score" },
+                                    [
+                                      _c(
+                                        "label",
+                                        {
+                                          staticClass:
+                                            "col-sm-5 col-form-label",
+                                          attrs: { for: "intelligence" }
+                                        },
+                                        [_vm._v("Intelligence:")]
+                                      ),
+                                      _vm._v(" "),
+                                      _c("div", { staticClass: "col-sm-3" }, [
+                                        _c("input", {
+                                          directives: [
+                                            {
+                                              name: "model",
+                                              rawName: "v-model",
+                                              value: _vm.creature.intelligence,
+                                              expression:
+                                                "creature.intelligence"
+                                            }
+                                          ],
+                                          staticClass: "form-control ",
+                                          attrs: {
+                                            type: "text",
+                                            id: "intelligence"
+                                          },
+                                          domProps: {
+                                            value: _vm.creature.intelligence
+                                          },
+                                          on: {
+                                            input: function($event) {
+                                              if ($event.target.composing) {
+                                                return
+                                              }
+                                              _vm.$set(
+                                                _vm.creature,
+                                                "intelligence",
+                                                $event.target.value
+                                              )
+                                            }
+                                          }
+                                        })
+                                      ]),
+                                      _vm._v(" "),
+                                      _c("div", {
+                                        staticClass: "col-2 abilityBonus"
+                                      })
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    { staticClass: "form-group row score" },
+                                    [
+                                      _c(
+                                        "label",
+                                        {
+                                          staticClass:
+                                            "col-sm-5 col-form-label",
+                                          attrs: { for: "wisdom" }
+                                        },
+                                        [_vm._v("Wisdom:")]
+                                      ),
+                                      _vm._v(" "),
+                                      _c("div", { staticClass: "col-sm-3" }, [
+                                        _c("input", {
+                                          directives: [
+                                            {
+                                              name: "model",
+                                              rawName: "v-model",
+                                              value: _vm.creature.wisdom,
+                                              expression: "creature.wisdom"
+                                            }
+                                          ],
+                                          staticClass: "form-control ",
+                                          attrs: { type: "text", id: "wisdom" },
+                                          domProps: {
+                                            value: _vm.creature.wisdom
+                                          },
+                                          on: {
+                                            input: function($event) {
+                                              if ($event.target.composing) {
+                                                return
+                                              }
+                                              _vm.$set(
+                                                _vm.creature,
+                                                "wisdom",
+                                                $event.target.value
+                                              )
+                                            }
+                                          }
+                                        })
+                                      ]),
+                                      _vm._v(" "),
+                                      _c("div", {
+                                        staticClass: "col-2 abilityBonus"
+                                      })
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    { staticClass: "form-group row score" },
+                                    [
+                                      _c(
+                                        "label",
+                                        {
+                                          staticClass:
+                                            "col-sm-5 col-form-label",
+                                          attrs: { for: "charisma" }
+                                        },
+                                        [_vm._v("Charisma:")]
+                                      ),
+                                      _vm._v(" "),
+                                      _c("div", { staticClass: "col-sm-3" }, [
+                                        _c("input", {
+                                          directives: [
+                                            {
+                                              name: "model",
+                                              rawName: "v-model",
+                                              value: _vm.creature.charisma,
+                                              expression: "creature.charisma"
+                                            }
+                                          ],
+                                          staticClass: "form-control ",
+                                          attrs: {
+                                            type: "text",
+                                            id: "charisma"
+                                          },
+                                          domProps: {
+                                            value: _vm.creature.charisma
+                                          },
+                                          on: {
+                                            input: function($event) {
+                                              if ($event.target.composing) {
+                                                return
+                                              }
+                                              _vm.$set(
+                                                _vm.creature,
+                                                "charisma",
+                                                $event.target.value
+                                              )
+                                            }
+                                          }
+                                        })
+                                      ]),
+                                      _vm._v(" "),
+                                      _c("div", {
+                                        staticClass: "col-2 abilityBonus"
+                                      })
+                                    ]
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "col-1" }),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "col-7" }, [
+                                _c("div", { staticClass: "form-group row" }, [
+                                  _c("div", { staticClass: "col-2" }),
+                                  _vm._v(" "),
+                                  _c(
+                                    "label",
+                                    {
+                                      staticClass: "col-2 col-form-label",
+                                      attrs: { for: "cr" }
+                                    },
+                                    [_vm._v("CR: ")]
+                                  ),
+                                  _vm._v(" "),
+                                  _c("div", { staticClass: "col-2" }, [
+                                    _c("input", {
+                                      directives: [
+                                        {
+                                          name: "model",
+                                          rawName: "v-model",
+                                          value: _vm.creature.challenge_rating,
+                                          expression:
+                                            "creature.challenge_rating"
+                                        }
+                                      ],
+                                      staticClass: "form-control text-center",
+                                      attrs: {
+                                        name: "cr",
+                                        type: "text",
+                                        id: "cr"
+                                      },
+                                      domProps: {
+                                        value: _vm.creature.challenge_rating
+                                      },
+                                      on: {
+                                        input: function($event) {
+                                          if ($event.target.composing) {
+                                            return
+                                          }
+                                          _vm.$set(
+                                            _vm.creature,
+                                            "challenge_rating",
+                                            $event.target.value
+                                          )
+                                        }
+                                      }
+                                    })
+                                  ]),
+                                  _vm._v(" "),
+                                  _c(
+                                    "label",
+                                    {
+                                      staticClass: "col-2 col-form-label",
+                                      attrs: { for: "ac" }
+                                    },
+                                    [_vm._v("AC: ")]
+                                  ),
+                                  _vm._v(" "),
+                                  _c("div", { staticClass: "col-2" }, [
+                                    _c("input", {
+                                      directives: [
+                                        {
+                                          name: "model",
+                                          rawName: "v-model",
+                                          value: _vm.creature.armor_class,
+                                          expression: "creature.armor_class"
+                                        }
+                                      ],
+                                      staticClass: "form-control text-center",
+                                      attrs: {
+                                        name: "ac",
+                                        type: "text",
+                                        id: "ac"
+                                      },
+                                      domProps: {
+                                        value: _vm.creature.armor_class
+                                      },
+                                      on: {
+                                        input: function($event) {
+                                          if ($event.target.composing) {
+                                            return
+                                          }
+                                          _vm.$set(
+                                            _vm.creature,
+                                            "armor_class",
+                                            $event.target.value
+                                          )
+                                        }
+                                      }
+                                    })
+                                  ])
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "form-group row" }, [
+                                  _c(
+                                    "label",
+                                    {
+                                      staticClass: "col-sm-4 col-form-label",
+                                      attrs: { for: "alignment" }
+                                    },
+                                    [_vm._v("Alignment")]
+                                  ),
+                                  _vm._v(" "),
+                                  _c("div", { staticClass: "col-sm-6" }, [
+                                    _c("input", {
+                                      directives: [
+                                        {
+                                          name: "model",
+                                          rawName: "v-model",
+                                          value: _vm.creature.alignment,
+                                          expression: "creature.alignment"
+                                        }
+                                      ],
+                                      staticClass: "form-control",
+                                      attrs: {
+                                        name: "alignment",
+                                        id: "alignment",
+                                        type: "text"
+                                      },
+                                      domProps: {
+                                        value: _vm.creature.alignment
+                                      },
+                                      on: {
+                                        input: function($event) {
+                                          if ($event.target.composing) {
+                                            return
+                                          }
+                                          _vm.$set(
+                                            _vm.creature,
+                                            "alignment",
+                                            $event.target.value
+                                          )
+                                        }
+                                      }
+                                    })
+                                  ])
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "form-group row" }, [
+                                  _c(
+                                    "label",
+                                    {
+                                      staticClass: "col-sm-4 col-form-label",
+                                      attrs: { for: "hp" }
+                                    },
+                                    [
+                                      _vm._v(
+                                        "Hit\n                                                        Points"
+                                      )
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c("div", { staticClass: "col-sm-6" }, [
+                                    _c("input", {
+                                      directives: [
+                                        {
+                                          name: "model",
+                                          rawName: "v-model",
+                                          value: _vm.creature.average_hitpoints,
+                                          expression:
+                                            "creature.average_hitpoints"
+                                        }
+                                      ],
+                                      staticClass: "form-control",
+                                      attrs: {
+                                        name: "hp",
+                                        id: "hp",
+                                        type: "text"
+                                      },
+                                      domProps: {
+                                        value: _vm.creature.average_hitpoints
+                                      },
+                                      on: {
+                                        input: function($event) {
+                                          if ($event.target.composing) {
+                                            return
+                                          }
+                                          _vm.$set(
+                                            _vm.creature,
+                                            "average_hitpoints",
+                                            $event.target.value
+                                          )
+                                        }
+                                      }
+                                    })
+                                  ])
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "form-group row" }, [
+                                  _c(
+                                    "label",
+                                    {
+                                      staticClass: "col-sm-4 col-form-label",
+                                      attrs: { for: "speed" }
+                                    },
+                                    [_vm._v("Speed")]
+                                  ),
+                                  _vm._v(" "),
+                                  _c("div", { staticClass: "col-sm-6" }, [
+                                    _c("input", {
+                                      directives: [
+                                        {
+                                          name: "model",
+                                          rawName: "v-model",
+                                          value: _vm.creature.speed,
+                                          expression: "creature.speed"
+                                        }
+                                      ],
+                                      staticClass: "form-control",
+                                      attrs: {
+                                        name: "speed",
+                                        id: "speed",
+                                        type: "text"
+                                      },
+                                      domProps: { value: _vm.creature.speed },
+                                      on: {
+                                        input: function($event) {
+                                          if ($event.target.composing) {
+                                            return
+                                          }
+                                          _vm.$set(
+                                            _vm.creature,
+                                            "speed",
+                                            $event.target.value
+                                          )
+                                        }
+                                      }
+                                    })
+                                  ])
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "form-group row" }, [
+                                  _c(
+                                    "label",
+                                    {
+                                      staticClass: "col-sm-4 col-form-label",
+                                      attrs: { for: "size" }
+                                    },
+                                    [_vm._v("Size")]
+                                  ),
+                                  _vm._v(" "),
+                                  _c("div", { staticClass: "col-sm-6" }, [
+                                    _c("input", {
+                                      directives: [
+                                        {
+                                          name: "model",
+                                          rawName: "v-model",
+                                          value: _vm.creature.size,
+                                          expression: "creature.size"
+                                        }
+                                      ],
+                                      staticClass: "form-control",
+                                      attrs: {
+                                        name: "size",
+                                        id: "size",
+                                        type: "text"
+                                      },
+                                      domProps: { value: _vm.creature.size },
+                                      on: {
+                                        input: function($event) {
+                                          if ($event.target.composing) {
+                                            return
+                                          }
+                                          _vm.$set(
+                                            _vm.creature,
+                                            "size",
+                                            $event.target.value
+                                          )
+                                        }
+                                      }
+                                    })
+                                  ])
+                                ])
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "row mb-2" }, [
+                              _c("div", { staticClass: "col-12" }, [
+                                _c("div", { staticClass: "form-group row" }, [
+                                  _c("div", { staticClass: "col-3" }, [
+                                    _c("textarea", {
+                                      directives: [
+                                        {
+                                          name: "model",
+                                          rawName: "v-model",
+                                          value: _vm.creature.saving_throws,
+                                          expression: "creature.saving_throws"
+                                        }
+                                      ],
+                                      staticClass: "form-control",
+                                      attrs: { rows: "2" },
+                                      domProps: {
+                                        value: _vm.creature.saving_throws
+                                      },
+                                      on: {
+                                        input: function($event) {
+                                          if ($event.target.composing) {
+                                            return
+                                          }
+                                          _vm.$set(
+                                            _vm.creature,
+                                            "saving_throws",
+                                            $event.target.value
+                                          )
+                                        }
+                                      }
+                                    })
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("div", { staticClass: "col-3" }, [
+                                    _c("textarea", {
+                                      directives: [
+                                        {
+                                          name: "model",
+                                          rawName: "v-model",
+                                          value: _vm.creature.skills,
+                                          expression: "creature.skills"
+                                        }
+                                      ],
+                                      staticClass: "form-control",
+                                      attrs: { rows: "2" },
+                                      domProps: { value: _vm.creature.skills },
+                                      on: {
+                                        input: function($event) {
+                                          if ($event.target.composing) {
+                                            return
+                                          }
+                                          _vm.$set(
+                                            _vm.creature,
+                                            "skills",
+                                            $event.target.value
+                                          )
+                                        }
+                                      }
+                                    })
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("div", { staticClass: "col-3" }, [
+                                    _c("textarea", {
+                                      directives: [
+                                        {
+                                          name: "model",
+                                          rawName: "v-model",
+                                          value: _vm.creature.senses,
+                                          expression: "creature.senses"
+                                        }
+                                      ],
+                                      staticClass: "form-control",
+                                      attrs: { rows: "2" },
+                                      domProps: { value: _vm.creature.senses },
+                                      on: {
+                                        input: function($event) {
+                                          if ($event.target.composing) {
+                                            return
+                                          }
+                                          _vm.$set(
+                                            _vm.creature,
+                                            "senses",
+                                            $event.target.value
+                                          )
+                                        }
+                                      }
+                                    })
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("div", { staticClass: "col-3" }, [
+                                    _c("textarea", {
+                                      directives: [
+                                        {
+                                          name: "model",
+                                          rawName: "v-model",
+                                          value: _vm.creature.languages,
+                                          expression: "creature.languages"
+                                        }
+                                      ],
+                                      staticClass: "form-control",
+                                      attrs: { rows: "2" },
+                                      domProps: {
+                                        value: _vm.creature.languages
+                                      },
+                                      on: {
+                                        input: function($event) {
+                                          if ($event.target.composing) {
+                                            return
+                                          }
+                                          _vm.$set(
+                                            _vm.creature,
+                                            "languages",
+                                            $event.target.value
+                                          )
+                                        }
+                                      }
+                                    })
+                                  ])
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "form-group row" }, [
+                                  _c("div", { staticClass: "col-3" }, [
+                                    _c("textarea", {
+                                      directives: [
+                                        {
+                                          name: "model",
+                                          rawName: "v-model",
+                                          value:
+                                            _vm.creature.damage_vulnerabilities,
+                                          expression:
+                                            "creature.damage_vulnerabilities"
+                                        }
+                                      ],
+                                      staticClass: "form-control",
+                                      attrs: { rows: "2" },
+                                      domProps: {
+                                        value:
+                                          _vm.creature.damage_vulnerabilities
+                                      },
+                                      on: {
+                                        input: function($event) {
+                                          if ($event.target.composing) {
+                                            return
+                                          }
+                                          _vm.$set(
+                                            _vm.creature,
+                                            "damage_vulnerabilities",
+                                            $event.target.value
+                                          )
+                                        }
+                                      }
+                                    })
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("div", { staticClass: "col-3" }, [
+                                    _c("textarea", {
+                                      directives: [
+                                        {
+                                          name: "model",
+                                          rawName: "v-model",
+                                          value:
+                                            _vm.creature.damage_resistances,
+                                          expression:
+                                            "creature.damage_resistances"
+                                        }
+                                      ],
+                                      staticClass: "form-control",
+                                      attrs: { rows: "2" },
+                                      domProps: {
+                                        value: _vm.creature.damage_resistances
+                                      },
+                                      on: {
+                                        input: function($event) {
+                                          if ($event.target.composing) {
+                                            return
+                                          }
+                                          _vm.$set(
+                                            _vm.creature,
+                                            "damage_resistances",
+                                            $event.target.value
+                                          )
+                                        }
+                                      }
+                                    })
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("div", { staticClass: "col-3" }, [
+                                    _c("textarea", {
+                                      directives: [
+                                        {
+                                          name: "model",
+                                          rawName: "v-model",
+                                          value: _vm.creature.damage_immunities,
+                                          expression:
+                                            "creature.damage_immunities"
+                                        }
+                                      ],
+                                      staticClass: "form-control",
+                                      attrs: {
+                                        rows: "2",
+                                        placeholder: "Damage immunities..."
+                                      },
+                                      domProps: {
+                                        value: _vm.creature.damage_immunities
+                                      },
+                                      on: {
+                                        input: function($event) {
+                                          if ($event.target.composing) {
+                                            return
+                                          }
+                                          _vm.$set(
+                                            _vm.creature,
+                                            "damage_immunities",
+                                            $event.target.value
+                                          )
+                                        }
+                                      }
+                                    })
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("div", { staticClass: "col-3" }, [
+                                    _c("textarea", {
+                                      directives: [
+                                        {
+                                          name: "model",
+                                          rawName: "v-model",
+                                          value:
+                                            _vm.creature.condition_immunities,
+                                          expression:
+                                            "creature.condition_immunities"
+                                        }
+                                      ],
+                                      staticClass: "form-control",
+                                      attrs: {
+                                        rows: "2",
+                                        placeholder: "Condition immunities..."
+                                      },
+                                      domProps: {
+                                        value: _vm.creature.condition_immunities
+                                      },
+                                      on: {
+                                        input: function($event) {
+                                          if ($event.target.composing) {
+                                            return
+                                          }
+                                          _vm.$set(
+                                            _vm.creature,
+                                            "condition_immunities",
+                                            $event.target.value
+                                          )
+                                        }
+                                      }
+                                    })
+                                  ])
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "form-group row" }, [
+                                  _c("div", { staticClass: "col-4" }, [
+                                    _c("textarea", {
+                                      directives: [
+                                        {
+                                          name: "model",
+                                          rawName: "v-model",
+                                          value: _vm.creature.special_abilities,
+                                          expression:
+                                            "creature.special_abilities"
+                                        }
+                                      ],
+                                      staticClass: "form-control",
+                                      attrs: {
+                                        rows: "8",
+                                        placeholder: "Special abilities..."
+                                      },
+                                      domProps: {
+                                        value: _vm.creature.special_abilities
+                                      },
+                                      on: {
+                                        input: function($event) {
+                                          if ($event.target.composing) {
+                                            return
+                                          }
+                                          _vm.$set(
+                                            _vm.creature,
+                                            "special_abilities",
+                                            $event.target.value
+                                          )
+                                        }
+                                      }
+                                    })
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("div", { staticClass: "col-4" }, [
+                                    _c("textarea", {
+                                      directives: [
+                                        {
+                                          name: "model",
+                                          rawName: "v-model",
+                                          value: _vm.creature.attacks,
+                                          expression: "creature.attacks"
+                                        }
+                                      ],
+                                      staticClass: "form-control",
+                                      attrs: {
+                                        rows: "8",
+                                        placeholder: "Actions..."
+                                      },
+                                      domProps: { value: _vm.creature.attacks },
+                                      on: {
+                                        input: function($event) {
+                                          if ($event.target.composing) {
+                                            return
+                                          }
+                                          _vm.$set(
+                                            _vm.creature,
+                                            "attacks",
+                                            $event.target.value
+                                          )
+                                        }
+                                      }
+                                    })
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("div", { staticClass: "col-4" }, [
+                                    _c("textarea", {
+                                      directives: [
+                                        {
+                                          name: "model",
+                                          rawName: "v-model",
+                                          value: _vm.creature.legendary_actions,
+                                          expression:
+                                            "creature.legendary_actions"
+                                        }
+                                      ],
+                                      staticClass: "form-control",
+                                      attrs: {
+                                        rows: "8",
+                                        placeholder: "Legendary Actions..."
+                                      },
+                                      domProps: {
+                                        value: _vm.creature.legendary_actions
+                                      },
+                                      on: {
+                                        input: function($event) {
+                                          if ($event.target.composing) {
+                                            return
+                                          }
+                                          _vm.$set(
+                                            _vm.creature,
+                                            "legendary_actions",
+                                            $event.target.value
+                                          )
+                                        }
+                                      }
+                                    })
+                                  ])
+                                ])
+                              ])
+                            ])
+                          ])
+                        ])
+                      ])
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "modal-footer" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "modal-default-button",
                       on: {
                         click: function($event) {
                           return _vm.$emit("close")
@@ -39839,862 +41219,10 @@ var render = function() {
                     },
                     [
                       _vm._v(
-                        "\n                        Close\n                    "
+                        "\n                            Close\n                        "
                       )
                     ]
                   )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "modal-body" }, [
-                  _c("div", { staticClass: "container-fluid" }, [
-                    _c("div", { attrs: { id: "monsterView" } }, [
-                      _c("div", { staticClass: "row" }, [
-                        _c("div", { staticClass: "row" }, [
-                          _vm.creature.pic != ""
-                            ? _c("div", { staticClass: "col-4" }, [
-                                _c("img", {
-                                  staticClass:
-                                    " img-thumbnail rounded float-left",
-                                  attrs: { src: _vm.creature.url, alt: "..." }
-                                })
-                              ])
-                            : _c("div", { staticClass: "col-4" }, [
-                                _c("img", {
-                                  staticClass:
-                                    " img-thumbnail rounded float-left",
-                                  attrs: { src: "", alt: "..." }
-                                })
-                              ]),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "col-6 p-2" }, [
-                            _c("div", {}, [
-                              _c("label", [
-                                _vm._v("Name:"),
-                                _c("input", {
-                                  directives: [
-                                    {
-                                      name: "model",
-                                      rawName: "v-model",
-                                      value: _vm.creature.name,
-                                      expression: "creature.name"
-                                    }
-                                  ],
-                                  attrs: { name: "name", type: "text" },
-                                  domProps: { value: _vm.creature.name },
-                                  on: {
-                                    input: function($event) {
-                                      if ($event.target.composing) {
-                                        return
-                                      }
-                                      _vm.$set(
-                                        _vm.creature,
-                                        "name",
-                                        $event.target.value
-                                      )
-                                    }
-                                  }
-                                })
-                              ]),
-                              _vm._v(" "),
-                              _c("label", [
-                                _vm._v("Type:"),
-                                _c("input", {
-                                  directives: [
-                                    {
-                                      name: "model",
-                                      rawName: "v-model",
-                                      value: _vm.creature.type.name,
-                                      expression: "creature.type.name"
-                                    }
-                                  ],
-                                  attrs: { name: "type", type: "text" },
-                                  domProps: { value: _vm.creature.type.name },
-                                  on: {
-                                    input: function($event) {
-                                      if ($event.target.composing) {
-                                        return
-                                      }
-                                      _vm.$set(
-                                        _vm.creature.type,
-                                        "name",
-                                        $event.target.value
-                                      )
-                                    }
-                                  }
-                                })
-                              ]),
-                              _vm._v(" "),
-                              _c("label", [
-                                _vm._v("Subtype:"),
-                                _c("input", {
-                                  attrs: { name: "subtype", type: "text" }
-                                })
-                              ]),
-                              _vm._v(" "),
-                              _c("label", [
-                                _vm._v("Pic:"),
-                                _c("input", {
-                                  directives: [
-                                    {
-                                      name: "model",
-                                      rawName: "v-model",
-                                      value: _vm.creature.pic,
-                                      expression: "creature.pic"
-                                    }
-                                  ],
-                                  attrs: { name: "pic", type: "text" },
-                                  domProps: { value: _vm.creature.pic },
-                                  on: {
-                                    input: function($event) {
-                                      if ($event.target.composing) {
-                                        return
-                                      }
-                                      _vm.$set(
-                                        _vm.creature,
-                                        "pic",
-                                        $event.target.value
-                                      )
-                                    }
-                                  }
-                                })
-                              ]),
-                              _vm._v(" "),
-                              _c("label", [
-                                _vm._v("Source:"),
-                                _c("input", {
-                                  directives: [
-                                    {
-                                      name: "model",
-                                      rawName: "v-model",
-                                      value: _vm.creature.source,
-                                      expression: "creature.source"
-                                    }
-                                  ],
-                                  attrs: { name: "source", type: "text" },
-                                  domProps: { value: _vm.creature.source },
-                                  on: {
-                                    input: function($event) {
-                                      if ($event.target.composing) {
-                                        return
-                                      }
-                                      _vm.$set(
-                                        _vm.creature,
-                                        "source",
-                                        $event.target.value
-                                      )
-                                    }
-                                  }
-                                })
-                              ])
-                            ])
-                          ])
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "row" }, [
-                          _c("div", { staticClass: "col-3" }, [
-                            _c("div", { staticClass: "abilityScores" }, [
-                              _c("div", { staticClass: "score" }, [
-                                _c("label", [
-                                  _vm._v("Strength: "),
-                                  _c("input", {
-                                    directives: [
-                                      {
-                                        name: "model",
-                                        rawName: "v-model",
-                                        value: _vm.creature.strength,
-                                        expression: "creature.strength"
-                                      }
-                                    ],
-                                    attrs: { type: "text" },
-                                    domProps: { value: _vm.creature.strength },
-                                    on: {
-                                      input: function($event) {
-                                        if ($event.target.composing) {
-                                          return
-                                        }
-                                        _vm.$set(
-                                          _vm.creature,
-                                          "strength",
-                                          $event.target.value
-                                        )
-                                      }
-                                    }
-                                  })
-                                ]),
-                                _vm._v(" "),
-                                _c("div", { staticClass: "abilityBonus" })
-                              ]),
-                              _vm._v(" "),
-                              _c("div", { staticClass: "score" }, [
-                                _c("label", [
-                                  _vm._v("Dexterity: "),
-                                  _c("input", {
-                                    directives: [
-                                      {
-                                        name: "model",
-                                        rawName: "v-model",
-                                        value: _vm.creature.dexterity,
-                                        expression: "creature.dexterity"
-                                      }
-                                    ],
-                                    attrs: { type: "text" },
-                                    domProps: { value: _vm.creature.dexterity },
-                                    on: {
-                                      input: function($event) {
-                                        if ($event.target.composing) {
-                                          return
-                                        }
-                                        _vm.$set(
-                                          _vm.creature,
-                                          "dexterity",
-                                          $event.target.value
-                                        )
-                                      }
-                                    }
-                                  })
-                                ]),
-                                _vm._v(" "),
-                                _c("div", { staticClass: "abilityBonus" })
-                              ]),
-                              _vm._v(" "),
-                              _c("div", { staticClass: "score" }, [
-                                _c("label", [
-                                  _vm._v("Constitution: "),
-                                  _c("input", {
-                                    directives: [
-                                      {
-                                        name: "model",
-                                        rawName: "v-model",
-                                        value: _vm.creature.constitution,
-                                        expression: "creature.constitution"
-                                      }
-                                    ],
-                                    attrs: { type: "text" },
-                                    domProps: {
-                                      value: _vm.creature.constitution
-                                    },
-                                    on: {
-                                      input: function($event) {
-                                        if ($event.target.composing) {
-                                          return
-                                        }
-                                        _vm.$set(
-                                          _vm.creature,
-                                          "constitution",
-                                          $event.target.value
-                                        )
-                                      }
-                                    }
-                                  })
-                                ]),
-                                _vm._v(" "),
-                                _c("div", { staticClass: "abilityBonus" })
-                              ]),
-                              _vm._v(" "),
-                              _c("div", { staticClass: "score" }, [
-                                _c("label", [
-                                  _vm._v("Intelligence: "),
-                                  _c("input", {
-                                    directives: [
-                                      {
-                                        name: "model",
-                                        rawName: "v-model",
-                                        value: _vm.creature.intelligence,
-                                        expression: "creature.intelligence"
-                                      }
-                                    ],
-                                    attrs: { type: "text" },
-                                    domProps: {
-                                      value: _vm.creature.intelligence
-                                    },
-                                    on: {
-                                      input: function($event) {
-                                        if ($event.target.composing) {
-                                          return
-                                        }
-                                        _vm.$set(
-                                          _vm.creature,
-                                          "intelligence",
-                                          $event.target.value
-                                        )
-                                      }
-                                    }
-                                  })
-                                ]),
-                                _vm._v(" "),
-                                _c("div", { staticClass: "abilityBonus" })
-                              ]),
-                              _vm._v(" "),
-                              _c("div", { staticClass: "score" }, [
-                                _c("label", [
-                                  _vm._v("Wisdom: "),
-                                  _c("input", {
-                                    directives: [
-                                      {
-                                        name: "model",
-                                        rawName: "v-model",
-                                        value: _vm.creature.wisdom,
-                                        expression: "creature.wisdom"
-                                      }
-                                    ],
-                                    attrs: { type: "text" },
-                                    domProps: { value: _vm.creature.wisdom },
-                                    on: {
-                                      input: function($event) {
-                                        if ($event.target.composing) {
-                                          return
-                                        }
-                                        _vm.$set(
-                                          _vm.creature,
-                                          "wisdom",
-                                          $event.target.value
-                                        )
-                                      }
-                                    }
-                                  })
-                                ]),
-                                _vm._v(" "),
-                                _c("div", { staticClass: "abilityBonus" })
-                              ]),
-                              _vm._v(" "),
-                              _c("div", { staticClass: "score" }, [
-                                _c("label", [
-                                  _vm._v("Charisma: "),
-                                  _c("input", {
-                                    directives: [
-                                      {
-                                        name: "model",
-                                        rawName: "v-model",
-                                        value: _vm.creature.charisma,
-                                        expression: "creature.charisma"
-                                      }
-                                    ],
-                                    attrs: { type: "text" },
-                                    domProps: { value: _vm.creature.charisma },
-                                    on: {
-                                      input: function($event) {
-                                        if ($event.target.composing) {
-                                          return
-                                        }
-                                        _vm.$set(
-                                          _vm.creature,
-                                          "charisma",
-                                          $event.target.value
-                                        )
-                                      }
-                                    }
-                                  })
-                                ]),
-                                _vm._v(" "),
-                                _c("div", { staticClass: "abilityBonus" })
-                              ])
-                            ])
-                          ]),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "col-1" }),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "col-6" }, [
-                            _c("label", { staticClass: "smallLabel" }, [
-                              _vm._v("Cr:"),
-                              _c("input", {
-                                directives: [
-                                  {
-                                    name: "model",
-                                    rawName: "v-model",
-                                    value: _vm.creature.challenge_rating,
-                                    expression: "creature.challenge_rating"
-                                  }
-                                ],
-                                attrs: { name: "cr", type: "text" },
-                                domProps: {
-                                  value: _vm.creature.challenge_rating
-                                },
-                                on: {
-                                  input: function($event) {
-                                    if ($event.target.composing) {
-                                      return
-                                    }
-                                    _vm.$set(
-                                      _vm.creature,
-                                      "challenge_rating",
-                                      $event.target.value
-                                    )
-                                  }
-                                }
-                              })
-                            ]),
-                            _vm._v(" "),
-                            _c("label", { staticClass: "smallLabel" }, [
-                              _vm._v("AC:"),
-                              _c("input", {
-                                directives: [
-                                  {
-                                    name: "model",
-                                    rawName: "v-model",
-                                    value: _vm.creature.armor_class,
-                                    expression: "creature.armor_class"
-                                  }
-                                ],
-                                attrs: { name: "ac", type: "number" },
-                                domProps: { value: _vm.creature.armor_class },
-                                on: {
-                                  input: function($event) {
-                                    if ($event.target.composing) {
-                                      return
-                                    }
-                                    _vm.$set(
-                                      _vm.creature,
-                                      "armor_class",
-                                      $event.target.value
-                                    )
-                                  }
-                                }
-                              })
-                            ]),
-                            _vm._v(" "),
-                            _c("label", [
-                              _vm._v("Alignment:"),
-                              _c("input", {
-                                directives: [
-                                  {
-                                    name: "model",
-                                    rawName: "v-model",
-                                    value: _vm.creature.alignment,
-                                    expression: "creature.alignment"
-                                  }
-                                ],
-                                attrs: { name: "alignment", type: "text" },
-                                domProps: { value: _vm.creature.alignment },
-                                on: {
-                                  input: function($event) {
-                                    if ($event.target.composing) {
-                                      return
-                                    }
-                                    _vm.$set(
-                                      _vm.creature,
-                                      "alignment",
-                                      $event.target.value
-                                    )
-                                  }
-                                }
-                              })
-                            ]),
-                            _vm._v(" "),
-                            _c("label", [
-                              _vm._v("Hit Points:"),
-                              _c("input", {
-                                directives: [
-                                  {
-                                    name: "model",
-                                    rawName: "v-model",
-                                    value: _vm.creature.average_hitpoints,
-                                    expression: "creature.average_hitpoints"
-                                  }
-                                ],
-                                attrs: { name: "hp", type: "text" },
-                                domProps: {
-                                  value: _vm.creature.average_hitpoints
-                                },
-                                on: {
-                                  input: function($event) {
-                                    if ($event.target.composing) {
-                                      return
-                                    }
-                                    _vm.$set(
-                                      _vm.creature,
-                                      "average_hitpoints",
-                                      $event.target.value
-                                    )
-                                  }
-                                }
-                              })
-                            ]),
-                            _vm._v(" "),
-                            _c("label", [
-                              _vm._v("Speed:"),
-                              _c("input", {
-                                directives: [
-                                  {
-                                    name: "model",
-                                    rawName: "v-model",
-                                    value: _vm.creature.speed,
-                                    expression: "creature.speed"
-                                  }
-                                ],
-                                attrs: { name: "speed", type: "text" },
-                                domProps: { value: _vm.creature.speed },
-                                on: {
-                                  input: function($event) {
-                                    if ($event.target.composing) {
-                                      return
-                                    }
-                                    _vm.$set(
-                                      _vm.creature,
-                                      "speed",
-                                      $event.target.value
-                                    )
-                                  }
-                                }
-                              })
-                            ]),
-                            _vm._v(" "),
-                            _c("label", [
-                              _vm._v("Size:"),
-                              _c("input", {
-                                directives: [
-                                  {
-                                    name: "model",
-                                    rawName: "v-model",
-                                    value: _vm.creature.size,
-                                    expression: "creature.size"
-                                  }
-                                ],
-                                attrs: { name: "size", type: "text" },
-                                domProps: { value: _vm.creature.size },
-                                on: {
-                                  input: function($event) {
-                                    if ($event.target.composing) {
-                                      return
-                                    }
-                                    _vm.$set(
-                                      _vm.creature,
-                                      "size",
-                                      $event.target.value
-                                    )
-                                  }
-                                }
-                              })
-                            ])
-                          ])
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "row" }, [
-                          _c("div", { staticClass: "col-12" }, [
-                            _c("textarea", {
-                              directives: [
-                                {
-                                  name: "model",
-                                  rawName: "v-model",
-                                  value: _vm.creature.saving_throws,
-                                  expression: "creature.saving_throws"
-                                }
-                              ],
-                              attrs: { rows: "2" },
-                              domProps: { value: _vm.creature.saving_throws },
-                              on: {
-                                input: function($event) {
-                                  if ($event.target.composing) {
-                                    return
-                                  }
-                                  _vm.$set(
-                                    _vm.creature,
-                                    "saving_throws",
-                                    $event.target.value
-                                  )
-                                }
-                              }
-                            }),
-                            _vm._v(" "),
-                            _c("textarea", {
-                              directives: [
-                                {
-                                  name: "model",
-                                  rawName: "v-model",
-                                  value: _vm.creature.skills,
-                                  expression: "creature.skills"
-                                }
-                              ],
-                              attrs: { rows: "2" },
-                              domProps: { value: _vm.creature.skills },
-                              on: {
-                                input: function($event) {
-                                  if ($event.target.composing) {
-                                    return
-                                  }
-                                  _vm.$set(
-                                    _vm.creature,
-                                    "skills",
-                                    $event.target.value
-                                  )
-                                }
-                              }
-                            }),
-                            _vm._v(" "),
-                            _c("textarea", {
-                              directives: [
-                                {
-                                  name: "model",
-                                  rawName: "v-model",
-                                  value: _vm.creature.senses,
-                                  expression: "creature.senses"
-                                }
-                              ],
-                              attrs: { rows: "2" },
-                              domProps: { value: _vm.creature.senses },
-                              on: {
-                                input: function($event) {
-                                  if ($event.target.composing) {
-                                    return
-                                  }
-                                  _vm.$set(
-                                    _vm.creature,
-                                    "senses",
-                                    $event.target.value
-                                  )
-                                }
-                              }
-                            }),
-                            _vm._v(" "),
-                            _c("textarea", {
-                              directives: [
-                                {
-                                  name: "model",
-                                  rawName: "v-model",
-                                  value: _vm.creature.languages,
-                                  expression: "creature.languages"
-                                }
-                              ],
-                              attrs: { rows: "2" },
-                              domProps: { value: _vm.creature.languages },
-                              on: {
-                                input: function($event) {
-                                  if ($event.target.composing) {
-                                    return
-                                  }
-                                  _vm.$set(
-                                    _vm.creature,
-                                    "languages",
-                                    $event.target.value
-                                  )
-                                }
-                              }
-                            })
-                          ]),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "col-12" }, [
-                            _c("textarea", {
-                              directives: [
-                                {
-                                  name: "model",
-                                  rawName: "v-model",
-                                  value: _vm.creature.damage_vulnerabilities,
-                                  expression: "creature.damage_vulnerabilities"
-                                }
-                              ],
-                              attrs: { rows: "2" },
-                              domProps: {
-                                value: _vm.creature.damage_vulnerabilities
-                              },
-                              on: {
-                                input: function($event) {
-                                  if ($event.target.composing) {
-                                    return
-                                  }
-                                  _vm.$set(
-                                    _vm.creature,
-                                    "damage_vulnerabilities",
-                                    $event.target.value
-                                  )
-                                }
-                              }
-                            }),
-                            _vm._v(" "),
-                            _c("textarea", {
-                              directives: [
-                                {
-                                  name: "model",
-                                  rawName: "v-model",
-                                  value: _vm.creature.damage_resistances,
-                                  expression: "creature.damage_resistances"
-                                }
-                              ],
-                              attrs: { rows: "2" },
-                              domProps: {
-                                value: _vm.creature.damage_resistances
-                              },
-                              on: {
-                                input: function($event) {
-                                  if ($event.target.composing) {
-                                    return
-                                  }
-                                  _vm.$set(
-                                    _vm.creature,
-                                    "damage_resistances",
-                                    $event.target.value
-                                  )
-                                }
-                              }
-                            }),
-                            _vm._v(" "),
-                            _c("textarea", {
-                              directives: [
-                                {
-                                  name: "model",
-                                  rawName: "v-model",
-                                  value: _vm.creature.damage_immunities,
-                                  expression: "creature.damage_immunities"
-                                }
-                              ],
-                              attrs: {
-                                rows: "2",
-                                placeholder: "Damage immunities..."
-                              },
-                              domProps: {
-                                value: _vm.creature.damage_immunities
-                              },
-                              on: {
-                                input: function($event) {
-                                  if ($event.target.composing) {
-                                    return
-                                  }
-                                  _vm.$set(
-                                    _vm.creature,
-                                    "damage_immunities",
-                                    $event.target.value
-                                  )
-                                }
-                              }
-                            }),
-                            _vm._v(" "),
-                            _c("textarea", {
-                              directives: [
-                                {
-                                  name: "model",
-                                  rawName: "v-model",
-                                  value: _vm.creature.condition_immunities,
-                                  expression: "creature.condition_immunities"
-                                }
-                              ],
-                              attrs: {
-                                rows: "2",
-                                placeholder: "Condition immunities..."
-                              },
-                              domProps: {
-                                value: _vm.creature.condition_immunities
-                              },
-                              on: {
-                                input: function($event) {
-                                  if ($event.target.composing) {
-                                    return
-                                  }
-                                  _vm.$set(
-                                    _vm.creature,
-                                    "condition_immunities",
-                                    $event.target.value
-                                  )
-                                }
-                              }
-                            })
-                          ])
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "row" }, [
-                          _c("div", { staticClass: "col-12" }, [
-                            _c("textarea", {
-                              directives: [
-                                {
-                                  name: "model",
-                                  rawName: "v-model",
-                                  value: _vm.creature.special_abilities,
-                                  expression: "creature.special_abilities"
-                                }
-                              ],
-                              staticClass: "col-4",
-                              attrs: { placeholder: "Special abilities..." },
-                              domProps: {
-                                value: _vm.creature.special_abilities
-                              },
-                              on: {
-                                input: function($event) {
-                                  if ($event.target.composing) {
-                                    return
-                                  }
-                                  _vm.$set(
-                                    _vm.creature,
-                                    "special_abilities",
-                                    $event.target.value
-                                  )
-                                }
-                              }
-                            }),
-                            _vm._v(" "),
-                            _c("textarea", {
-                              directives: [
-                                {
-                                  name: "model",
-                                  rawName: "v-model",
-                                  value: _vm.creature.attacks,
-                                  expression: "creature.attacks"
-                                }
-                              ],
-                              staticClass: "col-4",
-                              attrs: { placeholder: "Actions..." },
-                              domProps: { value: _vm.creature.attacks },
-                              on: {
-                                input: function($event) {
-                                  if ($event.target.composing) {
-                                    return
-                                  }
-                                  _vm.$set(
-                                    _vm.creature,
-                                    "attacks",
-                                    $event.target.value
-                                  )
-                                }
-                              }
-                            }),
-                            _vm._v(" "),
-                            _c("textarea", {
-                              directives: [
-                                {
-                                  name: "model",
-                                  rawName: "v-model",
-                                  value: _vm.creature.legendary_actions,
-                                  expression: "creature.legendary_actions"
-                                }
-                              ],
-                              staticClass: "col-4",
-                              attrs: { placeholder: "Legendary Actions..." },
-                              domProps: {
-                                value: _vm.creature.legendary_actions
-                              },
-                              on: {
-                                input: function($event) {
-                                  if ($event.target.composing) {
-                                    return
-                                  }
-                                  _vm.$set(
-                                    _vm.creature,
-                                    "legendary_actions",
-                                    $event.target.value
-                                  )
-                                }
-                              }
-                            })
-                          ])
-                        ])
-                      ])
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "modal-footer" }, [
-                    _c(
-                      "button",
-                      {
-                        staticClass: "modal-default-button",
-                        on: {
-                          click: function($event) {
-                            return _vm.$emit("close")
-                          }
-                        }
-                      },
-                      [
-                        _vm._v(
-                          "\n                        Close\n                    "
-                        )
-                      ]
-                    )
-                  ])
                 ])
               ]
             )

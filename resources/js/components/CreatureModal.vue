@@ -1,130 +1,296 @@
 <template>
     <transition name="modal">
-        <div class="modal modal-mask" tabindex="-1" role="dialog" >
-            <div class="modal-dialog modal-dialog-scrollable modal-wrapper modal-lg" role="document">
+        <div class="modal modal-mask" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-dialog-scrollable modal-wrapper modal-xl" role="document">
                 <div class="modal-content modal-container bg-dark">
 
                     <div class="modal-header">
                         <div class="text-center">
-                           <h3>{{ creature.name }}</h3>
+                            <h3>{{ creature.name }}</h3>
 
                         </div>
-                        <button class="modal-default-button float-right" @click="$emit('close')">
-                            Close
+
+                        <button type="button" class="close float-right bg-white" aria-label="Close" @click="$emit('close')">
+                            <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
 
                     <div class="modal-body">
                         <div class="container-fluid">
-                        <div id="monsterView">
+                            <div id="monsterView">
+                                <form>
 
-                            <div class="row">
-                                <div class="row">
-                                        <div class="col-4" v-if="creature.pic != '' ">
-                                                <img :src="creature.url" alt="..." class=" img-thumbnail rounded float-left">
+                                    <div class="row ml-3">
+                                        <div class="col-12">
+                                            <div class="row mb-2">
+                                                <div class="col-4 img-thumbnail" v-if="creature.pic != '' ">
+                                                    <img :src="creature.url" alt="..." class="image">
 
-                                        </div>
-                                        <div class="col-4" v-else>
-                                            <img src="" alt="..." class=" img-thumbnail rounded float-left">
+                                                </div>
+                                                <div class="col-4 img-thumbnail" v-else>
+                                                    <div class="image">
+                                                    </div>
+                                                </div>
+                                                <div class="col-1"></div>
+                                                <div class="col-7">
+                                                    <div class="form-group row">
+                                                        <label for="name" class="col-sm-4 col-form-label">Name</label>
+                                                        <div class="col-sm-6">
+                                                            <input name="name" id="name" class="form-control"
+                                                                   type="text" v-model="creature.name"/>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row">
 
-                                        </div>
-                                        <div class="col-6 p-2">
-                                            <div class="">
-                                                <label>Name:<input name="name" type="text" v-model="creature.name" /></label>
-                                                <label>Type:<input name="type" type="text" v-model="creature.type.name" /></label>
-                                                <label>Subtype:<input name="subtype" type="text" /></label>
-                                                <label>Pic:<input name="pic" type="text" v-model="creature.pic" /></label>
-                                                <label>Source:<input name="source" type="text" v-model="creature.source" /></label>
+                                                        <label for="type" class="col-sm-4 col-form-label">Type</label>
+                                                        <div class="col-sm-6">
+                                                            <input name="type" id="type" class="form-control"
+                                                                   type="text" v-model="creature.type.name"/>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row">
+
+                                                        <label for="subtype"
+                                                               class="col-sm-4 col-form-label">SubType</label>
+                                                        <div class="col-sm-6">
+                                                            <input name="subtype" type="text"
+                                                                   class="form-control" id="subtype"/>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row">
+
+                                                        <label for="pic" class="col-sm-4 col-form-label">Pic</label>
+                                                        <div class="col-sm-6">
+                                                            <input name="pic" type="text" id="pic"
+                                                                   class="form-control"
+                                                                   v-model="creature.url"/>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row">
+
+                                                        <label for="source"
+                                                               class="col-sm-4 col-form-label">Source</label>
+                                                        <div class="col-sm-6">
+                                                            <input name="source" id="source"
+                                                                   class="form-control" type="text"
+                                                                   v-model="creature.source"/>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+
 
                                             </div>
-                                        </div>
+                                            <div class="row mb-2">
+                                                <div class="col-4 abilityScores">
+
+                                                    <div class="form-group row score">
+                                                        <label for="strength"
+                                                               class="col-sm-5 col-form-label">Strength:</label>
+                                                        <div class="col-sm-3">
+                                                            <input class="form-control" type="text" id="strength"
+                                                                   v-model="creature.strength"/>
+                                                        </div>
+                                                        <div class="col-2 abilityBonus">
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row score">
+                                                        <label for="dexterity" class="col-sm-5 col-form-label ">Dexterity:</label>
+                                                        <div class="col-sm-3">
+                                                            <input class="form-control " type="text" id="dexterity"
+                                                                   v-model="creature.dexterity"/>
+
+                                                        </div>
+                                                        <div class="col-2 abilityBonus">
+
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="form-group row score">
+                                                        <label for="constitution" class="col-sm-5 col-form-label ">Constitution:</label>
+                                                        <div class="col-sm-3">
+                                                            <input class="form-control " type="text" id="constitution"
+                                                                   v-model="creature.constitution"/>
+
+                                                        </div>
+                                                        <div class="col-2 abilityBonus">
+
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="form-group row score">
+                                                        <label for="intelligence" class="col-sm-5 col-form-label">Intelligence:</label>
+                                                        <div class="col-sm-3">
+                                                            <input class="form-control " type="text" id="intelligence"
+                                                                   v-model="creature.intelligence"/>
+
+                                                        </div>
+                                                        <div class="col-2 abilityBonus">
+
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="form-group row score">
+                                                        <label for="wisdom"
+                                                               class="col-sm-5 col-form-label">Wisdom:</label>
+                                                        <div class="col-sm-3">
+                                                            <input class="form-control " type="text" id="wisdom"
+                                                                   v-model="creature.wisdom"/>
+
+                                                        </div>
+                                                        <div class="col-2 abilityBonus">
+
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="form-group row score">
+                                                        <label for="charisma"
+                                                               class="col-sm-5 col-form-label">Charisma:</label>
+                                                        <div class="col-sm-3">
+                                                            <input class="form-control " type="text" id="charisma"
+                                                                   v-model="creature.charisma"/>
+                                                        </div>
+                                                        <div class="col-2 abilityBonus">
+
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                                <div class="col-1"></div>
+                                                <div class="col-7">
+                                                    <div class="form-group row">
+                                                        <div class="col-2"></div>
+                                                        <label for="cr" class="col-2 col-form-label">CR: </label>
+                                                        <div class="col-2">
+                                                            <input name="cr" type="text" id="cr"
+                                                                   class="form-control text-center"
+                                                                   v-model="creature.challenge_rating"/>
+                                                        </div>
+                                                        <label for="ac" class="col-2 col-form-label">AC: </label>
+                                                        <div class="col-2">
+                                                            <input name="ac" type="text" id="ac"
+                                                                   class="form-control text-center"
+                                                                   v-model="creature.armor_class"/>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row">
+
+                                                        <label for="alignment"
+                                                               class="col-sm-4 col-form-label">Alignment</label>
+                                                        <div class="col-sm-6">
+                                                            <input name="alignment" id="alignment"
+                                                                   class="form-control" type="text"
+                                                                   v-model="creature.alignment"/>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row">
+
+                                                        <label for="hp" class="col-sm-4 col-form-label">Hit
+                                                            Points</label>
+                                                        <div class="col-sm-6">
+                                                            <input name="hp" id="hp" class="form-control"
+                                                                   type="text" v-model="creature.average_hitpoints"/>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row">
+
+                                                        <label for="speed" class="col-sm-4 col-form-label">Speed</label>
+                                                        <div class="col-sm-6">
+                                                            <input name="speed" id="speed"
+                                                                   class="form-control" type="text"
+                                                                   v-model="creature.speed"/>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row">
+
+                                                        <label for="size" class="col-sm-4 col-form-label">Size</label>
+                                                        <div class="col-sm-6">
+                                                            <input name="size" id="size" class="form-control"
+                                                                   type="text" v-model="creature.size"/>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <div class="row mb-2">
+                                                <div class="col-12">
+                                                    <div class="form-group row">
+                                                        <div class="col-3">
+                                                            <textarea class="form-control" rows="2"
+                                                                      v-model="creature.saving_throws"></textarea>
+                                                        </div>
+                                                        <div class="col-3">
+                                                            <textarea class="form-control" rows="2"
+                                                                      v-model="creature.skills"></textarea>
+                                                        </div>
+                                                        <div class="col-3">
+                                                            <textarea class="form-control" rows="2"
+                                                                      v-model="creature.senses"></textarea>
+                                                        </div>
+                                                        <div class="col-3">
+                                                            <textarea class="form-control" rows="2"
+                                                                      v-model="creature.languages"></textarea>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group row">
+                                                        <div class="col-3">
+                                                            <textarea rows="2" class="form-control"
+                                                                      v-model="creature.damage_vulnerabilities"></textarea>
+                                                        </div>
+                                                        <div class="col-3">
+                                                            <textarea rows="2" class="form-control"
+                                                                      v-model="creature.damage_resistances"></textarea>
+                                                        </div>
+                                                        <div class="col-3">
+                                                            <textarea rows="2" class="form-control"
+                                                                      v-model="creature.damage_immunities"
+                                                                      placeholder="Damage immunities..."></textarea>
+                                                        </div>
+                                                        <div class="col-3">
+                                                            <textarea rows="2" class="form-control"
+                                                                      v-model="creature.condition_immunities"
+                                                                      placeholder="Condition immunities..."></textarea>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group row">
+                                                        <div class="col-4">
+                                                            <textarea class="form-control" rows="8"
+                                                                      v-model="creature.special_abilities"
+                                                                      placeholder="Special abilities..."></textarea>
+                                                        </div>
+                                                        <div class="col-4">
+                                                            <textarea class="form-control" rows="8"
+                                                                      v-model="creature.attacks"
+                                                                      placeholder="Actions..."></textarea>
+                                                        </div>
+                                                        <div class="col-4">
+                                                            <textarea class="form-control" rows="8"
+                                                                      v-model="creature.legendary_actions"
+                                                                      placeholder="Legendary Actions..."></textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
 
 
-
-                                </div>
-                                <div class="row">
-                                    <div class="col-3">
-                                        <div class="abilityScores">
-                                            <div class="score">
-                                                <label>Strength: <input type="text" v-model="creature.strength"/></label>
-                                                <div class="abilityBonus"></div>
-                                            </div>
-                                            <div class="score">
-                                                <label>Dexterity: <input type="text" v-model="creature.dexterity" /></label>
-                                                <div class="abilityBonus"></div>
-                                            </div>
-                                            <div class="score">
-                                                <label>Constitution: <input type="text" v-model="creature.constitution" /></label>
-                                                <div class="abilityBonus"></div>
-                                            </div>
-                                            <div class="score">
-                                                <label>Intelligence: <input type="text" v-model="creature.intelligence" /></label>
-                                                <div class="abilityBonus"></div>
-                                            </div>
-                                            <div class="score">
-                                                <label>Wisdom: <input type="text" v-model="creature.wisdom" /></label>
-                                                <div class="abilityBonus"></div>
                                             </div>
 
-                                            <div class="score">
-                                                <label>Charisma: <input type="text" v-model="creature.charisma" /></label>
-                                                <div class="abilityBonus"></div>
-                                            </div>
                                         </div>
                                     </div>
 
-                                    <div class="col-1"></div>
-                                        <div class="col-6">
-                                                <label  class="smallLabel" >Cr:<input name="cr" type="text" v-model="creature.challenge_rating" /></label>
-                                                <label  class="smallLabel">AC:<input name="ac" type="number" v-model="creature.armor_class" /></label>
-                                                <label>Alignment:<input name="alignment" type="text" v-model="creature.alignment" /></label>
-                                                <label>Hit Points:<input name="hp" type="text" v-model="creature.average_hitpoints" /></label>
-                                                <label>Speed:<input name="speed" type="text" v-model="creature.speed" /></label>
-                                                <label>Size:<input name="size" type="text" v-model="creature.size" /></label>
-
-                                        </div>
-                                </div>
-                                <div class="row">
-                                        <div class="col-12">
-                                            <textarea rows="2" v-model="creature.saving_throws"></textarea>
-                                            <textarea rows="2" v-model="creature.skills"></textarea>
-                                            <textarea rows="2" v-model="creature.senses"></textarea>
-                                            <textarea rows="2" v-model="creature.languages"></textarea>
-                                        </div>
-                                        <div class="col-12">
-                                            <textarea rows="2" v-model="creature.damage_vulnerabilities"></textarea>
-                                            <textarea rows="2" v-model="creature.damage_resistances"></textarea>
-                                            <textarea rows="2" v-model="creature.damage_immunities" placeholder="Damage immunities..."></textarea>
-                                            <textarea rows="2" v-model="creature.condition_immunities" placeholder="Condition immunities..."></textarea>
-                                        </div>
-
-                                </div>
-                                <div class="row">
-                                    <div class="col-12">
-
-                                            <textarea class="col-4" v-model="creature.special_abilities" placeholder="Special abilities..."></textarea>
-
-
-                                            <textarea class="col-4" v-model="creature.attacks" placeholder="Actions..."></textarea>
-
-
-                                            <textarea class="col-4" v-model="creature.legendary_actions" placeholder="Legendary Actions..."></textarea>
-
-                                    </div>
-                                </div>
+                                </form>
                             </div>
-
-
-
                         </div>
                     </div>
 
-                    <div class="modal-footer">
+                        <div class="modal-footer">
 
-                        <button class="modal-default-button" @click="$emit('close')">
-                            Close
-                        </button>
-                    </div>
+                            <button class="modal-default-button" @click="$emit('close')">
+                                Close
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -136,9 +302,7 @@
     export default {
         name: "CreatureModal",
         data() {
-            return {
-
-            }
+            return {}
         },
         props: {
             creature: Object
@@ -206,44 +370,31 @@
         -webkit-transform: scale(1.1);
         transform: scale(1.1);
     }
-    body {
-        height: 100%;
-        margin: 0px;
-        background-color: #1f2532;
-        overflow: hidden;
-    }
 
 
     #monsterView {
         height: calc(100% - 0px);
         width: calc(100% - 0px);
-        overflow: hidden;
+
         color: darkgrey;
-        padding: 10px;
         font-family: 'Quicksand', sans-serif;
     }
 
     #monsterView input, #monsterView select {
-        height: 30px;
-        width: 200px;
+
         border: none;
         border-radius: 3px;
-        padding-left: 10px;
-        padding-right: 10px;
-        margin-left: 5px;
-        margin-bottom: 5px;
-        float: right;
         font-family: inherit;
         font-size: 14px;
-        box-shadow: 0px 0px 10px 0px rgba(0,0,0, 0.2);
+        box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
         background-color: #475062;
         color: lightgrey;
     }
+
     #monsterView .smallLabel input {
-        width: 100px;
     }
+
     #monsterView select {
-        width: 220px;
     }
 
 
@@ -284,30 +435,21 @@
         font-family: inherit;
         font-size: 14px;
         margin-bottom: 5px;
-        box-shadow: 0px 0px 10px 0px rgba(0,0,0, 0.2);
+        box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
         background-color: #475062;
         color: lightgrey;
     }
 
     #monsterView textarea.small {
-        height: 28px;
-        width: 300px;
-        line-height: 15px;
+
     }
 
     #monsterView label {
-        display: inline-block;
-        width: 320px;
         text-align: right;
-        line-height: 30px;
     }
 
     #monsterView label.smallLabel {
-        display: inline-block;
-        width: 150px;
-        text-align: right;
-        line-height: 30px;
-        margin-left: 10px;
+
     }
 
     #monsterView .top {
@@ -317,48 +459,40 @@
         margin-right: 5px;
         margin-bottom: 5px;
     }
+    .img-thumbnail {
+        background-color: transparent;
+        box-shadow: 0px 0px 10px 0px rgba(172, 172, 172, 0.2);
+    }
 
     #monsterView .image {
-        float: left;
-        width: 220px;
-        height: 220px;
-        overflow: hidden;
-        margin-right: 5px;
-        margin-bottom: 5px;
-        box-shadow: 0px 0px 10px 0px rgba(172, 172, 172, 0.2);
-        background-color: white;
+        padding: 0.25rem;
+        max-width: 100%;
+        height: auto;
+        max-height: 100%;
     }
 
     #monsterView .abilityScores {
-        height: 220px;
-        width: 220px;
-        margin-right: 5px;
-        margin-bottom: 5px;
-        float: left;
+        text-align: right;
+
     }
-        #monsterView .abilityScores .score {
-        width: 210px;
-        float: left;
-        height: 35px;
-        line-height: 30px;
+
+    #monsterView .abilityScores .score {
+
     }
+
     #monsterView .abilityScores .score input {
-        width: 40px;
-        margin-right: 5px;
+        text-align: center;
     }
+
     #monsterView .abilityScores .score label {
-        float: left;
-        width: 180px;
+
     }
 
     #monsterView .abilityScores .score .abilityBonus {
-        width: 30px;
-        height: 30px;
-        line-height: 30px;
-        float: right;
+
         text-align: center;
         border-top-right-radius: 3px;
-        box-shadow: 0px 0px 10px 0px rgba(0,0,0, 0.2);
+        box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
         border-radius: 30px;
         background-color: #475062;
     }
