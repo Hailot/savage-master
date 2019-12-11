@@ -38,6 +38,7 @@
                     <th>Duration</th>
                     <th>Range</th>
                     <th>Source</th>
+                    <th></th>
 
                 </tr>
 
@@ -57,7 +58,8 @@
                     <td>{{ spell.duration}}</td>
                     <td>{{ spell.range}}</td>
                     <td>{{ spell.source}}</td>
-
+                    <td>   <button id="show-modal" @click="viewModal(spell)">Show Modal</button>
+                    </td>
                 </tr>
             </table>
             <div class="clearfix btn-group col-md-2 offset-md-5">
@@ -71,6 +73,8 @@
                 </button>
             </div>
         </section>
+        <spell-modal v-if="showModal"  @close="showModal = false" v-bind:spell="showedSpell"></spell-modal>
+
     </div>
 </template>
 
@@ -91,6 +95,8 @@
                 selectAll: false,
                 search: '',
                 disButton: false,
+                showModal: false,
+                showedSpell: '',
 
 
             }
@@ -112,6 +118,11 @@
                     }).finally(this.loading = false)
 
             },
+            viewModal(spell) {
+                this.showModal = true;
+                this.showedSpell = spell;
+            },
+
             setPages() {
                 let numberOfPages = Math.ceil(this.spells.length / this.perPage);
                 for (let index = 1; index <= numberOfPages; index++) {

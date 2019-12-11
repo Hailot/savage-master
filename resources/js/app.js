@@ -28,6 +28,8 @@ Vue.component('gear-table', require('./components/GearTable.vue').default);
 Vue.component('creature-table', require('./components/CreaturesTable.vue').default);
 Vue.component('user-profile', require('./components/UserProfile.vue').default);
 Vue.component('pagination', require('./components/PaginationComponent.vue'));
+Vue.component('spell-modal', require('./components/SpellModal.vue').default);
+Vue.component('creature-modal', require('./components/CreatureModal.vue').default);
 
 
 /**

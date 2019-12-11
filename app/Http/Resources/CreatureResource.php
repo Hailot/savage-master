@@ -33,7 +33,7 @@ class CreatureResource extends JsonResource
             'monster_hitPoints' => $this->average_hitpoints ,
             'monster_lAbtl' => $this->legendary_actions ,
             'monster_lang' => $this->languages ,
-            'monster_pic' => $this->pic ,
+            'monster_pic' => $this->url ,
             'monster_sAblt' => $this->special_abilities ,
             'monster_savingThrows' => $this->saving_throws ,
             'monster_senses' => $this->senses ,

@@ -43,7 +43,7 @@
                     <td>{{ creature.type.name}}</td>
                     <td>{{ creature.average_hitpoints}}</td>
                     <td>{{ creature.source}}</td>
-                    <td><a href="#creature-modal">Full Info</a> </td>
+                    <td> <button id="show-modal" @click="viewModal(creature)">Show Modal</button> </td>
 
 
                 </tr>
@@ -54,6 +54,7 @@
                 <button type="button" @click="page++" v-if="page < pages.length" class="btn btn-sm btn-outline-primary"> >> </button>
             </div>
         </section>
+        <creature-modal  v-if="showModal"  @close="showModal = false" v-bind:creature="showedCreature"></creature-modal>
     </div>
 
 </template>
@@ -73,6 +74,8 @@
                 selectAll: false,
                 disButton: false,
                 search: '',
+                showedCreature: '',
+                showModal: false
 
 
             }
@@ -88,6 +91,10 @@
             this.fetchCreatures();
         },
         methods: {
+            viewModal(creature) {
+                this.showModal = true;
+                this.showedCreature = creature;
+            },
             fetchCreatures() {
                 this.loading = true;
                 axios.get('/creatures/api-data')

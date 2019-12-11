@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Storage;
 
 /**
  * App\Creature
@@ -90,7 +91,12 @@ class Creature extends Model
         'strength', 'dexterity', 'constitution', 'intelligence', 'wisdom', 'charisma',
         'pic'
     ];
+    public $appends = ['url'];
 
+    public function getUrlAttribute()
+    {
+        return Storage::disk('s3')->url($this->pic);
+    }
     public function type()
     {
         return $this->belongsTo(CreatureType::class);

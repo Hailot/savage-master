@@ -1829,6 +1829,155 @@ module.exports = {
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/CreatureModal.vue?vue&type=script&lang=js&":
+/*!************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/CreatureModal.vue?vue&type=script&lang=js& ***!
+  \************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "CreatureModal",
+  data: function data() {
+    return {};
+  },
+  props: {
+    creature: Object
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/CreaturesTable.vue?vue&type=script&lang=js&":
 /*!*************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/CreaturesTable.vue?vue&type=script&lang=js& ***!
@@ -1838,6 +1987,7 @@ module.exports = {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
 //
 //
 //
@@ -1911,7 +2061,9 @@ __webpack_require__.r(__webpack_exports__);
       selected: [],
       selectAll: false,
       disButton: false,
-      search: ''
+      search: '',
+      showedCreature: '',
+      showModal: false
     };
   },
   filters: {},
@@ -1920,6 +2072,10 @@ __webpack_require__.r(__webpack_exports__);
     this.fetchCreatures();
   },
   methods: {
+    viewModal: function viewModal(creature) {
+      this.showModal = true;
+      this.showedCreature = creature;
+    },
     fetchCreatures: function fetchCreatures() {
       var _this = this;
 
@@ -2253,6 +2409,76 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/SpellModal.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/SpellModal.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "SpellModal",
+  data: function data() {
+    return {};
+  },
+  props: {
+    spell: Object
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/SpellsTable.vue?vue&type=script&lang=js&":
 /*!**********************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/SpellsTable.vue?vue&type=script&lang=js& ***!
@@ -2264,6 +2490,10 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var fuzzaldrin_plus__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! fuzzaldrin-plus */ "./node_modules/fuzzaldrin-plus/lib/fuzzaldrin.js");
 /* harmony import */ var fuzzaldrin_plus__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(fuzzaldrin_plus__WEBPACK_IMPORTED_MODULE_0__);
+//
+//
+//
+//
 //
 //
 //
@@ -2354,7 +2584,9 @@ __webpack_require__.r(__webpack_exports__);
       selected: [],
       selectAll: false,
       search: '',
-      disButton: false
+      disButton: false,
+      showModal: false,
+      showedSpell: ''
     };
   },
   filters: {},
@@ -2371,6 +2603,10 @@ __webpack_require__.r(__webpack_exports__);
         _this.spells = response.data;
         console.log(response);
       })["finally"](this.loading = false);
+    },
+    viewModal: function viewModal(spell) {
+      this.showModal = true;
+      this.showedSpell = spell;
     },
     setPages: function setPages() {
       var numberOfPages = Math.ceil(this.spells.length / this.perPage);
@@ -7019,6 +7255,25 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/CreatureModal.vue?vue&type=style&index=0&id=45dc5b5a&scoped=true&lang=css&":
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/CreatureModal.vue?vue&type=style&index=0&id=45dc5b5a&scoped=true&lang=css& ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.modal-mask[data-v-45dc5b5a] {\n    position: fixed;\n    z-index: 9998;\n    top: 0;\n    left: 0;\n    width: 100%;\n    height: 100%;\n    background-color: rgba(0, 0, 0, .5);\n    display: table;\n    -webkit-transition: opacity .3s ease;\n    transition: opacity .3s ease;\n}\n.modal-wrapper[data-v-45dc5b5a] {\n    display: table-cell;\n    vertical-align: middle;\n}\n.modal-container[data-v-45dc5b5a] {\n    margin: 0px auto;\n    padding: 20px 30px;\n    background-color: #fff;\n    border-radius: 2px;\n    box-shadow: 0 2px 8px rgba(0, 0, 0, .33);\n    -webkit-transition: all .3s ease;\n    transition: all .3s ease;\n    font-family: Helvetica, Arial, sans-serif;\n}\n.modal-header h3[data-v-45dc5b5a] {\n    margin-top: 0;\n    color: #42b983;\n}\n.modal-body[data-v-45dc5b5a] {\n    margin: 20px 0;\n}\n.modal-default-button[data-v-45dc5b5a] {\n    float: right;\n}\n\n/*\n * The following styles are auto-applied to elements with\n * transition=\"modal\" when their visibility is toggled\n * by Vue.js.\n *\n * You can easily play with the modal transition by editing\n * these styles.\n */\n.modal-enter[data-v-45dc5b5a] {\n    opacity: 0;\n}\n.modal-leave-active[data-v-45dc5b5a] {\n    opacity: 0;\n}\n.modal-enter .modal-container[data-v-45dc5b5a],\n.modal-leave-active .modal-container[data-v-45dc5b5a] {\n    -webkit-transform: scale(1.1);\n    transform: scale(1.1);\n}\nbody[data-v-45dc5b5a] {\n    height: 100%;\n    margin: 0px;\n    background-color: #1f2532;\n    overflow: hidden;\n}\n#monsterView[data-v-45dc5b5a] {\n    height: calc(100% - 20px);\n    width: calc(100% - 20px);\n    overflow: hidden;\n    color: darkgrey;\n    padding: 10px;\n    font-family: 'Quicksand', sans-serif;\n}\n#monsterView input[data-v-45dc5b5a], #monsterView select[data-v-45dc5b5a] {\n    height: 30px;\n    width: 200px;\n    border: none;\n    border-radius: 3px;\n    padding-left: 10px;\n    padding-right: 10px;\n    margin-left: 5px;\n    margin-bottom: 5px;\n    float: right;\n    font-family: inherit;\n    font-size: 14px;\n    box-shadow: 0px 0px 10px 0px rgba(0,0,0, 0.2);\n    background-color: #475062;\n    color: lightgrey;\n}\n#monsterView .smallLabel input[data-v-45dc5b5a] {\n    width: 100px;\n}\n#monsterView select[data-v-45dc5b5a] {\n    width: 220px;\n}\n#monsterView button[data-v-45dc5b5a] {\n    height: 32px;\n    width: auto;\n    border: none;\n    border-radius: 5px;\n    padding-left: 10px;\n    padding-right: 10px;\n    margin-bottom: 5px;\n    margin-left: 5px;\n    text-align: center;\n    float: right;\n    font-family: inherit;\n    font-size: 14px;\n    background-color: #522a82;\n    color: #cfc8d8;\n    cursor: pointer;\n}\n#monsterView button[data-v-45dc5b5a]:hover {\n    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.7);\n    cursor: pointer;\n}\n#monsterView button.delete[data-v-45dc5b5a] {\n    background-color: darkred;\n}\n#monsterView textarea[data-v-45dc5b5a] {\n    height: 218px;\n    width: 268px;\n    float: left;\n    resize: none;\n    border-radius: 3px;\n    border-bottom-right-radius: 0px;\n    border: none;\n    padding: 10px;\n    font-family: inherit;\n    font-size: 14px;\n    margin-right: 5px;\n    margin-bottom: 5px;\n    box-shadow: 0px 0px 10px 0px rgba(0,0,0, 0.2);\n    background-color: #475062;\n    color: lightgrey;\n}\n#monsterView textarea.small[data-v-45dc5b5a] {\n    height: 28px;\n    width: 300px;\n    line-height: 15px;\n}\n#monsterView label[data-v-45dc5b5a] {\n    display: inline-block;\n    width: 320px;\n    text-align: right;\n    line-height: 30px;\n}\n#monsterView label.smallLabel[data-v-45dc5b5a] {\n    display: inline-block;\n    width: 150px;\n    text-align: right;\n    line-height: 30px;\n    margin-left: 10px;\n}\n#monsterView .top[data-v-45dc5b5a] {\n    float: left;\n    width: 320px;\n    height: 220px;\n    margin-right: 5px;\n    margin-bottom: 5px;\n}\n#monsterView .image[data-v-45dc5b5a] {\n    float: left;\n    width: 220px;\n    height: 220px;\n    overflow: hidden;\n    margin-right: 5px;\n    margin-bottom: 5px;\n    box-shadow: 0px 0px 10px 0px rgba(172, 172, 172, 0.2);\n    background-color: white;\n}\n#monsterView .abilityScores[data-v-45dc5b5a] {\n    height: 220px;\n    width: 220px;\n    margin-right: 5px;\n    margin-bottom: 5px;\n    float: left;\n}\n#monsterView .abilityScores .score[data-v-45dc5b5a] {\n    width: 210px;\n    float: left;\n    height: 35px;\n    line-height: 30px;\n}\n#monsterView .abilityScores .score input[data-v-45dc5b5a] {\n    width: 40px;\n    margin-right: 5px;\n}\n#monsterView .abilityScores .score label[data-v-45dc5b5a] {\n    float: left;\n    width: 180px;\n}\n#monsterView .abilityScores .score .abilityBonus[data-v-45dc5b5a] {\n    width: 30px;\n    height: 30px;\n    line-height: 30px;\n    float: right;\n    text-align: center;\n    border-top-right-radius: 3px;\n    box-shadow: 0px 0px 10px 0px rgba(0,0,0, 0.2);\n    border-radius: 30px;\n    background-color: #475062;\n}\n#monsterView[data-v-45dc5b5a]::-webkit-scrollbar,\n#monsterView textarea[data-v-45dc5b5a]::-webkit-scrollbar {\n    width: 6px;\n    background-color: rgba(0, 0, 0, 0.425);\n    border-radius: 5px;\n}\n#monsterView[data-v-45dc5b5a]::-webkit-scrollbar-thumb,\n#monsterView textarea[data-v-45dc5b5a]::-webkit-scrollbar-thumb {\n    background-color: #8000ff;\n    border-radius: 5px;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/PaginationComponent.vue?vue&type=style&index=0&lang=css&":
 /*!*************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/PaginationComponent.vue?vue&type=style&index=0&lang=css& ***!
@@ -7032,6 +7287,25 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 // module
 exports.push([module.i, "\n.pagination {\n    margin-top: 40px;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/SpellModal.vue?vue&type=style&index=0&id=3cea7490&scoped=true&lang=css&":
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/SpellModal.vue?vue&type=style&index=0&id=3cea7490&scoped=true&lang=css& ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.modal-mask[data-v-3cea7490] {\n    position: fixed;\n    z-index: 9998;\n    top: 0;\n    left: 0;\n    width: 100%;\n    height: 100%;\n    background-color: rgba(0, 0, 0, .5);\n    display: table;\n    -webkit-transition: opacity .3s ease;\n    transition: opacity .3s ease;\n}\n.modal-wrapper[data-v-3cea7490] {\n    display: table-cell;\n    vertical-align: middle;\n}\n.modal-container[data-v-3cea7490] {\n    width: 300px;\n    margin: 0px auto;\n    padding: 20px 30px;\n    background-color: #fff;\n    border-radius: 2px;\n    box-shadow: 0 2px 8px rgba(0, 0, 0, .33);\n    -webkit-transition: all .3s ease;\n    transition: all .3s ease;\n    font-family: Helvetica, Arial, sans-serif;\n}\n.modal-header h3[data-v-3cea7490] {\n    margin-top: 0;\n    color: #42b983;\n}\n.modal-body[data-v-3cea7490] {\n    margin: 20px 0;\n}\n.modal-default-button[data-v-3cea7490] {\n    float: right;\n}\n\n/*\n * The following styles are auto-applied to elements with\n * transition=\"modal\" when their visibility is toggled\n * by Vue.js.\n *\n * You can easily play with the modal transition by editing\n * these styles.\n */\n.modal-enter[data-v-3cea7490] {\n    opacity: 0;\n}\n.modal-leave-active[data-v-3cea7490] {\n    opacity: 0;\n}\n.modal-enter .modal-container[data-v-3cea7490],\n.modal-leave-active .modal-container[data-v-3cea7490] {\n    -webkit-transform: scale(1.1);\n    transform: scale(1.1);\n}\n#spellView[data-v-3cea7490] {\n    height: calc(100% - 20px);\n    width: calc(100% - 20px);\n    overflow: hidden;\n    color: darkgray;\n    padding: 10px;\n    font-family: 'Quicksand', sans-serif;\n}\n#spellView input[data-v-3cea7490], #spellView select[data-v-3cea7490] {\n    height: 30px;\n    width: 300px;\n    border: none;\n    border-radius: 3px;\n    padding-left: 10px;\n    padding-right: 10px;\n    margin-left: 5px;\n    margin-bottom: 5px;\n    float: right;\n    font-family: inherit;\n    font-size: 14px;\n    box-shadow: 0px 0px 10px 0px rgba(0,0,0, 0.2);\n    background-color: #475062;\n    color: lightgrey;\n}\n#spellView select[data-v-3cea7490] {\n    width: 320px;\n}\n#spellView button[data-v-3cea7490] {\n    height: 28px;\n    width: auto;\n    border: none;\n    border-radius: 5px;\n    padding-left: 10px;\n    padding-right: 10px;\n    margin-left: 10px;\n    margin-bottom: 5px;\n    text-align: center;\n    float: left;\n    font-family: inherit;\n    font-size: 14px;\n    background-color: #522a82;\n    color: #cfc8d8;\n    border-bottom: 2px solid transparent;\n    cursor: pointer;\n}\n#spellView button[data-v-3cea7490]:hover {\n    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.7);\n    cursor: pointer;\n}\n#spellView button.delete[data-v-3cea7490] {\n    background-color: darkred;\n}\n#spellView textarea[data-v-3cea7490] {\n    height: 309px;\n    width: 444px;\n    float: left;\n    resize: none;\n    border-radius: 3px;\n    border-bottom-right-radius: 0px;\n    border: none;\n    padding: 10px;\n    font-family: inherit;\n    font-size: 14px;\n    margin-bottom: 5px;\n    box-shadow: 0px 0px 10px 0px rgba(0,0,0, 0.2);\n    background-color: lightgrey;\n    color: inherit;\n}\n#spellView label[data-v-3cea7490] {\n    display: inline-block;\n    width: 450px;\n    text-align: right;\n    line-height: 30px;\n    float: left;\n}\n#spellView label .labelText[data-v-3cea7490]{\n    float: left;\n    height: 37px;\n    line-height: 33px;\n}\n#spellView label.small[data-v-3cea7490] {\n    width: 225px;\n}\n#spellView label.left[data-v-3cea7490] {\n    width: 215px;\n    float:left;\n    text-align: left;\n    padding-left: 5px;\n    padding-right: 5px;\n}\n#spellView label.small input[data-v-3cea7490]{\n    width: 75px;\n}\n#spellView label.left input[data-v-3cea7490]{\n    float: left;\n}\n#spellView label.small input[type=checkbox][data-v-3cea7490]{\n    width: 15px;\n    background: none;\n    box-shadow: none;\n}\n#spellView .top[data-v-3cea7490] {\n    float: left;\n    width: 450px;\n    margin-right: 10px;\n}\n#spellView[data-v-3cea7490]::-webkit-scrollbar,\n#spellView textarea[data-v-3cea7490]::-webkit-scrollbar {\n    width: 6px;\n    background-color: rgba(0, 0, 0, 0.425);\n    border-radius: 5px;\n}\n#spellView[data-v-3cea7490]::-webkit-scrollbar-thumb,\n#spellView textarea[data-v-3cea7490]::-webkit-scrollbar-thumb {\n    background-color: #8000ff;\n    border-radius: 5px;\n}\n.checkbox-label[data-v-3cea7490] {\n    display: block;\n    position: relative;\n    cursor: pointer;\n}\n.checkbox-label input[data-v-3cea7490] {\n    position: absolute;\n    opacity: 0;\n    cursor: pointer;\n}\n.checkbox-label .checkbox-custom[data-v-3cea7490] {\n    position: absolute;\n    top: 2px;\n    left: 60px;\n    height: 24px;\n    width: 24px;\n    background-color: transparent;\n    border-radius: 5px;\n    transition: all 0.3s ease-out;\n    -webkit-transition: all 0.3s ease-out;\n    -moz-transition: all 0.3s ease-out;\n    -ms-transition: all 0.3s ease-out;\n    -o-transition: all 0.3s ease-out;\n    border: 2px solid #FFFFFF;\n    box-shadow: 0px 0px 10px 0px rgba(172, 172, 172, 0.2);\n}\n.checkbox-label input:checked ~ .checkbox-custom[data-v-3cea7490] {\n    border-radius: 5px;\n    -webkit-transform: rotate(0deg) scale(1);\n    transform: rotate(0deg) scale(1);\n    opacity:1;\n    border: 2px solid #FFFFFF;\n    background-color: lightgrey;\n}\n.checkbox-label .checkbox-custom[data-v-3cea7490]::after {\n    position: absolute;\n    content: \"\";\n    left: 12px;\n    top: 12px;\n    height: 0px;\n    width: 0px;\n    border-radius: 5px;\n    border: solid #8000ff;\n    border-width: 0 3px 3px 0;\n    -webkit-transform: rotate(0deg) scale(0);\n    transform: rotate(0deg) scale(0);\n    opacity:1;\n    transition: all 0.3s ease-out;\n    -webkit-transition: all 0.3s ease-out;\n    -moz-transition: all 0.3s ease-out;\n    -ms-transition: all 0.3s ease-out;\n    -o-transition: all 0.3s ease-out;\n}\n.checkbox-label input:checked ~ .checkbox-custom[data-v-3cea7490]::after {\n    -webkit-transform: rotate(45deg) scale(1);\n    transform: rotate(45deg) scale(1);\n    opacity:1;\n    left: 8px;\n    top: 3px;\n    width: 6px;\n    height: 12px;\n    border: solid #8000ff;\n    border-width: 0 2px 2px 0;\n    background-color: transparent;\n    border-radius: 0;\n}\n.checkbox-label input:checked ~ .checkbox-custom[data-v-3cea7490]::before {\n    transition: all 0.3s ease-out;\n    -webkit-transition: all 0.3s ease-out;\n    -moz-transition: all 0.3s ease-out;\n    -ms-transition: all 0.3s ease-out;\n    -o-transition: all 0.3s ease-out;\n}\n\n\n/* Style for Circular Checkbox */\n.checkbox-label .checkbox-custom.circular[data-v-3cea7490] {\n    border-radius: 50%;\n    border: 2px solid #8000ff;\n}\n.checkbox-label input:checked ~ .checkbox-custom.circular[data-v-3cea7490] {\n    background-color: lightgrey;\n    border-radius: 50%;\n    border: 2px solid lightgrey;\n}\n.checkbox-label input:checked ~ .checkbox-custom.circular[data-v-3cea7490]::after {\n    border: solid #8000ff;\n    border-width: 0 2px 2px 0;\n}\n.checkbox-label .checkbox-custom.circular[data-v-3cea7490]::after {\n    border-radius: 50%;\n}\n.checkbox-label .checkbox-custom.circular[data-v-3cea7490]::before {\n    border-radius: 50%;\n    border: 2px solid #FFFFFF;\n}\n.checkbox-label input:checked ~ .checkbox-custom.circular[data-v-3cea7490]::before {\n    border-radius: 50%;\n}\n", ""]);
 
 // exports
 
@@ -38833,6 +39107,36 @@ process.umask = function() { return 0; };
 
 /***/ }),
 
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/CreatureModal.vue?vue&type=style&index=0&id=45dc5b5a&scoped=true&lang=css&":
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/CreatureModal.vue?vue&type=style&index=0&id=45dc5b5a&scoped=true&lang=css& ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../node_modules/css-loader??ref--6-1!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--6-2!../../../node_modules/vue-loader/lib??vue-loader-options!./CreatureModal.vue?vue&type=style&index=0&id=45dc5b5a&scoped=true&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/CreatureModal.vue?vue&type=style&index=0&id=45dc5b5a&scoped=true&lang=css&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
 /***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/PaginationComponent.vue?vue&type=style&index=0&lang=css&":
 /*!*****************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/PaginationComponent.vue?vue&type=style&index=0&lang=css& ***!
@@ -38842,6 +39146,36 @@ process.umask = function() { return 0; };
 
 
 var content = __webpack_require__(/*! !../../../node_modules/css-loader??ref--6-1!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--6-2!../../../node_modules/vue-loader/lib??vue-loader-options!./PaginationComponent.vue?vue&type=style&index=0&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/PaginationComponent.vue?vue&type=style&index=0&lang=css&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/SpellModal.vue?vue&type=style&index=0&id=3cea7490&scoped=true&lang=css&":
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/SpellModal.vue?vue&type=style&index=0&id=3cea7490&scoped=true&lang=css& ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../node_modules/css-loader??ref--6-1!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--6-2!../../../node_modules/vue-loader/lib??vue-loader-options!./SpellModal.vue?vue&type=style&index=0&id=3cea7490&scoped=true&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/SpellModal.vue?vue&type=style&index=0&id=3cea7490&scoped=true&lang=css&");
 
 if(typeof content === 'string') content = [[module.i, content, '']];
 
@@ -39447,6 +39781,922 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/CreatureModal.vue?vue&type=template&id=45dc5b5a&scoped=true&":
+/*!****************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/CreatureModal.vue?vue&type=template&id=45dc5b5a&scoped=true& ***!
+  \****************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("transition", { attrs: { name: "modal" } }, [
+    _c(
+      "div",
+      {
+        staticClass: "modal modal-mask",
+        attrs: { tabindex: "-1", role: "dialog" }
+      },
+      [
+        _c(
+          "div",
+          {
+            staticClass: "modal-dialog modal-dialog-scrollable modal-wrapper",
+            attrs: { role: "document" }
+          },
+          [
+            _c(
+              "div",
+              { staticClass: "modal-content modal-container bg-dark" },
+              [
+                _c("div", { staticClass: "modal-header" }, [
+                  _c("div", { staticClass: "text-center" }, [
+                    _c("h3", [_vm._v(_vm._s(_vm.creature.name))])
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "modal-default-button float-right",
+                      on: {
+                        click: function($event) {
+                          return _vm.$emit("close")
+                        }
+                      }
+                    },
+                    [
+                      _vm._v(
+                        "\n                        Close\n                    "
+                      )
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "modal-body" }, [
+                  _c("div", { staticClass: "container-fluid" }, [
+                    _c("div", { attrs: { id: "monsterView" } }, [
+                      _c("div", { staticClass: "row" }, [
+                        _c("div", { staticClass: "row" }, [
+                          _vm.creature.pic != ""
+                            ? _c("div", { staticClass: "col-4" }, [
+                                _c("img", {
+                                  staticClass:
+                                    " img-thumbnail rounded float-left",
+                                  attrs: { src: _vm.creature.url, alt: "..." }
+                                })
+                              ])
+                            : _c("div", { staticClass: "col-4" }, [
+                                _c("img", {
+                                  staticClass:
+                                    " img-thumbnail rounded float-left",
+                                  attrs: { src: "", alt: "..." }
+                                })
+                              ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "col-6 p-2" }, [
+                            _c("div", {}, [
+                              _c("label", [
+                                _vm._v("Name:"),
+                                _c("input", {
+                                  directives: [
+                                    {
+                                      name: "model",
+                                      rawName: "v-model",
+                                      value: _vm.creature.name,
+                                      expression: "creature.name"
+                                    }
+                                  ],
+                                  attrs: { name: "name", type: "text" },
+                                  domProps: { value: _vm.creature.name },
+                                  on: {
+                                    input: function($event) {
+                                      if ($event.target.composing) {
+                                        return
+                                      }
+                                      _vm.$set(
+                                        _vm.creature,
+                                        "name",
+                                        $event.target.value
+                                      )
+                                    }
+                                  }
+                                })
+                              ]),
+                              _vm._v(" "),
+                              _c("label", [
+                                _vm._v("Type:"),
+                                _c("input", {
+                                  directives: [
+                                    {
+                                      name: "model",
+                                      rawName: "v-model",
+                                      value: _vm.creature.type.name,
+                                      expression: "creature.type.name"
+                                    }
+                                  ],
+                                  attrs: { name: "type", type: "text" },
+                                  domProps: { value: _vm.creature.type.name },
+                                  on: {
+                                    input: function($event) {
+                                      if ($event.target.composing) {
+                                        return
+                                      }
+                                      _vm.$set(
+                                        _vm.creature.type,
+                                        "name",
+                                        $event.target.value
+                                      )
+                                    }
+                                  }
+                                })
+                              ]),
+                              _vm._v(" "),
+                              _c("label", [
+                                _vm._v("Subtype:"),
+                                _c("input", {
+                                  attrs: { name: "subtype", type: "text" }
+                                })
+                              ]),
+                              _vm._v(" "),
+                              _c("label", [
+                                _vm._v("Pic:"),
+                                _c("input", {
+                                  directives: [
+                                    {
+                                      name: "model",
+                                      rawName: "v-model",
+                                      value: _vm.creature.pic,
+                                      expression: "creature.pic"
+                                    }
+                                  ],
+                                  attrs: { name: "pic", type: "text" },
+                                  domProps: { value: _vm.creature.pic },
+                                  on: {
+                                    input: function($event) {
+                                      if ($event.target.composing) {
+                                        return
+                                      }
+                                      _vm.$set(
+                                        _vm.creature,
+                                        "pic",
+                                        $event.target.value
+                                      )
+                                    }
+                                  }
+                                })
+                              ]),
+                              _vm._v(" "),
+                              _c("label", [
+                                _vm._v("Source:"),
+                                _c("input", {
+                                  directives: [
+                                    {
+                                      name: "model",
+                                      rawName: "v-model",
+                                      value: _vm.creature.source,
+                                      expression: "creature.source"
+                                    }
+                                  ],
+                                  attrs: { name: "source", type: "text" },
+                                  domProps: { value: _vm.creature.source },
+                                  on: {
+                                    input: function($event) {
+                                      if ($event.target.composing) {
+                                        return
+                                      }
+                                      _vm.$set(
+                                        _vm.creature,
+                                        "source",
+                                        $event.target.value
+                                      )
+                                    }
+                                  }
+                                })
+                              ])
+                            ])
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "row" }, [
+                          _c("div", { staticClass: "col-3" }, [
+                            _c("div", { staticClass: "abilityScores" }, [
+                              _c("div", { staticClass: "score" }, [
+                                _c("label", [
+                                  _vm._v("Strength: "),
+                                  _c("input", {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value: _vm.creature.strength,
+                                        expression: "creature.strength"
+                                      }
+                                    ],
+                                    attrs: { type: "text" },
+                                    domProps: { value: _vm.creature.strength },
+                                    on: {
+                                      input: function($event) {
+                                        if ($event.target.composing) {
+                                          return
+                                        }
+                                        _vm.$set(
+                                          _vm.creature,
+                                          "strength",
+                                          $event.target.value
+                                        )
+                                      }
+                                    }
+                                  })
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "abilityBonus" })
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "score" }, [
+                                _c("label", [
+                                  _vm._v("Dexterity: "),
+                                  _c("input", {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value: _vm.creature.dexterity,
+                                        expression: "creature.dexterity"
+                                      }
+                                    ],
+                                    attrs: { type: "text" },
+                                    domProps: { value: _vm.creature.dexterity },
+                                    on: {
+                                      input: function($event) {
+                                        if ($event.target.composing) {
+                                          return
+                                        }
+                                        _vm.$set(
+                                          _vm.creature,
+                                          "dexterity",
+                                          $event.target.value
+                                        )
+                                      }
+                                    }
+                                  })
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "abilityBonus" })
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "score" }, [
+                                _c("label", [
+                                  _vm._v("Constitution: "),
+                                  _c("input", {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value: _vm.creature.constitution,
+                                        expression: "creature.constitution"
+                                      }
+                                    ],
+                                    attrs: { type: "text" },
+                                    domProps: {
+                                      value: _vm.creature.constitution
+                                    },
+                                    on: {
+                                      input: function($event) {
+                                        if ($event.target.composing) {
+                                          return
+                                        }
+                                        _vm.$set(
+                                          _vm.creature,
+                                          "constitution",
+                                          $event.target.value
+                                        )
+                                      }
+                                    }
+                                  })
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "abilityBonus" })
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "score" }, [
+                                _c("label", [
+                                  _vm._v("Intelligence: "),
+                                  _c("input", {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value: _vm.creature.intelligence,
+                                        expression: "creature.intelligence"
+                                      }
+                                    ],
+                                    attrs: { type: "text" },
+                                    domProps: {
+                                      value: _vm.creature.intelligence
+                                    },
+                                    on: {
+                                      input: function($event) {
+                                        if ($event.target.composing) {
+                                          return
+                                        }
+                                        _vm.$set(
+                                          _vm.creature,
+                                          "intelligence",
+                                          $event.target.value
+                                        )
+                                      }
+                                    }
+                                  })
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "abilityBonus" })
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "score" }, [
+                                _c("label", [
+                                  _vm._v("Wisdom: "),
+                                  _c("input", {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value: _vm.creature.wisdom,
+                                        expression: "creature.wisdom"
+                                      }
+                                    ],
+                                    attrs: { type: "text" },
+                                    domProps: { value: _vm.creature.wisdom },
+                                    on: {
+                                      input: function($event) {
+                                        if ($event.target.composing) {
+                                          return
+                                        }
+                                        _vm.$set(
+                                          _vm.creature,
+                                          "wisdom",
+                                          $event.target.value
+                                        )
+                                      }
+                                    }
+                                  })
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "abilityBonus" })
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "score" }, [
+                                _c("label", [
+                                  _vm._v("Charisma: "),
+                                  _c("input", {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value: _vm.creature.charisma,
+                                        expression: "creature.charisma"
+                                      }
+                                    ],
+                                    attrs: { type: "text" },
+                                    domProps: { value: _vm.creature.charisma },
+                                    on: {
+                                      input: function($event) {
+                                        if ($event.target.composing) {
+                                          return
+                                        }
+                                        _vm.$set(
+                                          _vm.creature,
+                                          "charisma",
+                                          $event.target.value
+                                        )
+                                      }
+                                    }
+                                  })
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "abilityBonus" })
+                              ])
+                            ])
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "col-1" }),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "col-6" }, [
+                            _c("label", { staticClass: "smallLabel" }, [
+                              _vm._v("Cr:"),
+                              _c("input", {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.creature.challenge_rating,
+                                    expression: "creature.challenge_rating"
+                                  }
+                                ],
+                                attrs: { name: "cr", type: "text" },
+                                domProps: {
+                                  value: _vm.creature.challenge_rating
+                                },
+                                on: {
+                                  input: function($event) {
+                                    if ($event.target.composing) {
+                                      return
+                                    }
+                                    _vm.$set(
+                                      _vm.creature,
+                                      "challenge_rating",
+                                      $event.target.value
+                                    )
+                                  }
+                                }
+                              })
+                            ]),
+                            _vm._v(" "),
+                            _c("label", { staticClass: "smallLabel" }, [
+                              _vm._v("AC:"),
+                              _c("input", {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.creature.armor_class,
+                                    expression: "creature.armor_class"
+                                  }
+                                ],
+                                attrs: { name: "ac", type: "number" },
+                                domProps: { value: _vm.creature.armor_class },
+                                on: {
+                                  input: function($event) {
+                                    if ($event.target.composing) {
+                                      return
+                                    }
+                                    _vm.$set(
+                                      _vm.creature,
+                                      "armor_class",
+                                      $event.target.value
+                                    )
+                                  }
+                                }
+                              })
+                            ]),
+                            _vm._v(" "),
+                            _c("label", [
+                              _vm._v("Alignment:"),
+                              _c("input", {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.creature.alignment,
+                                    expression: "creature.alignment"
+                                  }
+                                ],
+                                attrs: { name: "alignment", type: "text" },
+                                domProps: { value: _vm.creature.alignment },
+                                on: {
+                                  input: function($event) {
+                                    if ($event.target.composing) {
+                                      return
+                                    }
+                                    _vm.$set(
+                                      _vm.creature,
+                                      "alignment",
+                                      $event.target.value
+                                    )
+                                  }
+                                }
+                              })
+                            ]),
+                            _vm._v(" "),
+                            _c("label", [
+                              _vm._v("Hit Points:"),
+                              _c("input", {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.creature.average_hitpoints,
+                                    expression: "creature.average_hitpoints"
+                                  }
+                                ],
+                                attrs: { name: "hp", type: "text" },
+                                domProps: {
+                                  value: _vm.creature.average_hitpoints
+                                },
+                                on: {
+                                  input: function($event) {
+                                    if ($event.target.composing) {
+                                      return
+                                    }
+                                    _vm.$set(
+                                      _vm.creature,
+                                      "average_hitpoints",
+                                      $event.target.value
+                                    )
+                                  }
+                                }
+                              })
+                            ]),
+                            _vm._v(" "),
+                            _c("label", [
+                              _vm._v("Speed:"),
+                              _c("input", {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.creature.speed,
+                                    expression: "creature.speed"
+                                  }
+                                ],
+                                attrs: { name: "speed", type: "text" },
+                                domProps: { value: _vm.creature.speed },
+                                on: {
+                                  input: function($event) {
+                                    if ($event.target.composing) {
+                                      return
+                                    }
+                                    _vm.$set(
+                                      _vm.creature,
+                                      "speed",
+                                      $event.target.value
+                                    )
+                                  }
+                                }
+                              })
+                            ]),
+                            _vm._v(" "),
+                            _c("label", [
+                              _vm._v("Size:"),
+                              _c("input", {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.creature.size,
+                                    expression: "creature.size"
+                                  }
+                                ],
+                                attrs: { name: "size", type: "text" },
+                                domProps: { value: _vm.creature.size },
+                                on: {
+                                  input: function($event) {
+                                    if ($event.target.composing) {
+                                      return
+                                    }
+                                    _vm.$set(
+                                      _vm.creature,
+                                      "size",
+                                      $event.target.value
+                                    )
+                                  }
+                                }
+                              })
+                            ])
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "row" }, [
+                          _c("div", { staticClass: "col-12" }, [
+                            _c("textarea", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.creature.saving_throws,
+                                  expression: "creature.saving_throws"
+                                }
+                              ],
+                              staticClass: "small",
+                              domProps: { value: _vm.creature.saving_throws },
+                              on: {
+                                input: function($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.$set(
+                                    _vm.creature,
+                                    "saving_throws",
+                                    $event.target.value
+                                  )
+                                }
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c("textarea", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.creature.skills,
+                                  expression: "creature.skills"
+                                }
+                              ],
+                              staticClass: "small",
+                              domProps: { value: _vm.creature.skills },
+                              on: {
+                                input: function($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.$set(
+                                    _vm.creature,
+                                    "skills",
+                                    $event.target.value
+                                  )
+                                }
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c("textarea", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.creature.senses,
+                                  expression: "creature.senses"
+                                }
+                              ],
+                              staticClass: "small",
+                              domProps: { value: _vm.creature.senses },
+                              on: {
+                                input: function($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.$set(
+                                    _vm.creature,
+                                    "senses",
+                                    $event.target.value
+                                  )
+                                }
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c("textarea", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.creature.languages,
+                                  expression: "creature.languages"
+                                }
+                              ],
+                              staticClass: "small",
+                              domProps: { value: _vm.creature.languages },
+                              on: {
+                                input: function($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.$set(
+                                    _vm.creature,
+                                    "languages",
+                                    $event.target.value
+                                  )
+                                }
+                              }
+                            })
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "col-12" }, [
+                            _c("textarea", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.creature.damage_vulnerabilities,
+                                  expression: "creature.damage_vulnerabilities"
+                                }
+                              ],
+                              staticClass: "small",
+                              domProps: {
+                                value: _vm.creature.damage_vulnerabilities
+                              },
+                              on: {
+                                input: function($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.$set(
+                                    _vm.creature,
+                                    "damage_vulnerabilities",
+                                    $event.target.value
+                                  )
+                                }
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c("textarea", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.creature.damage_resistances,
+                                  expression: "creature.damage_resistances"
+                                }
+                              ],
+                              staticClass: "small",
+                              domProps: {
+                                value: _vm.creature.damage_resistances
+                              },
+                              on: {
+                                input: function($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.$set(
+                                    _vm.creature,
+                                    "damage_resistances",
+                                    $event.target.value
+                                  )
+                                }
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c("textarea", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.creature.damage_immunities,
+                                  expression: "creature.damage_immunities"
+                                }
+                              ],
+                              staticClass: "small",
+                              attrs: { placeholder: "Damage immunities..." },
+                              domProps: {
+                                value: _vm.creature.damage_immunities
+                              },
+                              on: {
+                                input: function($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.$set(
+                                    _vm.creature,
+                                    "damage_immunities",
+                                    $event.target.value
+                                  )
+                                }
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c("textarea", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.creature.condition_immunities,
+                                  expression: "creature.condition_immunities"
+                                }
+                              ],
+                              staticClass: "small",
+                              attrs: { placeholder: "Condition immunities..." },
+                              domProps: {
+                                value: _vm.creature.condition_immunities
+                              },
+                              on: {
+                                input: function($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.$set(
+                                    _vm.creature,
+                                    "condition_immunities",
+                                    $event.target.value
+                                  )
+                                }
+                              }
+                            })
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "row" }, [
+                          _c("div", { staticClass: "col-12" }, [
+                            _c("textarea", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.creature.special_abilities,
+                                  expression: "creature.special_abilities"
+                                }
+                              ],
+                              attrs: { placeholder: "Special abilities..." },
+                              domProps: {
+                                value: _vm.creature.special_abilities
+                              },
+                              on: {
+                                input: function($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.$set(
+                                    _vm.creature,
+                                    "special_abilities",
+                                    $event.target.value
+                                  )
+                                }
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c("textarea", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.creature.attacks,
+                                  expression: "creature.attacks"
+                                }
+                              ],
+                              attrs: { placeholder: "Actions..." },
+                              domProps: { value: _vm.creature.attacks },
+                              on: {
+                                input: function($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.$set(
+                                    _vm.creature,
+                                    "attacks",
+                                    $event.target.value
+                                  )
+                                }
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c("textarea", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.creature.legendary_actions,
+                                  expression: "creature.legendary_actions"
+                                }
+                              ],
+                              attrs: { placeholder: "Legendary Actions..." },
+                              domProps: {
+                                value: _vm.creature.legendary_actions
+                              },
+                              on: {
+                                input: function($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.$set(
+                                    _vm.creature,
+                                    "legendary_actions",
+                                    $event.target.value
+                                  )
+                                }
+                              }
+                            })
+                          ])
+                        ])
+                      ])
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "modal-footer" }, [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "modal-default-button",
+                        on: {
+                          click: function($event) {
+                            return _vm.$emit("close")
+                          }
+                        }
+                      },
+                      [
+                        _vm._v(
+                          "\n                        Close\n                    "
+                        )
+                      ]
+                    )
+                  ])
+                ])
+              ]
+            )
+          ]
+        )
+      ]
+    )
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/CreaturesTable.vue?vue&type=template&id=65009a45&scoped=true&":
 /*!*****************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/CreaturesTable.vue?vue&type=template&id=65009a45&scoped=true& ***!
@@ -39462,244 +40712,275 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "table-responsive" }, [
-    _vm.errored
-      ? _c("section", [
-          _c("p", [
-            _vm._v(
-              "We're sorry, we're not able to retrieve this information at the moment, please try back later"
-            )
+  return _c(
+    "div",
+    { staticClass: "table-responsive" },
+    [
+      _vm.errored
+        ? _c("section", [
+            _c("p", [
+              _vm._v(
+                "We're sorry, we're not able to retrieve this information at the moment, please try back later"
+              )
+            ])
           ])
-        ])
-      : _c("section", [
-          _c(
-            "table",
-            { staticClass: "table table-striped table-hover table-dark " },
-            [
-              _c(
-                "div",
-                { staticClass: "search-wrapper justify-content-center" },
-                [
-                  _c("label", [_vm._v("Search title:")]),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.search,
-                        expression: "search"
-                      }
-                    ],
-                    attrs: { type: "text", placeholder: "Search title.." },
-                    domProps: { value: _vm.search },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.search = $event.target.value
-                      }
-                    }
-                  })
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "button",
-                {
-                  staticClass: "btn btn-primary",
-                  attrs: { disabled: _vm.isDisabled, type: "button" },
-                  on: { click: _vm.makefile }
-                },
-                [_vm._v("Create Json")]
-              ),
-              _vm._v(" "),
-              _vm.loading
-                ? _c("div", { staticClass: "d-flex justify-content-center" }, [
-                    _vm._m(0)
-                  ])
-                : _vm._e(),
-              _vm._v(" "),
-              _c("tr", [
-                _c("th", [
-                  _c("label", { staticClass: "form-checkbox" }, [
+        : _c("section", [
+            _c(
+              "table",
+              { staticClass: "table table-striped table-hover table-dark " },
+              [
+                _c(
+                  "div",
+                  { staticClass: "search-wrapper justify-content-center" },
+                  [
+                    _c("label", [_vm._v("Search title:")]),
+                    _vm._v(" "),
                     _c("input", {
                       directives: [
                         {
                           name: "model",
                           rawName: "v-model",
-                          value: _vm.selectAll,
-                          expression: "selectAll"
+                          value: _vm.search,
+                          expression: "search"
                         }
                       ],
-                      attrs: { type: "checkbox" },
-                      domProps: {
-                        checked: Array.isArray(_vm.selectAll)
-                          ? _vm._i(_vm.selectAll, null) > -1
-                          : _vm.selectAll
-                      },
+                      attrs: { type: "text", placeholder: "Search title.." },
+                      domProps: { value: _vm.search },
                       on: {
-                        click: _vm.select,
-                        change: function($event) {
-                          var $$a = _vm.selectAll,
-                            $$el = $event.target,
-                            $$c = $$el.checked ? true : false
-                          if (Array.isArray($$a)) {
-                            var $$v = null,
-                              $$i = _vm._i($$a, $$v)
-                            if ($$el.checked) {
-                              $$i < 0 && (_vm.selectAll = $$a.concat([$$v]))
-                            } else {
-                              $$i > -1 &&
-                                (_vm.selectAll = $$a
-                                  .slice(0, $$i)
-                                  .concat($$a.slice($$i + 1)))
-                            }
-                          } else {
-                            _vm.selectAll = $$c
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
                           }
+                          _vm.search = $event.target.value
                         }
                       }
                     })
-                  ])
-                ]),
+                  ]
+                ),
                 _vm._v(" "),
-                _c("th", [_vm._v("CR")]),
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-primary",
+                    attrs: { disabled: _vm.isDisabled, type: "button" },
+                    on: { click: _vm.makefile }
+                  },
+                  [_vm._v("Create Json")]
+                ),
                 _vm._v(" "),
-                _c("th", [_vm._v("Name")]),
+                _vm.loading
+                  ? _c(
+                      "div",
+                      { staticClass: "d-flex justify-content-center" },
+                      [_vm._m(0)]
+                    )
+                  : _vm._e(),
                 _vm._v(" "),
-                _c("th", [_vm._v("Type")]),
-                _vm._v(" "),
-                _c("th", [_vm._v("Avg. Hitpoints")]),
-                _vm._v(" "),
-                _c("th", [_vm._v("Source")]),
-                _vm._v(" "),
-                _c("th")
-              ]),
-              _vm._v(" "),
-              _vm._l(_vm.displayedCreatures, function(creature) {
-                return _c("tr", { key: creature.id }, [
-                  _c("td", [
+                _c("tr", [
+                  _c("th", [
                     _c("label", { staticClass: "form-checkbox" }, [
                       _c("input", {
                         directives: [
                           {
                             name: "model",
                             rawName: "v-model",
-                            value: _vm.selected,
-                            expression: "selected"
+                            value: _vm.selectAll,
+                            expression: "selectAll"
                           }
                         ],
                         attrs: { type: "checkbox" },
                         domProps: {
-                          value: creature.id,
-                          checked: Array.isArray(_vm.selected)
-                            ? _vm._i(_vm.selected, creature.id) > -1
-                            : _vm.selected
+                          checked: Array.isArray(_vm.selectAll)
+                            ? _vm._i(_vm.selectAll, null) > -1
+                            : _vm.selectAll
                         },
                         on: {
+                          click: _vm.select,
                           change: function($event) {
-                            var $$a = _vm.selected,
+                            var $$a = _vm.selectAll,
                               $$el = $event.target,
                               $$c = $$el.checked ? true : false
                             if (Array.isArray($$a)) {
-                              var $$v = creature.id,
+                              var $$v = null,
                                 $$i = _vm._i($$a, $$v)
                               if ($$el.checked) {
-                                $$i < 0 && (_vm.selected = $$a.concat([$$v]))
+                                $$i < 0 && (_vm.selectAll = $$a.concat([$$v]))
                               } else {
                                 $$i > -1 &&
-                                  (_vm.selected = $$a
+                                  (_vm.selectAll = $$a
                                     .slice(0, $$i)
                                     .concat($$a.slice($$i + 1)))
                               }
                             } else {
-                              _vm.selected = $$c
+                              _vm.selectAll = $$c
                             }
                           }
                         }
-                      }),
-                      _vm._v(" "),
-                      _c("i", { staticClass: "form-icon" })
+                      })
                     ])
                   ]),
                   _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(creature.challenge_rating))]),
+                  _c("th", [_vm._v("CR")]),
                   _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(creature.name))]),
+                  _c("th", [_vm._v("Name")]),
                   _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(creature.type.name))]),
+                  _c("th", [_vm._v("Type")]),
                   _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(creature.average_hitpoints))]),
+                  _c("th", [_vm._v("Avg. Hitpoints")]),
                   _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(creature.source))]),
+                  _c("th", [_vm._v("Source")]),
                   _vm._v(" "),
-                  _vm._m(1, true)
-                ])
-              })
-            ],
-            2
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "clearfix btn-group col-md-2 offset-md-5" },
-            [
-              _vm.page != 1
-                ? _c(
+                  _c("th")
+                ]),
+                _vm._v(" "),
+                _vm._l(_vm.displayedCreatures, function(creature) {
+                  return _c("tr", { key: creature.id }, [
+                    _c("td", [
+                      _c("label", { staticClass: "form-checkbox" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.selected,
+                              expression: "selected"
+                            }
+                          ],
+                          attrs: { type: "checkbox" },
+                          domProps: {
+                            value: creature.id,
+                            checked: Array.isArray(_vm.selected)
+                              ? _vm._i(_vm.selected, creature.id) > -1
+                              : _vm.selected
+                          },
+                          on: {
+                            change: function($event) {
+                              var $$a = _vm.selected,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = creature.id,
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 && (_vm.selected = $$a.concat([$$v]))
+                                } else {
+                                  $$i > -1 &&
+                                    (_vm.selected = $$a
+                                      .slice(0, $$i)
+                                      .concat($$a.slice($$i + 1)))
+                                }
+                              } else {
+                                _vm.selected = $$c
+                              }
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("i", { staticClass: "form-icon" })
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(creature.challenge_rating))]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(creature.name))]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(creature.type.name))]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(creature.average_hitpoints))]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(creature.source))]),
+                    _vm._v(" "),
+                    _c("td", [
+                      _c(
+                        "button",
+                        {
+                          attrs: { id: "show-modal" },
+                          on: {
+                            click: function($event) {
+                              return _vm.viewModal(creature)
+                            }
+                          }
+                        },
+                        [_vm._v("Show Modal")]
+                      )
+                    ])
+                  ])
+                })
+              ],
+              2
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "clearfix btn-group col-md-2 offset-md-5" },
+              [
+                _vm.page != 1
+                  ? _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-sm btn-outline-primary",
+                        attrs: { type: "button" },
+                        on: {
+                          click: function($event) {
+                            _vm.page--
+                          }
+                        }
+                      },
+                      [_vm._v(" << ")]
+                    )
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm._l(_vm.pages.slice(_vm.page - 1, _vm.page + 5), function(
+                  pageNumber
+                ) {
+                  return _c(
                     "button",
                     {
                       staticClass: "btn btn-sm btn-outline-primary",
                       attrs: { type: "button" },
                       on: {
                         click: function($event) {
-                          _vm.page--
+                          _vm.page = pageNumber
                         }
                       }
                     },
-                    [_vm._v(" << ")]
+                    [_vm._v(" " + _vm._s(pageNumber) + " ")]
                   )
-                : _vm._e(),
-              _vm._v(" "),
-              _vm._l(_vm.pages.slice(_vm.page - 1, _vm.page + 5), function(
-                pageNumber
-              ) {
-                return _c(
-                  "button",
-                  {
-                    staticClass: "btn btn-sm btn-outline-primary",
-                    attrs: { type: "button" },
-                    on: {
-                      click: function($event) {
-                        _vm.page = pageNumber
-                      }
-                    }
-                  },
-                  [_vm._v(" " + _vm._s(pageNumber) + " ")]
-                )
-              }),
-              _vm._v(" "),
-              _vm.page < _vm.pages.length
-                ? _c(
-                    "button",
-                    {
-                      staticClass: "btn btn-sm btn-outline-primary",
-                      attrs: { type: "button" },
-                      on: {
-                        click: function($event) {
-                          _vm.page++
+                }),
+                _vm._v(" "),
+                _vm.page < _vm.pages.length
+                  ? _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-sm btn-outline-primary",
+                        attrs: { type: "button" },
+                        on: {
+                          click: function($event) {
+                            _vm.page++
+                          }
                         }
-                      }
-                    },
-                    [_vm._v(" >> ")]
-                  )
-                : _vm._e()
-            ],
-            2
-          )
-        ])
-  ])
+                      },
+                      [_vm._v(" >> ")]
+                    )
+                  : _vm._e()
+              ],
+              2
+            )
+          ]),
+      _vm._v(" "),
+      _vm.showModal
+        ? _c("creature-modal", {
+            attrs: { creature: _vm.showedCreature },
+            on: {
+              close: function($event) {
+                _vm.showModal = false
+              }
+            }
+          })
+        : _vm._e()
+    ],
+    1
+  )
 }
 var staticRenderFns = [
   function() {
@@ -39711,14 +40992,6 @@ var staticRenderFns = [
       { staticClass: "spinner-border", attrs: { role: "status" } },
       [_c("span", { staticClass: "sr-only" }, [_vm._v("Loading...")])]
     )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("td", [
-      _c("a", { attrs: { href: "#creature-modal" } }, [_vm._v("Full Info")])
-    ])
   }
 ]
 render._withStripped = true
@@ -40161,6 +41434,211 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/SpellModal.vue?vue&type=template&id=3cea7490&scoped=true&":
+/*!*************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/SpellModal.vue?vue&type=template&id=3cea7490&scoped=true& ***!
+  \*************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("transition", { attrs: { name: "modal" } }, [
+    _c(
+      "div",
+      {
+        staticClass: "modal modal-mask",
+        attrs: { tabindex: "-1", role: "dialog" }
+      },
+      [
+        _c(
+          "div",
+          {
+            staticClass: "modal-dialog modal-dialog-scrollable modal-wrapper",
+            attrs: { role: "document" }
+          },
+          [
+            _c(
+              "div",
+              { staticClass: "modal-content modal-container bg-dark" },
+              [
+                _c("div", { staticClass: "modal-header" }, [
+                  _vm._v(
+                    "\n                    " +
+                      _vm._s(_vm.creature.name) +
+                      "\n                "
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "modal-body" }, [
+                  _c("div", { staticClass: "container-fluid" }, [
+                    _c("div", { attrs: { id: "spellView" } }, [
+                      _c("div", { staticClass: "top" }, [
+                        _c("label", [
+                          _vm._v("Name:"),
+                          _c("input", {
+                            attrs: {
+                              name: "name",
+                              type: "text",
+                              placeholder: "Name..."
+                            }
+                          })
+                        ]),
+                        _vm._v(" "),
+                        _c("label", [
+                          _vm._v("School:"),
+                          _c("input", {
+                            attrs: {
+                              name: "school",
+                              type: "text",
+                              placeholder: "School..."
+                            }
+                          })
+                        ]),
+                        _vm._v(" "),
+                        _c("label", { staticClass: "small" }, [
+                          _vm._v("Level:"),
+                          _c("input", {
+                            attrs: { name: "level", type: "text" }
+                          })
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "label",
+                          { staticClass: "small left checkbox-label" },
+                          [
+                            _c("div", { staticClass: "labelText" }, [
+                              _vm._v("Ritual:")
+                            ]),
+                            _vm._v(" "),
+                            _c("input", {
+                              attrs: {
+                                name: "ritual",
+                                type: "checkbox",
+                                checked: "",
+                                "}": ""
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c("span", {
+                              staticClass: "checkbox-custom circular"
+                            })
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c("label", [
+                          _vm._v("Casting Time:"),
+                          _c("input", {
+                            attrs: {
+                              name: "time",
+                              type: "text",
+                              placeholder: "Casting Time..."
+                            }
+                          })
+                        ]),
+                        _vm._v(" "),
+                        _c("label", [
+                          _vm._v("Range:"),
+                          _c("input", {
+                            attrs: {
+                              name: "range",
+                              type: "text",
+                              placeholder: "Range..."
+                            }
+                          })
+                        ]),
+                        _vm._v(" "),
+                        _c("label", [
+                          _vm._v("Duration:"),
+                          _c("input", {
+                            attrs: {
+                              name: "duration",
+                              type: "text",
+                              placeholder: "Duration..."
+                            }
+                          })
+                        ]),
+                        _vm._v(" "),
+                        _c("label", [
+                          _vm._v("Components:"),
+                          _c("input", {
+                            attrs: {
+                              name: "components",
+                              type: "text",
+                              placeholder: "Components..."
+                            }
+                          })
+                        ]),
+                        _vm._v(" "),
+                        _c("label", [
+                          _vm._v("Classes:"),
+                          _c("input", {
+                            attrs: {
+                              name: "classes",
+                              type: "text",
+                              placeholder: "Classes..."
+                            }
+                          })
+                        ]),
+                        _vm._v(" "),
+                        _c("label", [
+                          _vm._v("Sources:"),
+                          _c("input", {
+                            attrs: {
+                              name: "sources",
+                              type: "text",
+                              placeholder: "Sources..."
+                            }
+                          })
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("textarea", {
+                        attrs: { placeholder: "Describtion..." }
+                      })
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "modal-footer" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "modal-default-button",
+                      on: {
+                        click: function($event) {
+                          return _vm.$emit("close")
+                        }
+                      }
+                    },
+                    [
+                      _vm._v(
+                        "\n                            Close\n                        "
+                      )
+                    ]
+                  )
+                ])
+              ]
+            )
+          ]
+        )
+      ]
+    )
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/SpellsTable.vue?vue&type=template&id=003c3fa8&scoped=true&":
 /*!**************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/SpellsTable.vue?vue&type=template&id=003c3fa8&scoped=true& ***!
@@ -40176,256 +41654,291 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "table-responsive" }, [
-    _vm.errored
-      ? _c("section", [
-          _c("p", [
-            _vm._v(
-              "We're sorry, we're not able to retrieve this information at the moment, please try back later"
-            )
+  return _c(
+    "div",
+    { staticClass: "table-responsive" },
+    [
+      _vm.errored
+        ? _c("section", [
+            _c("p", [
+              _vm._v(
+                "We're sorry, we're not able to retrieve this information at the moment, please try back later"
+              )
+            ])
           ])
-        ])
-      : _c("section", [
-          _c(
-            "table",
-            { staticClass: "table table-striped table-hover table-dark" },
-            [
-              _c(
-                "div",
-                { staticClass: "search-wrapper justify-content-center" },
-                [
-                  _c("label", [_vm._v("Search title:")]),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.search,
-                        expression: "search"
-                      }
-                    ],
-                    attrs: { type: "text", placeholder: "Search title.." },
-                    domProps: { value: _vm.search },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.search = $event.target.value
-                      }
-                    }
-                  })
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "button",
-                {
-                  staticClass: "btn btn-primary",
-                  attrs: { disabled: _vm.isDisabled, type: "button" },
-                  on: { click: _vm.makefile }
-                },
-                [_vm._v("Create Json\n            ")]
-              ),
-              _vm._v(" "),
-              _vm.loading
-                ? _c("div", { staticClass: "d-flex justify-content-center" }, [
-                    _vm._m(0)
-                  ])
-                : _vm._e(),
-              _vm._v(" "),
-              _c("tr", [
-                _c("th", [
-                  _c("label", { staticClass: "form-checkbox" }, [
+        : _c("section", [
+            _c(
+              "table",
+              { staticClass: "table table-striped table-hover table-dark" },
+              [
+                _c(
+                  "div",
+                  { staticClass: "search-wrapper justify-content-center" },
+                  [
+                    _c("label", [_vm._v("Search title:")]),
+                    _vm._v(" "),
                     _c("input", {
                       directives: [
                         {
                           name: "model",
                           rawName: "v-model",
-                          value: _vm.selectAll,
-                          expression: "selectAll"
+                          value: _vm.search,
+                          expression: "search"
                         }
                       ],
-                      attrs: { type: "checkbox" },
-                      domProps: {
-                        checked: Array.isArray(_vm.selectAll)
-                          ? _vm._i(_vm.selectAll, null) > -1
-                          : _vm.selectAll
-                      },
+                      attrs: { type: "text", placeholder: "Search title.." },
+                      domProps: { value: _vm.search },
                       on: {
-                        click: _vm.select,
-                        change: function($event) {
-                          var $$a = _vm.selectAll,
-                            $$el = $event.target,
-                            $$c = $$el.checked ? true : false
-                          if (Array.isArray($$a)) {
-                            var $$v = null,
-                              $$i = _vm._i($$a, $$v)
-                            if ($$el.checked) {
-                              $$i < 0 && (_vm.selectAll = $$a.concat([$$v]))
-                            } else {
-                              $$i > -1 &&
-                                (_vm.selectAll = $$a
-                                  .slice(0, $$i)
-                                  .concat($$a.slice($$i + 1)))
-                            }
-                          } else {
-                            _vm.selectAll = $$c
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
                           }
+                          _vm.search = $event.target.value
                         }
                       }
                     })
-                  ])
-                ]),
+                  ]
+                ),
                 _vm._v(" "),
-                _c("th", [_vm._v("Level")]),
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-primary",
+                    attrs: { disabled: _vm.isDisabled, type: "button" },
+                    on: { click: _vm.makefile }
+                  },
+                  [_vm._v("Create Json\n            ")]
+                ),
                 _vm._v(" "),
-                _c("th", [_vm._v("Name")]),
+                _vm.loading
+                  ? _c(
+                      "div",
+                      { staticClass: "d-flex justify-content-center" },
+                      [_vm._m(0)]
+                    )
+                  : _vm._e(),
                 _vm._v(" "),
-                _c("th", [_vm._v("School")]),
-                _vm._v(" "),
-                _c("th", [_vm._v("Classes")]),
-                _vm._v(" "),
-                _c("th", [_vm._v("Components")]),
-                _vm._v(" "),
-                _c("th", [_vm._v("Casting Time")]),
-                _vm._v(" "),
-                _c("th", [_vm._v("Duration")]),
-                _vm._v(" "),
-                _c("th", [_vm._v("Range")]),
-                _vm._v(" "),
-                _c("th", [_vm._v("Source")])
-              ]),
-              _vm._v(" "),
-              _vm._l(_vm.displayedSpells, function(spell) {
-                return _c("tr", { key: spell.id }, [
-                  _c("td", [
+                _c("tr", [
+                  _c("th", [
                     _c("label", { staticClass: "form-checkbox" }, [
                       _c("input", {
                         directives: [
                           {
                             name: "model",
                             rawName: "v-model",
-                            value: _vm.selected,
-                            expression: "selected"
+                            value: _vm.selectAll,
+                            expression: "selectAll"
                           }
                         ],
                         attrs: { type: "checkbox" },
                         domProps: {
-                          value: spell.id,
-                          checked: Array.isArray(_vm.selected)
-                            ? _vm._i(_vm.selected, spell.id) > -1
-                            : _vm.selected
+                          checked: Array.isArray(_vm.selectAll)
+                            ? _vm._i(_vm.selectAll, null) > -1
+                            : _vm.selectAll
                         },
                         on: {
+                          click: _vm.select,
                           change: function($event) {
-                            var $$a = _vm.selected,
+                            var $$a = _vm.selectAll,
                               $$el = $event.target,
                               $$c = $$el.checked ? true : false
                             if (Array.isArray($$a)) {
-                              var $$v = spell.id,
+                              var $$v = null,
                                 $$i = _vm._i($$a, $$v)
                               if ($$el.checked) {
-                                $$i < 0 && (_vm.selected = $$a.concat([$$v]))
+                                $$i < 0 && (_vm.selectAll = $$a.concat([$$v]))
                               } else {
                                 $$i > -1 &&
-                                  (_vm.selected = $$a
+                                  (_vm.selectAll = $$a
                                     .slice(0, $$i)
                                     .concat($$a.slice($$i + 1)))
                               }
                             } else {
-                              _vm.selected = $$c
+                              _vm.selectAll = $$c
                             }
                           }
                         }
-                      }),
-                      _vm._v(" "),
-                      _c("i", { staticClass: "form-icon" })
+                      })
                     ])
                   ]),
                   _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(spell.level_name))]),
+                  _c("th", [_vm._v("Level")]),
                   _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(spell.name))]),
+                  _c("th", [_vm._v("Name")]),
                   _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(spell.school.name))]),
+                  _c("th", [_vm._v("School")]),
                   _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(spell.classes))]),
+                  _c("th", [_vm._v("Classes")]),
                   _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(spell.components))]),
+                  _c("th", [_vm._v("Components")]),
                   _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(spell.casting_time))]),
+                  _c("th", [_vm._v("Casting Time")]),
                   _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(spell.duration))]),
+                  _c("th", [_vm._v("Duration")]),
                   _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(spell.range))]),
+                  _c("th", [_vm._v("Range")]),
                   _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(spell.source))])
-                ])
-              })
-            ],
-            2
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "clearfix btn-group col-md-2 offset-md-5" },
-            [
-              _vm.page != 1
-                ? _c(
+                  _c("th", [_vm._v("Source")]),
+                  _vm._v(" "),
+                  _c("th")
+                ]),
+                _vm._v(" "),
+                _vm._l(_vm.displayedSpells, function(spell) {
+                  return _c("tr", { key: spell.id }, [
+                    _c("td", [
+                      _c("label", { staticClass: "form-checkbox" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.selected,
+                              expression: "selected"
+                            }
+                          ],
+                          attrs: { type: "checkbox" },
+                          domProps: {
+                            value: spell.id,
+                            checked: Array.isArray(_vm.selected)
+                              ? _vm._i(_vm.selected, spell.id) > -1
+                              : _vm.selected
+                          },
+                          on: {
+                            change: function($event) {
+                              var $$a = _vm.selected,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = spell.id,
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 && (_vm.selected = $$a.concat([$$v]))
+                                } else {
+                                  $$i > -1 &&
+                                    (_vm.selected = $$a
+                                      .slice(0, $$i)
+                                      .concat($$a.slice($$i + 1)))
+                                }
+                              } else {
+                                _vm.selected = $$c
+                              }
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("i", { staticClass: "form-icon" })
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(spell.level_name))]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(spell.name))]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(spell.school.name))]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(spell.classes))]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(spell.components))]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(spell.casting_time))]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(spell.duration))]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(spell.range))]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(spell.source))]),
+                    _vm._v(" "),
+                    _c("td", [
+                      _c(
+                        "button",
+                        {
+                          attrs: { id: "show-modal" },
+                          on: {
+                            click: function($event) {
+                              return _vm.viewModal(spell)
+                            }
+                          }
+                        },
+                        [_vm._v("Show Modal")]
+                      )
+                    ])
+                  ])
+                })
+              ],
+              2
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "clearfix btn-group col-md-2 offset-md-5" },
+              [
+                _vm.page != 1
+                  ? _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-sm btn-outline-primary",
+                        attrs: { type: "button" },
+                        on: {
+                          click: function($event) {
+                            _vm.page--
+                          }
+                        }
+                      },
+                      [_vm._v(" <<\n            ")]
+                    )
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm._l(_vm.pages.slice(_vm.page - 1, _vm.page + 5), function(
+                  pageNumber
+                ) {
+                  return _c(
                     "button",
                     {
                       staticClass: "btn btn-sm btn-outline-primary",
                       attrs: { type: "button" },
                       on: {
                         click: function($event) {
-                          _vm.page--
+                          _vm.page = pageNumber
                         }
                       }
                     },
-                    [_vm._v(" <<\n            ")]
+                    [_vm._v(" " + _vm._s(pageNumber) + "\n            ")]
                   )
-                : _vm._e(),
-              _vm._v(" "),
-              _vm._l(_vm.pages.slice(_vm.page - 1, _vm.page + 5), function(
-                pageNumber
-              ) {
-                return _c(
-                  "button",
-                  {
-                    staticClass: "btn btn-sm btn-outline-primary",
-                    attrs: { type: "button" },
-                    on: {
-                      click: function($event) {
-                        _vm.page = pageNumber
-                      }
-                    }
-                  },
-                  [_vm._v(" " + _vm._s(pageNumber) + "\n            ")]
-                )
-              }),
-              _vm._v(" "),
-              _vm.page < _vm.pages.length
-                ? _c(
-                    "button",
-                    {
-                      staticClass: "btn btn-sm btn-outline-primary",
-                      attrs: { type: "button" },
-                      on: {
-                        click: function($event) {
-                          _vm.page++
+                }),
+                _vm._v(" "),
+                _vm.page < _vm.pages.length
+                  ? _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-sm btn-outline-primary",
+                        attrs: { type: "button" },
+                        on: {
+                          click: function($event) {
+                            _vm.page++
+                          }
                         }
-                      }
-                    },
-                    [_vm._v("\n                >>\n            ")]
-                  )
-                : _vm._e()
-            ],
-            2
-          )
-        ])
-  ])
+                      },
+                      [_vm._v("\n                >>\n            ")]
+                    )
+                  : _vm._e()
+              ],
+              2
+            )
+          ]),
+      _vm._v(" "),
+      _vm.showModal
+        ? _c("spell-modal", {
+            attrs: { spell: _vm.showedSpell },
+            on: {
+              close: function($event) {
+                _vm.showModal = false
+              }
+            }
+          })
+        : _vm._e()
+    ],
+    1
+  )
 }
 var staticRenderFns = [
   function() {
@@ -54277,6 +55790,8 @@ Vue.component('gear-table', __webpack_require__(/*! ./components/GearTable.vue *
 Vue.component('creature-table', __webpack_require__(/*! ./components/CreaturesTable.vue */ "./resources/js/components/CreaturesTable.vue")["default"]);
 Vue.component('user-profile', __webpack_require__(/*! ./components/UserProfile.vue */ "./resources/js/components/UserProfile.vue")["default"]);
 Vue.component('pagination', __webpack_require__(/*! ./components/PaginationComponent.vue */ "./resources/js/components/PaginationComponent.vue"));
+Vue.component('spell-modal', __webpack_require__(/*! ./components/SpellModal.vue */ "./resources/js/components/SpellModal.vue")["default"]);
+Vue.component('creature-modal', __webpack_require__(/*! ./components/CreatureModal.vue */ "./resources/js/components/CreatureModal.vue")["default"]);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -54331,6 +55846,93 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     encrypted: true
 // });
+
+/***/ }),
+
+/***/ "./resources/js/components/CreatureModal.vue":
+/*!***************************************************!*\
+  !*** ./resources/js/components/CreatureModal.vue ***!
+  \***************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _CreatureModal_vue_vue_type_template_id_45dc5b5a_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CreatureModal.vue?vue&type=template&id=45dc5b5a&scoped=true& */ "./resources/js/components/CreatureModal.vue?vue&type=template&id=45dc5b5a&scoped=true&");
+/* harmony import */ var _CreatureModal_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CreatureModal.vue?vue&type=script&lang=js& */ "./resources/js/components/CreatureModal.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _CreatureModal_vue_vue_type_style_index_0_id_45dc5b5a_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./CreatureModal.vue?vue&type=style&index=0&id=45dc5b5a&scoped=true&lang=css& */ "./resources/js/components/CreatureModal.vue?vue&type=style&index=0&id=45dc5b5a&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _CreatureModal_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _CreatureModal_vue_vue_type_template_id_45dc5b5a_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _CreatureModal_vue_vue_type_template_id_45dc5b5a_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "45dc5b5a",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/CreatureModal.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/CreatureModal.vue?vue&type=script&lang=js&":
+/*!****************************************************************************!*\
+  !*** ./resources/js/components/CreatureModal.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CreatureModal_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./CreatureModal.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/CreatureModal.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CreatureModal_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/CreatureModal.vue?vue&type=style&index=0&id=45dc5b5a&scoped=true&lang=css&":
+/*!************************************************************************************************************!*\
+  !*** ./resources/js/components/CreatureModal.vue?vue&type=style&index=0&id=45dc5b5a&scoped=true&lang=css& ***!
+  \************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_CreatureModal_vue_vue_type_style_index_0_id_45dc5b5a_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/style-loader!../../../node_modules/css-loader??ref--6-1!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--6-2!../../../node_modules/vue-loader/lib??vue-loader-options!./CreatureModal.vue?vue&type=style&index=0&id=45dc5b5a&scoped=true&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/CreatureModal.vue?vue&type=style&index=0&id=45dc5b5a&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_CreatureModal_vue_vue_type_style_index_0_id_45dc5b5a_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_CreatureModal_vue_vue_type_style_index_0_id_45dc5b5a_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_CreatureModal_vue_vue_type_style_index_0_id_45dc5b5a_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_CreatureModal_vue_vue_type_style_index_0_id_45dc5b5a_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_CreatureModal_vue_vue_type_style_index_0_id_45dc5b5a_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "./resources/js/components/CreatureModal.vue?vue&type=template&id=45dc5b5a&scoped=true&":
+/*!**********************************************************************************************!*\
+  !*** ./resources/js/components/CreatureModal.vue?vue&type=template&id=45dc5b5a&scoped=true& ***!
+  \**********************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CreatureModal_vue_vue_type_template_id_45dc5b5a_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./CreatureModal.vue?vue&type=template&id=45dc5b5a&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/CreatureModal.vue?vue&type=template&id=45dc5b5a&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CreatureModal_vue_vue_type_template_id_45dc5b5a_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CreatureModal_vue_vue_type_template_id_45dc5b5a_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
 
 /***/ }),
 
@@ -54623,6 +56225,93 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PaginationComponent_vue_vue_type_template_id_5cc156e8___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PaginationComponent_vue_vue_type_template_id_5cc156e8___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/SpellModal.vue":
+/*!************************************************!*\
+  !*** ./resources/js/components/SpellModal.vue ***!
+  \************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _SpellModal_vue_vue_type_template_id_3cea7490_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./SpellModal.vue?vue&type=template&id=3cea7490&scoped=true& */ "./resources/js/components/SpellModal.vue?vue&type=template&id=3cea7490&scoped=true&");
+/* harmony import */ var _SpellModal_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./SpellModal.vue?vue&type=script&lang=js& */ "./resources/js/components/SpellModal.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _SpellModal_vue_vue_type_style_index_0_id_3cea7490_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./SpellModal.vue?vue&type=style&index=0&id=3cea7490&scoped=true&lang=css& */ "./resources/js/components/SpellModal.vue?vue&type=style&index=0&id=3cea7490&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _SpellModal_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _SpellModal_vue_vue_type_template_id_3cea7490_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _SpellModal_vue_vue_type_template_id_3cea7490_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "3cea7490",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/SpellModal.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/SpellModal.vue?vue&type=script&lang=js&":
+/*!*************************************************************************!*\
+  !*** ./resources/js/components/SpellModal.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_SpellModal_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./SpellModal.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/SpellModal.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_SpellModal_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/SpellModal.vue?vue&type=style&index=0&id=3cea7490&scoped=true&lang=css&":
+/*!*********************************************************************************************************!*\
+  !*** ./resources/js/components/SpellModal.vue?vue&type=style&index=0&id=3cea7490&scoped=true&lang=css& ***!
+  \*********************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_SpellModal_vue_vue_type_style_index_0_id_3cea7490_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/style-loader!../../../node_modules/css-loader??ref--6-1!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--6-2!../../../node_modules/vue-loader/lib??vue-loader-options!./SpellModal.vue?vue&type=style&index=0&id=3cea7490&scoped=true&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/SpellModal.vue?vue&type=style&index=0&id=3cea7490&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_SpellModal_vue_vue_type_style_index_0_id_3cea7490_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_SpellModal_vue_vue_type_style_index_0_id_3cea7490_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_SpellModal_vue_vue_type_style_index_0_id_3cea7490_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_SpellModal_vue_vue_type_style_index_0_id_3cea7490_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_SpellModal_vue_vue_type_style_index_0_id_3cea7490_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "./resources/js/components/SpellModal.vue?vue&type=template&id=3cea7490&scoped=true&":
+/*!*******************************************************************************************!*\
+  !*** ./resources/js/components/SpellModal.vue?vue&type=template&id=3cea7490&scoped=true& ***!
+  \*******************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SpellModal_vue_vue_type_template_id_3cea7490_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./SpellModal.vue?vue&type=template&id=3cea7490&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/SpellModal.vue?vue&type=template&id=3cea7490&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SpellModal_vue_vue_type_template_id_3cea7490_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SpellModal_vue_vue_type_template_id_3cea7490_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

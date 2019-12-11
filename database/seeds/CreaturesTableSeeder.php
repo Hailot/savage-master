@@ -29,6 +29,17 @@ class CreaturesTableSeeder extends Seeder
             if (!$creatureType){
                 dd($creature);
             }
+
+            $picName = str_replace(' ','',$creature->monster_name);
+            $picPath = 'images/default/monster/'.$picName.'.png';
+            $imgExists = Storage::disk('s3')->exists($picPath);
+            var_dump($picName);
+            var_dump($picPath);
+            var_dump($imgExists);
+            $pic = '';
+            if($imgExists){
+                $pic = $picPath;
+            }
             Creature::create([
                 'name' => $creature->monster_name,
                 'description' => '',
@@ -63,7 +74,7 @@ class CreaturesTableSeeder extends Seeder
                 'intelligence' => $creature->monster_intelligence,
                 'wisdom' => $creature->monster_wisdom,
                 'charisma' => $creature->monster_charisma,
-                'pic' => ''
+                'pic' => $pic
             ]);
         }
     }
