@@ -1,7 +1,7 @@
 <template>
     <transition name="modal">
         <div class="modal modal-mask" tabindex="-1" role="dialog" >
-            <div class="modal-dialog modal-dialog-scrollable modal-wrapper" role="document">
+            <div class="modal-dialog modal-dialog-scrollable modal-wrapper modal-lg" role="document">
                 <div class="modal-content modal-container bg-dark">
 
                     <div class="modal-header">
@@ -86,24 +86,30 @@
                                 </div>
                                 <div class="row">
                                         <div class="col-12">
-                                            <textarea class="small" v-model="creature.saving_throws"></textarea>
-                                            <textarea class="small" v-model="creature.skills"></textarea>
-                                            <textarea class="small" v-model="creature.senses"></textarea>
-                                            <textarea class="small" v-model="creature.languages"></textarea>
+                                            <textarea rows="2" v-model="creature.saving_throws"></textarea>
+                                            <textarea rows="2" v-model="creature.skills"></textarea>
+                                            <textarea rows="2" v-model="creature.senses"></textarea>
+                                            <textarea rows="2" v-model="creature.languages"></textarea>
                                         </div>
                                         <div class="col-12">
-                                            <textarea class="small" v-model="creature.damage_vulnerabilities"></textarea>
-                                            <textarea class="small" v-model="creature.damage_resistances"></textarea>
-                                            <textarea class="small" v-model="creature.damage_immunities" placeholder="Damage immunities..."></textarea>
-                                            <textarea class="small" v-model="creature.condition_immunities" placeholder="Condition immunities..."></textarea>
+                                            <textarea rows="2" v-model="creature.damage_vulnerabilities"></textarea>
+                                            <textarea rows="2" v-model="creature.damage_resistances"></textarea>
+                                            <textarea rows="2" v-model="creature.damage_immunities" placeholder="Damage immunities..."></textarea>
+                                            <textarea rows="2" v-model="creature.condition_immunities" placeholder="Condition immunities..."></textarea>
                                         </div>
 
                                 </div>
                                 <div class="row">
                                     <div class="col-12">
-                                        <textarea  v-model="creature.special_abilities" placeholder="Special abilities..."></textarea>
-                                        <textarea  v-model="creature.attacks" placeholder="Actions..."></textarea>
-                                        <textarea  v-model="creature.legendary_actions" placeholder="Legendary Actions..."></textarea>
+
+                                            <textarea class="col-4" v-model="creature.special_abilities" placeholder="Special abilities..."></textarea>
+
+
+                                            <textarea class="col-4" v-model="creature.attacks" placeholder="Actions..."></textarea>
+
+
+                                            <textarea class="col-4" v-model="creature.legendary_actions" placeholder="Legendary Actions..."></textarea>
+
                                     </div>
                                 </div>
                             </div>
@@ -146,15 +152,12 @@
         z-index: 9998;
         top: 0;
         left: 0;
-        width: 100%;
-        height: 100%;
         background-color: rgba(0, 0, 0, .5);
         display: table;
         transition: opacity .3s ease;
     }
 
     .modal-wrapper {
-        display: table-cell;
         vertical-align: middle;
     }
 
@@ -212,8 +215,8 @@
 
 
     #monsterView {
-        height: calc(100% - 20px);
-        width: calc(100% - 20px);
+        height: calc(100% - 0px);
+        width: calc(100% - 0px);
         overflow: hidden;
         color: darkgrey;
         padding: 10px;
@@ -272,17 +275,14 @@
     }
 
     #monsterView textarea {
-        height: 218px;
-        width: 268px;
+
         float: left;
         resize: none;
         border-radius: 3px;
         border-bottom-right-radius: 0px;
         border: none;
-        padding: 10px;
         font-family: inherit;
         font-size: 14px;
-        margin-right: 5px;
         margin-bottom: 5px;
         box-shadow: 0px 0px 10px 0px rgba(0,0,0, 0.2);
         background-color: #475062;

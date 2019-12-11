@@ -1966,6 +1966,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "CreatureModal",
   data: function data() {
@@ -7267,7 +7273,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.modal-mask[data-v-45dc5b5a] {\n    position: fixed;\n    z-index: 9998;\n    top: 0;\n    left: 0;\n    width: 100%;\n    height: 100%;\n    background-color: rgba(0, 0, 0, .5);\n    display: table;\n    -webkit-transition: opacity .3s ease;\n    transition: opacity .3s ease;\n}\n.modal-wrapper[data-v-45dc5b5a] {\n    display: table-cell;\n    vertical-align: middle;\n}\n.modal-container[data-v-45dc5b5a] {\n    margin: 0px auto;\n    padding: 20px 30px;\n    background-color: #fff;\n    border-radius: 2px;\n    box-shadow: 0 2px 8px rgba(0, 0, 0, .33);\n    -webkit-transition: all .3s ease;\n    transition: all .3s ease;\n    font-family: Helvetica, Arial, sans-serif;\n}\n.modal-header h3[data-v-45dc5b5a] {\n    margin-top: 0;\n    color: #42b983;\n}\n.modal-body[data-v-45dc5b5a] {\n    margin: 20px 0;\n}\n.modal-default-button[data-v-45dc5b5a] {\n    float: right;\n}\n\n/*\n * The following styles are auto-applied to elements with\n * transition=\"modal\" when their visibility is toggled\n * by Vue.js.\n *\n * You can easily play with the modal transition by editing\n * these styles.\n */\n.modal-enter[data-v-45dc5b5a] {\n    opacity: 0;\n}\n.modal-leave-active[data-v-45dc5b5a] {\n    opacity: 0;\n}\n.modal-enter .modal-container[data-v-45dc5b5a],\n.modal-leave-active .modal-container[data-v-45dc5b5a] {\n    -webkit-transform: scale(1.1);\n    transform: scale(1.1);\n}\nbody[data-v-45dc5b5a] {\n    height: 100%;\n    margin: 0px;\n    background-color: #1f2532;\n    overflow: hidden;\n}\n#monsterView[data-v-45dc5b5a] {\n    height: calc(100% - 20px);\n    width: calc(100% - 20px);\n    overflow: hidden;\n    color: darkgrey;\n    padding: 10px;\n    font-family: 'Quicksand', sans-serif;\n}\n#monsterView input[data-v-45dc5b5a], #monsterView select[data-v-45dc5b5a] {\n    height: 30px;\n    width: 200px;\n    border: none;\n    border-radius: 3px;\n    padding-left: 10px;\n    padding-right: 10px;\n    margin-left: 5px;\n    margin-bottom: 5px;\n    float: right;\n    font-family: inherit;\n    font-size: 14px;\n    box-shadow: 0px 0px 10px 0px rgba(0,0,0, 0.2);\n    background-color: #475062;\n    color: lightgrey;\n}\n#monsterView .smallLabel input[data-v-45dc5b5a] {\n    width: 100px;\n}\n#monsterView select[data-v-45dc5b5a] {\n    width: 220px;\n}\n#monsterView button[data-v-45dc5b5a] {\n    height: 32px;\n    width: auto;\n    border: none;\n    border-radius: 5px;\n    padding-left: 10px;\n    padding-right: 10px;\n    margin-bottom: 5px;\n    margin-left: 5px;\n    text-align: center;\n    float: right;\n    font-family: inherit;\n    font-size: 14px;\n    background-color: #522a82;\n    color: #cfc8d8;\n    cursor: pointer;\n}\n#monsterView button[data-v-45dc5b5a]:hover {\n    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.7);\n    cursor: pointer;\n}\n#monsterView button.delete[data-v-45dc5b5a] {\n    background-color: darkred;\n}\n#monsterView textarea[data-v-45dc5b5a] {\n    height: 218px;\n    width: 268px;\n    float: left;\n    resize: none;\n    border-radius: 3px;\n    border-bottom-right-radius: 0px;\n    border: none;\n    padding: 10px;\n    font-family: inherit;\n    font-size: 14px;\n    margin-right: 5px;\n    margin-bottom: 5px;\n    box-shadow: 0px 0px 10px 0px rgba(0,0,0, 0.2);\n    background-color: #475062;\n    color: lightgrey;\n}\n#monsterView textarea.small[data-v-45dc5b5a] {\n    height: 28px;\n    width: 300px;\n    line-height: 15px;\n}\n#monsterView label[data-v-45dc5b5a] {\n    display: inline-block;\n    width: 320px;\n    text-align: right;\n    line-height: 30px;\n}\n#monsterView label.smallLabel[data-v-45dc5b5a] {\n    display: inline-block;\n    width: 150px;\n    text-align: right;\n    line-height: 30px;\n    margin-left: 10px;\n}\n#monsterView .top[data-v-45dc5b5a] {\n    float: left;\n    width: 320px;\n    height: 220px;\n    margin-right: 5px;\n    margin-bottom: 5px;\n}\n#monsterView .image[data-v-45dc5b5a] {\n    float: left;\n    width: 220px;\n    height: 220px;\n    overflow: hidden;\n    margin-right: 5px;\n    margin-bottom: 5px;\n    box-shadow: 0px 0px 10px 0px rgba(172, 172, 172, 0.2);\n    background-color: white;\n}\n#monsterView .abilityScores[data-v-45dc5b5a] {\n    height: 220px;\n    width: 220px;\n    margin-right: 5px;\n    margin-bottom: 5px;\n    float: left;\n}\n#monsterView .abilityScores .score[data-v-45dc5b5a] {\n    width: 210px;\n    float: left;\n    height: 35px;\n    line-height: 30px;\n}\n#monsterView .abilityScores .score input[data-v-45dc5b5a] {\n    width: 40px;\n    margin-right: 5px;\n}\n#monsterView .abilityScores .score label[data-v-45dc5b5a] {\n    float: left;\n    width: 180px;\n}\n#monsterView .abilityScores .score .abilityBonus[data-v-45dc5b5a] {\n    width: 30px;\n    height: 30px;\n    line-height: 30px;\n    float: right;\n    text-align: center;\n    border-top-right-radius: 3px;\n    box-shadow: 0px 0px 10px 0px rgba(0,0,0, 0.2);\n    border-radius: 30px;\n    background-color: #475062;\n}\n#monsterView[data-v-45dc5b5a]::-webkit-scrollbar,\n#monsterView textarea[data-v-45dc5b5a]::-webkit-scrollbar {\n    width: 6px;\n    background-color: rgba(0, 0, 0, 0.425);\n    border-radius: 5px;\n}\n#monsterView[data-v-45dc5b5a]::-webkit-scrollbar-thumb,\n#monsterView textarea[data-v-45dc5b5a]::-webkit-scrollbar-thumb {\n    background-color: #8000ff;\n    border-radius: 5px;\n}\n", ""]);
+exports.push([module.i, "\n.modal-mask[data-v-45dc5b5a] {\n    position: fixed;\n    z-index: 9998;\n    top: 0;\n    left: 0;\n    background-color: rgba(0, 0, 0, .5);\n    display: table;\n    -webkit-transition: opacity .3s ease;\n    transition: opacity .3s ease;\n}\n.modal-wrapper[data-v-45dc5b5a] {\n    vertical-align: middle;\n}\n.modal-container[data-v-45dc5b5a] {\n    margin: 0px auto;\n    padding: 20px 30px;\n    background-color: #fff;\n    border-radius: 2px;\n    box-shadow: 0 2px 8px rgba(0, 0, 0, .33);\n    -webkit-transition: all .3s ease;\n    transition: all .3s ease;\n    font-family: Helvetica, Arial, sans-serif;\n}\n.modal-header h3[data-v-45dc5b5a] {\n    margin-top: 0;\n    color: #42b983;\n}\n.modal-body[data-v-45dc5b5a] {\n    margin: 20px 0;\n}\n.modal-default-button[data-v-45dc5b5a] {\n    float: right;\n}\n\n/*\n * The following styles are auto-applied to elements with\n * transition=\"modal\" when their visibility is toggled\n * by Vue.js.\n *\n * You can easily play with the modal transition by editing\n * these styles.\n */\n.modal-enter[data-v-45dc5b5a] {\n    opacity: 0;\n}\n.modal-leave-active[data-v-45dc5b5a] {\n    opacity: 0;\n}\n.modal-enter .modal-container[data-v-45dc5b5a],\n.modal-leave-active .modal-container[data-v-45dc5b5a] {\n    -webkit-transform: scale(1.1);\n    transform: scale(1.1);\n}\nbody[data-v-45dc5b5a] {\n    height: 100%;\n    margin: 0px;\n    background-color: #1f2532;\n    overflow: hidden;\n}\n#monsterView[data-v-45dc5b5a] {\n    height: calc(100% - 0px);\n    width: calc(100% - 0px);\n    overflow: hidden;\n    color: darkgrey;\n    padding: 10px;\n    font-family: 'Quicksand', sans-serif;\n}\n#monsterView input[data-v-45dc5b5a], #monsterView select[data-v-45dc5b5a] {\n    height: 30px;\n    width: 200px;\n    border: none;\n    border-radius: 3px;\n    padding-left: 10px;\n    padding-right: 10px;\n    margin-left: 5px;\n    margin-bottom: 5px;\n    float: right;\n    font-family: inherit;\n    font-size: 14px;\n    box-shadow: 0px 0px 10px 0px rgba(0,0,0, 0.2);\n    background-color: #475062;\n    color: lightgrey;\n}\n#monsterView .smallLabel input[data-v-45dc5b5a] {\n    width: 100px;\n}\n#monsterView select[data-v-45dc5b5a] {\n    width: 220px;\n}\n#monsterView button[data-v-45dc5b5a] {\n    height: 32px;\n    width: auto;\n    border: none;\n    border-radius: 5px;\n    padding-left: 10px;\n    padding-right: 10px;\n    margin-bottom: 5px;\n    margin-left: 5px;\n    text-align: center;\n    float: right;\n    font-family: inherit;\n    font-size: 14px;\n    background-color: #522a82;\n    color: #cfc8d8;\n    cursor: pointer;\n}\n#monsterView button[data-v-45dc5b5a]:hover {\n    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.7);\n    cursor: pointer;\n}\n#monsterView button.delete[data-v-45dc5b5a] {\n    background-color: darkred;\n}\n#monsterView textarea[data-v-45dc5b5a] {\n\n    float: left;\n    resize: none;\n    border-radius: 3px;\n    border-bottom-right-radius: 0px;\n    border: none;\n    font-family: inherit;\n    font-size: 14px;\n    margin-bottom: 5px;\n    box-shadow: 0px 0px 10px 0px rgba(0,0,0, 0.2);\n    background-color: #475062;\n    color: lightgrey;\n}\n#monsterView textarea.small[data-v-45dc5b5a] {\n    height: 28px;\n    width: 300px;\n    line-height: 15px;\n}\n#monsterView label[data-v-45dc5b5a] {\n    display: inline-block;\n    width: 320px;\n    text-align: right;\n    line-height: 30px;\n}\n#monsterView label.smallLabel[data-v-45dc5b5a] {\n    display: inline-block;\n    width: 150px;\n    text-align: right;\n    line-height: 30px;\n    margin-left: 10px;\n}\n#monsterView .top[data-v-45dc5b5a] {\n    float: left;\n    width: 320px;\n    height: 220px;\n    margin-right: 5px;\n    margin-bottom: 5px;\n}\n#monsterView .image[data-v-45dc5b5a] {\n    float: left;\n    width: 220px;\n    height: 220px;\n    overflow: hidden;\n    margin-right: 5px;\n    margin-bottom: 5px;\n    box-shadow: 0px 0px 10px 0px rgba(172, 172, 172, 0.2);\n    background-color: white;\n}\n#monsterView .abilityScores[data-v-45dc5b5a] {\n    height: 220px;\n    width: 220px;\n    margin-right: 5px;\n    margin-bottom: 5px;\n    float: left;\n}\n#monsterView .abilityScores .score[data-v-45dc5b5a] {\n    width: 210px;\n    float: left;\n    height: 35px;\n    line-height: 30px;\n}\n#monsterView .abilityScores .score input[data-v-45dc5b5a] {\n    width: 40px;\n    margin-right: 5px;\n}\n#monsterView .abilityScores .score label[data-v-45dc5b5a] {\n    float: left;\n    width: 180px;\n}\n#monsterView .abilityScores .score .abilityBonus[data-v-45dc5b5a] {\n    width: 30px;\n    height: 30px;\n    line-height: 30px;\n    float: right;\n    text-align: center;\n    border-top-right-radius: 3px;\n    box-shadow: 0px 0px 10px 0px rgba(0,0,0, 0.2);\n    border-radius: 30px;\n    background-color: #475062;\n}\n#monsterView[data-v-45dc5b5a]::-webkit-scrollbar,\n#monsterView textarea[data-v-45dc5b5a]::-webkit-scrollbar {\n    width: 6px;\n    background-color: rgba(0, 0, 0, 0.425);\n    border-radius: 5px;\n}\n#monsterView[data-v-45dc5b5a]::-webkit-scrollbar-thumb,\n#monsterView textarea[data-v-45dc5b5a]::-webkit-scrollbar-thumb {\n    background-color: #8000ff;\n    border-radius: 5px;\n}\n", ""]);
 
 // exports
 
@@ -39807,7 +39813,8 @@ var render = function() {
         _c(
           "div",
           {
-            staticClass: "modal-dialog modal-dialog-scrollable modal-wrapper",
+            staticClass:
+              "modal-dialog modal-dialog-scrollable modal-wrapper modal-lg",
             attrs: { role: "document" }
           },
           [
@@ -40372,7 +40379,7 @@ var render = function() {
                                   expression: "creature.saving_throws"
                                 }
                               ],
-                              staticClass: "small",
+                              attrs: { rows: "2" },
                               domProps: { value: _vm.creature.saving_throws },
                               on: {
                                 input: function($event) {
@@ -40397,7 +40404,7 @@ var render = function() {
                                   expression: "creature.skills"
                                 }
                               ],
-                              staticClass: "small",
+                              attrs: { rows: "2" },
                               domProps: { value: _vm.creature.skills },
                               on: {
                                 input: function($event) {
@@ -40422,7 +40429,7 @@ var render = function() {
                                   expression: "creature.senses"
                                 }
                               ],
-                              staticClass: "small",
+                              attrs: { rows: "2" },
                               domProps: { value: _vm.creature.senses },
                               on: {
                                 input: function($event) {
@@ -40447,7 +40454,7 @@ var render = function() {
                                   expression: "creature.languages"
                                 }
                               ],
-                              staticClass: "small",
+                              attrs: { rows: "2" },
                               domProps: { value: _vm.creature.languages },
                               on: {
                                 input: function($event) {
@@ -40474,7 +40481,7 @@ var render = function() {
                                   expression: "creature.damage_vulnerabilities"
                                 }
                               ],
-                              staticClass: "small",
+                              attrs: { rows: "2" },
                               domProps: {
                                 value: _vm.creature.damage_vulnerabilities
                               },
@@ -40501,7 +40508,7 @@ var render = function() {
                                   expression: "creature.damage_resistances"
                                 }
                               ],
-                              staticClass: "small",
+                              attrs: { rows: "2" },
                               domProps: {
                                 value: _vm.creature.damage_resistances
                               },
@@ -40528,8 +40535,10 @@ var render = function() {
                                   expression: "creature.damage_immunities"
                                 }
                               ],
-                              staticClass: "small",
-                              attrs: { placeholder: "Damage immunities..." },
+                              attrs: {
+                                rows: "2",
+                                placeholder: "Damage immunities..."
+                              },
                               domProps: {
                                 value: _vm.creature.damage_immunities
                               },
@@ -40556,8 +40565,10 @@ var render = function() {
                                   expression: "creature.condition_immunities"
                                 }
                               ],
-                              staticClass: "small",
-                              attrs: { placeholder: "Condition immunities..." },
+                              attrs: {
+                                rows: "2",
+                                placeholder: "Condition immunities..."
+                              },
                               domProps: {
                                 value: _vm.creature.condition_immunities
                               },
@@ -40588,6 +40599,7 @@ var render = function() {
                                   expression: "creature.special_abilities"
                                 }
                               ],
+                              staticClass: "col-4",
                               attrs: { placeholder: "Special abilities..." },
                               domProps: {
                                 value: _vm.creature.special_abilities
@@ -40615,6 +40627,7 @@ var render = function() {
                                   expression: "creature.attacks"
                                 }
                               ],
+                              staticClass: "col-4",
                               attrs: { placeholder: "Actions..." },
                               domProps: { value: _vm.creature.attacks },
                               on: {
@@ -40640,6 +40653,7 @@ var render = function() {
                                   expression: "creature.legendary_actions"
                                 }
                               ],
+                              staticClass: "col-4",
                               attrs: { placeholder: "Legendary Actions..." },
                               domProps: {
                                 value: _vm.creature.legendary_actions
