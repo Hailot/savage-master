@@ -41443,7 +41443,7 @@ var render = function() {
                             }
                           }
                         },
-                        [_vm._v("Show Modal")]
+                        [_vm._v("Full Info")]
                       )
                     ])
                   ])

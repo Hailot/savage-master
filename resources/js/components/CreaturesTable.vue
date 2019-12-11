@@ -43,7 +43,7 @@
                     <td>{{ creature.type.name}}</td>
                     <td>{{ creature.average_hitpoints}}</td>
                     <td>{{ creature.source}}</td>
-                    <td> <button id="show-modal" @click="viewModal(creature)">Show Modal</button> </td>
+                    <td> <button id="show-modal" @click="viewModal(creature)">Full Info</button> </td>
 
 
                 </tr>
