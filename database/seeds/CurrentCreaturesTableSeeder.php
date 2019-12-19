@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class CurrentCreaturesCreaturesTableSeeder extends Seeder
+class CurrentCreaturesTableSeeder extends Seeder
 {
 
     /**
