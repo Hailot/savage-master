@@ -172,9 +172,6 @@
 
             },
             sortBy: function(sortKey) {
-                if(sortKey === 'level'){
-                    sortKey = 'level_name';
-                }
                 if(sortKey === 'school'){
                     sortKey = 'school.name'
                 }
@@ -183,7 +180,6 @@
                 }
 
                 if(this.sortKey === sortKey){
-                    console.log(this.sortKey);
                     this.sortDirection = (this.sortDirection == 'asc') ? 'desc' : 'asc';
 
                 }
