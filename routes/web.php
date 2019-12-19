@@ -31,6 +31,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/upload-image', 'ImageController@uploadPhotoView')->name('upload-image');
     Route::post('/upload-image', 'ImageController@postUpload')->name('uploadfile');
     Route::get('/user-files', 'UserJsonFileController@getUserFiles')->name('user-files');
+    Route::get('/profile', 'HomeController@profile')->name('user-profile');
+
 
     Route::prefix('gear')->group(function () {
         Route::get('/browse', 'GearController@index')->name('gear.index');
@@ -65,6 +67,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::prefix('jsonfile')->group(function () {
         Route::get('/download/{file}','UserJsonFileController@download')->name('json.download');
         Route::post('/make-file','UserJsonFileController@makeJsonFile');
+        Route::get('/api-data','UserJsonFileController@getApiData')->name('json.apidata');
 
 
     });

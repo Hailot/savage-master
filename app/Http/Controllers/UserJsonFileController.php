@@ -70,4 +70,11 @@ class UserJsonFileController extends Controller
         return view('user.files')->with('files', $files);
 
     }
+
+    public function getApiData(Request $request)
+    {
+        $files = UserJsonFile::where('user_id',auth()->user()->id)->orderByDesc('id')->get();
+
+        return $files;
+    }
 }

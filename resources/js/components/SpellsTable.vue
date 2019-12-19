@@ -10,13 +10,26 @@
             <!--            Search-->
             <!--            <input v-model="query"/>-->
             <!--        </label>-->
-            <div class="search-wrapper justify-content-center">
-                <label>Search title:</label>
+            <div class="row">
+                <div class="col-sm-2">
 
-                <input type="text" v-model="search" placeholder="Search title.."/>
+                        <div class="form-group mt-4 pt-2" >
+                            <button :disabled='isDisabled' type="button" name="jsonfile" id="jsonfile" class="btn btn-primary btn-block form-control text-center" v-on:click="makefile">Create Json
+                            </button>
+                        </div>
+
+                </div>
+                <div class="col-sm-6">
+                 <div class="form-group">
+                        <label for="search">Text Search:</label>
+
+                        <input class="form-control" name="search" id="search" type="text" v-model="search" placeholder="Search by Text..."/>
+                    </div>
+
+
+
+                </div>
             </div>
-            <button :disabled='isDisabled' type="button" class="btn btn-primary" v-on:click="makefile">Create Json
-            </button>
             <table class="table table-hover table-dark">
 
                 <div v-if="loading" class="d-flex justify-content-center">
@@ -32,7 +45,7 @@
                         </label>
                     </th>
                     <th scope="col" v-for="column in columns">
-                        <a class="btn btn-block btn-outline-info" href="#" @click="sortBy(column)">
+                        <a class="btn btn-block btn-outline-info btn-link" href="#" @click="sortBy(column)">
                             {{ column | capitalize }}
                         </a>
                     </th>
@@ -57,7 +70,7 @@
                     <td>{{ spell.duration}}</td>
                     <td>{{ spell.range}}</td>
                     <td>{{ spell.source}}</td>
-                    <td>   <button class="btn-sm btn-info" id="show-modal" @click="viewModal(spell)">View</button>
+                    <td>   <button class="btn btn-block btn-info" id="show-modal" @click="viewModal(spell)">View</button>
                     </td>
                 </tr>
                 </tbody>
@@ -97,10 +110,11 @@
                 sortKey: ['level'],
                 sortDirection: ['asc'],
                 search: '',
-                columns: ['level','name', 'school', 'classes', 'components','casting Time', 'duration', 'range','source'],
+                columns: ['level','name', 'school', 'classes', 'components','castingTime', 'duration', 'range','source'],
                 disButton: false,
                 showModal: false,
                 showedSpell: '',
+                checkedSources: []
 
 
             }
@@ -175,7 +189,7 @@
                 if(sortKey === 'school'){
                     sortKey = 'school.name'
                 }
-                if(sortKey === 'casting Time'){
+                if(sortKey === 'castingTime'){
                     sortKey = 'casting_time'
                 }
 
@@ -211,7 +225,7 @@
                 return this.disButton;
             },
             displayedSpells() {
-                return this.paginate(this.orderedList);
+                return this.paginate(this.selectedSources);
             },
             filteredList() {
                 var self = this;
@@ -225,6 +239,14 @@
                                 searchRegex.test(spell.source)
                         )})
 
+            },
+            selectedSources: function() {
+                if(!this.checkedSources.length){
+                    return this.orderedList
+                }
+               return this.orderedList.filter(function (spell) {
+                   return this.checkedSources.includes(spell.source)
+               })
             },
             orderedList: function () {
                 return _.orderBy(this.filteredList, this.sortKey,this.sortDirection)

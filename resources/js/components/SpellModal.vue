@@ -5,7 +5,7 @@
                 <div class="modal-content modal-container bg-dark">
 
                     <div class="modal-header">
-                        {{ creature.name }}
+                        {{ spell.name }}
                     </div>
 
                     <div class="modal-body">

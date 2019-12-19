@@ -2804,6 +2804,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "SpellsTable.vue",
@@ -2820,10 +2833,11 @@ __webpack_require__.r(__webpack_exports__);
       sortKey: ['level'],
       sortDirection: ['asc'],
       search: '',
-      columns: ['level', 'name', 'school', 'classes', 'components', 'casting Time', 'duration', 'range', 'source'],
+      columns: ['level', 'name', 'school', 'classes', 'components', 'castingTime', 'duration', 'range', 'source'],
       disButton: false,
       showModal: false,
-      showedSpell: ''
+      showedSpell: '',
+      checkedSources: []
     };
   },
   filters: {
@@ -2890,7 +2904,7 @@ __webpack_require__.r(__webpack_exports__);
         sortKey = 'school.name';
       }
 
-      if (sortKey === 'casting Time') {
+      if (sortKey === 'castingTime') {
         sortKey = 'casting_time';
       }
 
@@ -2921,13 +2935,22 @@ __webpack_require__.r(__webpack_exports__);
       return this.disButton;
     },
     displayedSpells: function displayedSpells() {
-      return this.paginate(this.orderedList);
+      return this.paginate(this.selectedSources);
     },
     filteredList: function filteredList() {
       var self = this;
       return self.spells.filter(function (spell) {
         var searchRegex = new RegExp(self.search, 'i');
         return searchRegex.test(spell.name) || searchRegex.test(spell.classes) || searchRegex.test(spell.school.name) || searchRegex.test(spell.source);
+      });
+    },
+    selectedSources: function selectedSources() {
+      if (!this.checkedSources.length) {
+        return this.orderedList;
+      }
+
+      return this.orderedList.filter(function (spell) {
+        return this.checkedSources.includes(spell.source);
       });
     },
     orderedList: function orderedList() {
@@ -2967,14 +2990,116 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "UserProfile",
   data: function data() {
     return {
-      activeItem: 'home'
+      activeItem: 'profile',
+      files: []
     };
   },
+  created: function created() {
+    this.fetchFiles();
+  },
   methods: {
+    fetchFiles: function fetchFiles() {
+      var _this = this;
+
+      axios.get('/jsonfile/api-data').then(function (response) {
+        _this.files = response.data;
+        console.log(response);
+      })["finally"]();
+    },
     isActive: function isActive(menuItem) {
       return this.activeItem === menuItem;
     },
@@ -42135,7 +42260,7 @@ var render = function() {
                 _c("div", { staticClass: "modal-header" }, [
                   _vm._v(
                     "\n                    " +
-                      _vm._s(_vm.creature.name) +
+                      _vm._s(_vm.spell.name) +
                       "\n                "
                   )
                 ]),
@@ -42331,44 +42456,62 @@ var render = function() {
             ])
           ])
         : _c("section", [
-            _c(
-              "div",
-              { staticClass: "search-wrapper justify-content-center" },
-              [
-                _c("label", [_vm._v("Search title:")]),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-sm-2" }, [
+                _c("div", { staticClass: "form-group mt-4 pt-2" }, [
+                  _c(
+                    "button",
                     {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.search,
-                      expression: "search"
-                    }
-                  ],
-                  attrs: { type: "text", placeholder: "Search title.." },
-                  domProps: { value: _vm.search },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
+                      staticClass:
+                        "btn btn-primary btn-block form-control text-center",
+                      attrs: {
+                        disabled: _vm.isDisabled,
+                        type: "button",
+                        name: "jsonfile",
+                        id: "jsonfile"
+                      },
+                      on: { click: _vm.makefile }
+                    },
+                    [_vm._v("Create Json\n                        ")]
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-sm-6" }, [
+                _c("div", { staticClass: "form-group" }, [
+                  _c("label", { attrs: { for: "search" } }, [
+                    _vm._v("Text Search:")
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.search,
+                        expression: "search"
                       }
-                      _vm.search = $event.target.value
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      name: "search",
+                      id: "search",
+                      type: "text",
+                      placeholder: "Search by Text..."
+                    },
+                    domProps: { value: _vm.search },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.search = $event.target.value
+                      }
                     }
-                  }
-                })
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "button",
-              {
-                staticClass: "btn btn-primary",
-                attrs: { disabled: _vm.isDisabled, type: "button" },
-                on: { click: _vm.makefile }
-              },
-              [_vm._v("Create Json\n        ")]
-            ),
+                  })
+                ])
+              ])
+            ]),
             _vm._v(" "),
             _c("table", { staticClass: "table table-hover table-dark" }, [
               _vm.loading
@@ -42429,7 +42572,8 @@ var render = function() {
                         _c(
                           "a",
                           {
-                            staticClass: "btn btn-block btn-outline-info",
+                            staticClass:
+                              "btn btn-block btn-outline-info btn-link",
                             attrs: { href: "#" },
                             on: {
                               click: function($event) {
@@ -42525,7 +42669,7 @@ var render = function() {
                       _c(
                         "button",
                         {
-                          staticClass: "btn-sm btn-info",
+                          staticClass: "btn btn-block btn-info",
                           attrs: { id: "show-modal" },
                           on: {
                             click: function($event) {
@@ -42648,7 +42792,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
-    _c("h2", [_vm._v("Tabs in Vue.js:")]),
+    _c("h2", [_vm._v("Profile Page")]),
     _vm._v(" "),
     _c("br"),
     _vm._v(" "),
@@ -42701,7 +42845,7 @@ var render = function() {
             class: { "active show": _vm.isActive("profile") },
             attrs: { id: "profile" }
           },
-          [_vm._v("Profile Info")]
+          [_c("hr"), _vm._v(" "), _vm._m(0)]
         ),
         _vm._v(" "),
         _c(
@@ -42711,13 +42855,246 @@ var render = function() {
             class: { "active show": _vm.isActive("files") },
             attrs: { id: "files" }
           },
-          [_vm._v("Files")]
+          [
+            _c(
+              "table",
+              { staticClass: "table table-bordered" },
+              [
+                _vm._m(1),
+                _vm._v(" "),
+                _vm._l(_vm.files, function(file) {
+                  return _c("tr", [
+                    _c("td", [_vm._v(_vm._s(file.file_name))]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(file.uploaded_time))]),
+                    _vm._v(" "),
+                    _vm._m(2, true)
+                  ])
+                })
+              ],
+              2
+            )
+          ]
         )
       ]
     )
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "form",
+      {
+        staticClass: "form",
+        attrs: { action: "##", method: "post", id: "registrationForm" }
+      },
+      [
+        _c("div", { staticClass: "form-group" }, [
+          _c("div", { staticClass: "col-xs-6" }, [
+            _c("label", { attrs: { for: "first_name" } }, [
+              _c("h4", [_vm._v("First name")])
+            ]),
+            _vm._v(" "),
+            _c("input", {
+              staticClass: "form-control",
+              attrs: {
+                type: "text",
+                name: "first_name",
+                id: "first_name",
+                placeholder: "first name",
+                title: "enter your first name if any."
+              }
+            })
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("div", { staticClass: "col-xs-6" }, [
+            _c("label", { attrs: { for: "last_name" } }, [
+              _c("h4", [_vm._v("Last name")])
+            ]),
+            _vm._v(" "),
+            _c("input", {
+              staticClass: "form-control",
+              attrs: {
+                type: "text",
+                name: "last_name",
+                id: "last_name",
+                placeholder: "last name",
+                title: "enter your last name if any."
+              }
+            })
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("div", { staticClass: "col-xs-6" }, [
+            _c("label", { attrs: { for: "phone" } }, [
+              _c("h4", [_vm._v("Phone")])
+            ]),
+            _vm._v(" "),
+            _c("input", {
+              staticClass: "form-control",
+              attrs: {
+                type: "text",
+                name: "phone",
+                id: "phone",
+                placeholder: "enter phone",
+                title: "enter your phone number if any."
+              }
+            })
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("div", { staticClass: "col-xs-6" }, [
+            _c("label", { attrs: { for: "mobile" } }, [
+              _c("h4", [_vm._v("Mobile")])
+            ]),
+            _vm._v(" "),
+            _c("input", {
+              staticClass: "form-control",
+              attrs: {
+                type: "text",
+                name: "mobile",
+                id: "mobile",
+                placeholder: "enter mobile number",
+                title: "enter your mobile number if any."
+              }
+            })
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("div", { staticClass: "col-xs-6" }, [
+            _c("label", { attrs: { for: "email" } }, [
+              _c("h4", [_vm._v("Email")])
+            ]),
+            _vm._v(" "),
+            _c("input", {
+              staticClass: "form-control",
+              attrs: {
+                type: "email",
+                name: "email",
+                id: "email",
+                placeholder: "you@email.com",
+                title: "enter your email."
+              }
+            })
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("div", { staticClass: "col-xs-6" }, [
+            _c("label", { attrs: { for: "email" } }, [
+              _c("h4", [_vm._v("Location")])
+            ]),
+            _vm._v(" "),
+            _c("input", {
+              staticClass: "form-control",
+              attrs: {
+                type: "email",
+                id: "location",
+                placeholder: "somewhere",
+                title: "enter a location"
+              }
+            })
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("div", { staticClass: "col-xs-6" }, [
+            _c("label", { attrs: { for: "password" } }, [
+              _c("h4", [_vm._v("Password")])
+            ]),
+            _vm._v(" "),
+            _c("input", {
+              staticClass: "form-control",
+              attrs: {
+                type: "password",
+                name: "password",
+                id: "password",
+                placeholder: "password",
+                title: "enter your password."
+              }
+            })
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("div", { staticClass: "col-xs-6" }, [
+            _c("label", { attrs: { for: "password2" } }, [
+              _c("h4", [_vm._v("Verify")])
+            ]),
+            _vm._v(" "),
+            _c("input", {
+              staticClass: "form-control",
+              attrs: {
+                type: "password",
+                name: "password2",
+                id: "password2",
+                placeholder: "password2",
+                title: "enter your password2."
+              }
+            })
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("div", { staticClass: "col-xs-12" }, [
+            _c("br"),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-lg btn-success",
+                attrs: { type: "submit" }
+              },
+              [
+                _c("i", { staticClass: "glyphicon glyphicon-ok-sign" }),
+                _vm._v(" Save")
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "button",
+              { staticClass: "btn btn-lg", attrs: { type: "reset" } },
+              [
+                _c("i", { staticClass: "glyphicon glyphicon-repeat" }),
+                _vm._v(" Reset")
+              ]
+            )
+          ])
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("tr", [
+      _c("th", [_vm._v("name")]),
+      _vm._v(" "),
+      _c("th", [_vm._v("created")]),
+      _vm._v(" "),
+      _c("th", [_vm._v("Link")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("td", [
+      _c("a", { attrs: { href: "/jsonfile/download/", target: "_blank" } }, [
+        _vm._v("Link")
+      ])
+    ])
+  }
+]
 render._withStripped = true
 
 
