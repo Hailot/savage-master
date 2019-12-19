@@ -17,7 +17,7 @@
             </div>
             <button :disabled='isDisabled' type="button" class="btn btn-primary" v-on:click="makefile">Create Json
             </button>
-            <table class="table table-striped table-hover table-dark">
+            <table class="table table-hover table-dark">
 
                 <div v-if="loading" class="d-flex justify-content-center">
                     <div class="spinner-border" role="status">
@@ -31,8 +31,8 @@
                             <input type="checkbox" v-model="selectAll" @click="select">
                         </label>
                     </th>
-                    <th v-for="column in columns">
-                        <a href="#" @click="sortBy(column)">
+                    <th scope="col" v-for="column in columns">
+                        <a class="btn btn-block btn-outline-info" href="#" @click="sortBy(column)">
                             {{ column | capitalize }}
                         </a>
                     </th>

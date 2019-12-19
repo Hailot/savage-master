@@ -41396,173 +41396,166 @@ var render = function() {
               [_vm._v("Create Json")]
             ),
             _vm._v(" "),
-            _c(
-              "table",
-              { staticClass: "table table-striped table-hover table-dark " },
-              [
-                _vm.loading
-                  ? _c(
-                      "div",
-                      { staticClass: "d-flex justify-content-center" },
-                      [_vm._m(0)]
-                    )
-                  : _vm._e(),
-                _vm._v(" "),
-                _c("thead", [
-                  _c(
-                    "tr",
-                    [
-                      _c("th", [
-                        _c("label", { staticClass: "form-checkbox" }, [
-                          _c("input", {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.selectAll,
-                                expression: "selectAll"
-                              }
-                            ],
-                            attrs: { type: "checkbox" },
-                            domProps: {
-                              checked: Array.isArray(_vm.selectAll)
-                                ? _vm._i(_vm.selectAll, null) > -1
-                                : _vm.selectAll
-                            },
-                            on: {
-                              click: _vm.select,
-                              change: function($event) {
-                                var $$a = _vm.selectAll,
-                                  $$el = $event.target,
-                                  $$c = $$el.checked ? true : false
-                                if (Array.isArray($$a)) {
-                                  var $$v = null,
-                                    $$i = _vm._i($$a, $$v)
-                                  if ($$el.checked) {
-                                    $$i < 0 &&
-                                      (_vm.selectAll = $$a.concat([$$v]))
-                                  } else {
-                                    $$i > -1 &&
-                                      (_vm.selectAll = $$a
-                                        .slice(0, $$i)
-                                        .concat($$a.slice($$i + 1)))
-                                  }
-                                } else {
-                                  _vm.selectAll = $$c
-                                }
-                              }
-                            }
-                          })
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _vm._l(_vm.columns, function(column) {
-                        return _c("th", [
-                          _c(
-                            "a",
-                            {
-                              attrs: { href: "#" },
-                              on: {
-                                click: function($event) {
-                                  return _vm.sortBy(column)
-                                }
-                              }
-                            },
-                            [
-                              _vm._v(
-                                "\n                        " +
-                                  _vm._s(_vm._f("capitalize")(column)) +
-                                  "\n                    "
-                              )
-                            ]
-                          )
-                        ])
-                      }),
-                      _vm._v(" "),
-                      _c("th")
-                    ],
-                    2
-                  )
-                ]),
-                _vm._v(" "),
+            _c("table", { staticClass: "table table-hover table-dark " }, [
+              _vm.loading
+                ? _c("div", { staticClass: "d-flex justify-content-center" }, [
+                    _vm._m(0)
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              _c("thead", [
                 _c(
-                  "tbody",
-                  _vm._l(_vm.displayedCreatures, function(creature) {
-                    return _c("tr", { key: creature.id }, [
-                      _c("td", [
-                        _c("label", { staticClass: "form-checkbox" }, [
-                          _c("input", {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.selected,
-                                expression: "selected"
-                              }
-                            ],
-                            attrs: { type: "checkbox" },
-                            domProps: {
-                              value: creature.id,
-                              checked: Array.isArray(_vm.selected)
-                                ? _vm._i(_vm.selected, creature.id) > -1
-                                : _vm.selected
-                            },
-                            on: {
-                              change: function($event) {
-                                var $$a = _vm.selected,
-                                  $$el = $event.target,
-                                  $$c = $$el.checked ? true : false
-                                if (Array.isArray($$a)) {
-                                  var $$v = creature.id,
-                                    $$i = _vm._i($$a, $$v)
-                                  if ($$el.checked) {
-                                    $$i < 0 &&
-                                      (_vm.selected = $$a.concat([$$v]))
-                                  } else {
-                                    $$i > -1 &&
-                                      (_vm.selected = $$a
-                                        .slice(0, $$i)
-                                        .concat($$a.slice($$i + 1)))
-                                  }
+                  "tr",
+                  [
+                    _c("th", [
+                      _c("label", { staticClass: "form-checkbox" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.selectAll,
+                              expression: "selectAll"
+                            }
+                          ],
+                          attrs: { type: "checkbox" },
+                          domProps: {
+                            checked: Array.isArray(_vm.selectAll)
+                              ? _vm._i(_vm.selectAll, null) > -1
+                              : _vm.selectAll
+                          },
+                          on: {
+                            click: _vm.select,
+                            change: function($event) {
+                              var $$a = _vm.selectAll,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = null,
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 && (_vm.selectAll = $$a.concat([$$v]))
                                 } else {
-                                  _vm.selected = $$c
+                                  $$i > -1 &&
+                                    (_vm.selectAll = $$a
+                                      .slice(0, $$i)
+                                      .concat($$a.slice($$i + 1)))
                                 }
+                              } else {
+                                _vm.selectAll = $$c
                               }
                             }
-                          })
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(creature.challenge_rating))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(creature.name))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(creature.type.name))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(creature.average_hitpoints))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(creature.source))]),
-                      _vm._v(" "),
-                      _c("td", [
+                          }
+                        })
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _vm._l(_vm.columns, function(column) {
+                      return _c("th", { attrs: { scope: "col" } }, [
                         _c(
-                          "button",
+                          "a",
                           {
-                            attrs: { id: "show-modal" },
+                            staticClass: "btn btn-block btn-outline-info",
+                            attrs: { href: "#" },
                             on: {
                               click: function($event) {
-                                return _vm.viewModal(creature)
+                                return _vm.sortBy(column)
                               }
                             }
                           },
-                          [_vm._v("Full Info")]
+                          [
+                            _vm._v(
+                              "\n                        " +
+                                _vm._s(_vm._f("capitalize")(column)) +
+                                "\n                    "
+                            )
+                          ]
                         )
                       ])
-                    ])
-                  }),
-                  0
+                    }),
+                    _vm._v(" "),
+                    _c("th")
+                  ],
+                  2
                 )
-              ]
-            ),
+              ]),
+              _vm._v(" "),
+              _c(
+                "tbody",
+                _vm._l(_vm.displayedCreatures, function(creature) {
+                  return _c("tr", { key: creature.id }, [
+                    _c("td", [
+                      _c("label", { staticClass: "form-checkbox" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.selected,
+                              expression: "selected"
+                            }
+                          ],
+                          attrs: { type: "checkbox" },
+                          domProps: {
+                            value: creature.id,
+                            checked: Array.isArray(_vm.selected)
+                              ? _vm._i(_vm.selected, creature.id) > -1
+                              : _vm.selected
+                          },
+                          on: {
+                            change: function($event) {
+                              var $$a = _vm.selected,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = creature.id,
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 && (_vm.selected = $$a.concat([$$v]))
+                                } else {
+                                  $$i > -1 &&
+                                    (_vm.selected = $$a
+                                      .slice(0, $$i)
+                                      .concat($$a.slice($$i + 1)))
+                                }
+                              } else {
+                                _vm.selected = $$c
+                              }
+                            }
+                          }
+                        })
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(creature.challenge_rating))]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(creature.name))]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(creature.type.name))]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(creature.average_hitpoints))]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(creature.source))]),
+                    _vm._v(" "),
+                    _c("td", [
+                      _c(
+                        "button",
+                        {
+                          attrs: { id: "show-modal" },
+                          on: {
+                            click: function($event) {
+                              return _vm.viewModal(creature)
+                            }
+                          }
+                        },
+                        [_vm._v("Full Info")]
+                      )
+                    ])
+                  ])
+                }),
+                0
+              )
+            ]),
             _vm._v(" "),
             _c(
               "div",
@@ -41761,7 +41754,7 @@ var render = function() {
             [_vm._v("Create Json")]
           ),
           _vm._v(" "),
-          _c("table", { staticClass: "table table-hoved table-dark " }, [
+          _c("table", { staticClass: "table table-hover table-dark " }, [
             _vm.loading
               ? _c("div", { staticClass: "d-flex justify-content-center" }, [
                   _vm._m(0)
@@ -41816,10 +41809,11 @@ var render = function() {
                   ]),
                   _vm._v(" "),
                   _vm._l(_vm.columns, function(column) {
-                    return _c("th", [
+                    return _c("th", { attrs: { scope: "col" } }, [
                       _c(
                         "a",
                         {
+                          staticClass: "btn btn-block btn-outline-info",
                           attrs: { href: "#" },
                           on: {
                             click: function($event) {
@@ -42376,184 +42370,177 @@ var render = function() {
               [_vm._v("Create Json\n        ")]
             ),
             _vm._v(" "),
-            _c(
-              "table",
-              { staticClass: "table table-striped table-hover table-dark" },
-              [
-                _vm.loading
-                  ? _c(
-                      "div",
-                      { staticClass: "d-flex justify-content-center" },
-                      [_vm._m(0)]
-                    )
-                  : _vm._e(),
-                _vm._v(" "),
-                _c("thead", [
-                  _c(
-                    "tr",
-                    [
-                      _c("th", [
-                        _c("label", { staticClass: "form-checkbox" }, [
-                          _c("input", {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.selectAll,
-                                expression: "selectAll"
-                              }
-                            ],
-                            attrs: { type: "checkbox" },
-                            domProps: {
-                              checked: Array.isArray(_vm.selectAll)
-                                ? _vm._i(_vm.selectAll, null) > -1
-                                : _vm.selectAll
-                            },
-                            on: {
-                              click: _vm.select,
-                              change: function($event) {
-                                var $$a = _vm.selectAll,
-                                  $$el = $event.target,
-                                  $$c = $$el.checked ? true : false
-                                if (Array.isArray($$a)) {
-                                  var $$v = null,
-                                    $$i = _vm._i($$a, $$v)
-                                  if ($$el.checked) {
-                                    $$i < 0 &&
-                                      (_vm.selectAll = $$a.concat([$$v]))
-                                  } else {
-                                    $$i > -1 &&
-                                      (_vm.selectAll = $$a
-                                        .slice(0, $$i)
-                                        .concat($$a.slice($$i + 1)))
-                                  }
-                                } else {
-                                  _vm.selectAll = $$c
-                                }
-                              }
-                            }
-                          })
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _vm._l(_vm.columns, function(column) {
-                        return _c("th", [
-                          _c(
-                            "a",
-                            {
-                              attrs: { href: "#" },
-                              on: {
-                                click: function($event) {
-                                  return _vm.sortBy(column)
-                                }
-                              }
-                            },
-                            [
-                              _vm._v(
-                                "\n                        " +
-                                  _vm._s(_vm._f("capitalize")(column)) +
-                                  "\n                    "
-                              )
-                            ]
-                          )
-                        ])
-                      }),
-                      _vm._v(" "),
-                      _c("th")
-                    ],
-                    2
-                  )
-                ]),
-                _vm._v(" "),
+            _c("table", { staticClass: "table table-hover table-dark" }, [
+              _vm.loading
+                ? _c("div", { staticClass: "d-flex justify-content-center" }, [
+                    _vm._m(0)
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              _c("thead", [
                 _c(
-                  "tbody",
-                  _vm._l(_vm.displayedSpells, function(spell) {
-                    return _c("tr", { key: spell.id }, [
-                      _c("td", [
-                        _c("label", { staticClass: "form-checkbox" }, [
-                          _c("input", {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.selected,
-                                expression: "selected"
-                              }
-                            ],
-                            attrs: { type: "checkbox" },
-                            domProps: {
-                              value: spell.id,
-                              checked: Array.isArray(_vm.selected)
-                                ? _vm._i(_vm.selected, spell.id) > -1
-                                : _vm.selected
-                            },
-                            on: {
-                              change: function($event) {
-                                var $$a = _vm.selected,
-                                  $$el = $event.target,
-                                  $$c = $$el.checked ? true : false
-                                if (Array.isArray($$a)) {
-                                  var $$v = spell.id,
-                                    $$i = _vm._i($$a, $$v)
-                                  if ($$el.checked) {
-                                    $$i < 0 &&
-                                      (_vm.selected = $$a.concat([$$v]))
-                                  } else {
-                                    $$i > -1 &&
-                                      (_vm.selected = $$a
-                                        .slice(0, $$i)
-                                        .concat($$a.slice($$i + 1)))
-                                  }
+                  "tr",
+                  [
+                    _c("th", [
+                      _c("label", { staticClass: "form-checkbox" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.selectAll,
+                              expression: "selectAll"
+                            }
+                          ],
+                          attrs: { type: "checkbox" },
+                          domProps: {
+                            checked: Array.isArray(_vm.selectAll)
+                              ? _vm._i(_vm.selectAll, null) > -1
+                              : _vm.selectAll
+                          },
+                          on: {
+                            click: _vm.select,
+                            change: function($event) {
+                              var $$a = _vm.selectAll,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = null,
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 && (_vm.selectAll = $$a.concat([$$v]))
                                 } else {
-                                  _vm.selected = $$c
+                                  $$i > -1 &&
+                                    (_vm.selectAll = $$a
+                                      .slice(0, $$i)
+                                      .concat($$a.slice($$i + 1)))
                                 }
+                              } else {
+                                _vm.selectAll = $$c
                               }
                             }
-                          }),
-                          _vm._v(" "),
-                          _c("i", { staticClass: "form-icon" })
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(spell.level_name))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(spell.name))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(spell.school.name))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(spell.classes))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(spell.components))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(spell.casting_time))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(spell.duration))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(spell.range))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(spell.source))]),
-                      _vm._v(" "),
-                      _c("td", [
+                          }
+                        })
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _vm._l(_vm.columns, function(column) {
+                      return _c("th", { attrs: { scope: "col" } }, [
                         _c(
-                          "button",
+                          "a",
                           {
-                            staticClass: "btn-sm btn-info",
-                            attrs: { id: "show-modal" },
+                            staticClass: "btn btn-block btn-outline-info",
+                            attrs: { href: "#" },
                             on: {
                               click: function($event) {
-                                return _vm.viewModal(spell)
+                                return _vm.sortBy(column)
                               }
                             }
                           },
-                          [_vm._v("View")]
+                          [
+                            _vm._v(
+                              "\n                        " +
+                                _vm._s(_vm._f("capitalize")(column)) +
+                                "\n                    "
+                            )
+                          ]
                         )
                       ])
-                    ])
-                  }),
-                  0
+                    }),
+                    _vm._v(" "),
+                    _c("th")
+                  ],
+                  2
                 )
-              ]
-            ),
+              ]),
+              _vm._v(" "),
+              _c(
+                "tbody",
+                _vm._l(_vm.displayedSpells, function(spell) {
+                  return _c("tr", { key: spell.id }, [
+                    _c("td", [
+                      _c("label", { staticClass: "form-checkbox" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.selected,
+                              expression: "selected"
+                            }
+                          ],
+                          attrs: { type: "checkbox" },
+                          domProps: {
+                            value: spell.id,
+                            checked: Array.isArray(_vm.selected)
+                              ? _vm._i(_vm.selected, spell.id) > -1
+                              : _vm.selected
+                          },
+                          on: {
+                            change: function($event) {
+                              var $$a = _vm.selected,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = spell.id,
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 && (_vm.selected = $$a.concat([$$v]))
+                                } else {
+                                  $$i > -1 &&
+                                    (_vm.selected = $$a
+                                      .slice(0, $$i)
+                                      .concat($$a.slice($$i + 1)))
+                                }
+                              } else {
+                                _vm.selected = $$c
+                              }
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("i", { staticClass: "form-icon" })
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(spell.level_name))]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(spell.name))]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(spell.school.name))]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(spell.classes))]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(spell.components))]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(spell.casting_time))]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(spell.duration))]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(spell.range))]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(spell.source))]),
+                    _vm._v(" "),
+                    _c("td", [
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn-sm btn-info",
+                          attrs: { id: "show-modal" },
+                          on: {
+                            click: function($event) {
+                              return _vm.viewModal(spell)
+                            }
+                          }
+                        },
+                        [_vm._v("View")]
+                      )
+                    ])
+                  ])
+                }),
+                0
+              )
+            ]),
             _vm._v(" "),
             _c(
               "div",
