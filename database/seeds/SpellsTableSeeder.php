@@ -24,7 +24,7 @@ class SpellsTableSeeder extends Seeder
         foreach ($phb as $item) {
             $data->offsetSet(null, $item);
         }
-        $srdjson = File::get("database/json/spells/spellsPHB.json");
+        $srdjson = File::get("database/json/spells/spellsSRD.json");
         $srd = json_decode($srdjson);
         foreach ($srd as $item) {
             $data->offsetSet(null, $item);

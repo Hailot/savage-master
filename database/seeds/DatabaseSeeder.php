@@ -18,5 +18,6 @@ class DatabaseSeeder extends Seeder
          $this->call(GearsTableSeeder::class);
          $this->call(CreatureTypesSeeder::class);
          $this->call(CreaturesTableSeeder::class);
+        $this->call(CurrentCreaturesCreaturesTableSeeder::class);
     }
 }

@@ -5,12 +5,26 @@
         </section>
 
         <section v-else>
-            <div class="search-wrapper justify-content-center">
-                <label>Search title:</label>
+            <div class="row">
+                <div class="col-sm-2">
 
-                <input type="text" v-model="search" placeholder="Search title.."/>
+                    <div class="form-group mt-4 pt-2" >
+                        <button :disabled='isDisabled' type="button" name="jsonfile" id="jsonfile" class="btn btn-primary btn-block form-control text-center" v-on:click="makefile">Create Json
+                        </button>
+                    </div>
+
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="search">Text Search:</label>
+
+                        <input class="form-control" name="search" id="search" type="text" v-model="search" placeholder="Search by Text..."/>
+                    </div>
+
+
+
+                </div>
             </div>
-            <button :disabled='isDisabled' type="button" class="btn btn-primary" v-on:click="makefile">Create Json</button>
             <table class="table table-hover table-dark ">
 
                 <div v-if="loading" class="d-flex justify-content-center">

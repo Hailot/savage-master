@@ -2224,6 +2224,20 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "CreaturesTable.vue",
   data: function data() {
@@ -2393,6 +2407,20 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -41482,44 +41510,62 @@ var render = function() {
             ])
           ])
         : _c("section", [
-            _c(
-              "div",
-              { staticClass: "search-wrapper justify-content-center" },
-              [
-                _c("label", [_vm._v("Search title:")]),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-sm-2" }, [
+                _c("div", { staticClass: "form-group mt-4 pt-2" }, [
+                  _c(
+                    "button",
                     {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.search,
-                      expression: "search"
-                    }
-                  ],
-                  attrs: { type: "text", placeholder: "Search title.." },
-                  domProps: { value: _vm.search },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
+                      staticClass:
+                        "btn btn-primary btn-block form-control text-center",
+                      attrs: {
+                        disabled: _vm.isDisabled,
+                        type: "button",
+                        name: "jsonfile",
+                        id: "jsonfile"
+                      },
+                      on: { click: _vm.makefile }
+                    },
+                    [_vm._v("Create Json\n                    ")]
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-sm-6" }, [
+                _c("div", { staticClass: "form-group" }, [
+                  _c("label", { attrs: { for: "search" } }, [
+                    _vm._v("Text Search:")
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.search,
+                        expression: "search"
                       }
-                      _vm.search = $event.target.value
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      name: "search",
+                      id: "search",
+                      type: "text",
+                      placeholder: "Search by Text..."
+                    },
+                    domProps: { value: _vm.search },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.search = $event.target.value
+                      }
                     }
-                  }
-                })
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "button",
-              {
-                staticClass: "btn btn-primary",
-                attrs: { disabled: _vm.isDisabled, type: "button" },
-                on: { click: _vm.makefile }
-              },
-              [_vm._v("Create Json")]
-            ),
+                  })
+                ])
+              ])
+            ]),
             _vm._v(" "),
             _c("table", { staticClass: "table table-hover table-dark " }, [
               _vm.loading
@@ -41844,40 +41890,62 @@ var render = function() {
           ])
         ])
       : _c("section", [
-          _c("div", { staticClass: "search-wrapper justify-content-center" }, [
-            _c("label", [_vm._v("Search title:")]),
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col-sm-2" }, [
+              _c("div", { staticClass: "form-group mt-4 pt-2" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass:
+                      "btn btn-primary btn-block form-control text-center",
+                    attrs: {
+                      disabled: _vm.isDisabled,
+                      type: "button",
+                      name: "jsonfile",
+                      id: "jsonfile"
+                    },
+                    on: { click: _vm.makefile }
+                  },
+                  [_vm._v("Create Json\n                    ")]
+                )
+              ])
+            ]),
             _vm._v(" "),
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.search,
-                  expression: "search"
-                }
-              ],
-              attrs: { type: "text", placeholder: "Search title.." },
-              domProps: { value: _vm.search },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
+            _c("div", { staticClass: "col-sm-6" }, [
+              _c("div", { staticClass: "form-group" }, [
+                _c("label", { attrs: { for: "search" } }, [
+                  _vm._v("Text Search:")
+                ]),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.search,
+                      expression: "search"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: {
+                    name: "search",
+                    id: "search",
+                    type: "text",
+                    placeholder: "Search by Text..."
+                  },
+                  domProps: { value: _vm.search },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.search = $event.target.value
+                    }
                   }
-                  _vm.search = $event.target.value
-                }
-              }
-            })
+                })
+              ])
+            ])
           ]),
-          _vm._v(" "),
-          _c(
-            "button",
-            {
-              staticClass: "btn btn-primary",
-              attrs: { disabled: _vm.isDisabled, type: "button" },
-              on: { click: _vm.makefile }
-            },
-            [_vm._v("Create Json")]
-          ),
           _vm._v(" "),
           _c("table", { staticClass: "table table-hover table-dark " }, [
             _vm.loading
