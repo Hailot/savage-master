@@ -2457,6 +2457,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "GearTable.vue",
   data: function data() {
@@ -2470,10 +2475,19 @@ __webpack_require__.r(__webpack_exports__);
       selected: [],
       selectAll: false,
       disButton: false,
-      search: ''
+      sortKey: ['name'],
+      sortDirection: ['asc'],
+      search: '',
+      columns: ['type', 'name', 'cost', 'weight', 'properties']
     };
   },
-  filters: {},
+  filters: {
+    capitalize: function capitalize(value) {
+      if (!value) return '';
+      value = value.toString();
+      return value.charAt(0).toUpperCase() + value.slice(1);
+    }
+  },
   mounted: function mounted() {},
   created: function created() {
     this.fetchGear();
@@ -2511,6 +2525,14 @@ __webpack_require__.r(__webpack_exports__);
         }
       }
     },
+    sortBy: function sortBy(sortKey) {
+      if (this.sortKey === sortKey) {
+        this.sortDirection = this.sortDirection == 'asc' ? 'desc' : 'asc';
+      } else {
+        this.sortDirection = 'asc';
+        this.sortKey = sortKey;
+      }
+    },
     makefile: function makefile() {
       this.loading = true;
       this.disButton = true;
@@ -2532,14 +2554,17 @@ __webpack_require__.r(__webpack_exports__);
       return this.disButton;
     },
     displayedGear: function displayedGear() {
-      return this.paginate(this.filteredList);
+      return this.paginate(this.orderedList);
     },
     filteredList: function filteredList() {
-      var _this2 = this;
-
-      return this.gears.filter(function (gear) {
-        return gear.name.toLowerCase().includes(_this2.search.toLowerCase());
+      var self = this;
+      return self.gears.filter(function (gear) {
+        var searchRegex = new RegExp(self.search, 'i');
+        return searchRegex.test(gear.name) || searchRegex.test(gear.type) || searchRegex.test(gear.source);
       });
+    },
+    orderedList: function orderedList() {
+      return _.orderBy(this.filteredList, this.sortKey, this.sortDirection);
     }
   }
 });
@@ -41701,110 +41726,126 @@ var render = function() {
           ])
         ])
       : _c("section", [
-          _c(
-            "table",
-            { staticClass: "table table-hoved table-dark " },
-            [
-              _c(
-                "div",
-                { staticClass: "search-wrapper justify-content-center" },
-                [
-                  _c("label", [_vm._v("Search title:")]),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.search,
-                        expression: "search"
-                      }
-                    ],
-                    attrs: { type: "text", placeholder: "Search title.." },
-                    domProps: { value: _vm.search },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.search = $event.target.value
-                      }
-                    }
-                  })
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "button",
+          _c("div", { staticClass: "search-wrapper justify-content-center" }, [
+            _c("label", [_vm._v("Search title:")]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
                 {
-                  staticClass: "btn btn-primary",
-                  attrs: { disabled: _vm.isDisabled, type: "button" },
-                  on: { click: _vm.makefile }
-                },
-                [_vm._v("Create Json")]
-              ),
-              _vm._v(" "),
-              _vm.loading
-                ? _c("div", { staticClass: "d-flex justify-content-center" }, [
-                    _vm._m(0)
-                  ])
-                : _vm._e(),
-              _vm._v(" "),
-              _c("tr", [
-                _c("th", [
-                  _c("label", { staticClass: "form-checkbox" }, [
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.selectAll,
-                          expression: "selectAll"
-                        }
-                      ],
-                      attrs: { type: "checkbox" },
-                      domProps: {
-                        checked: Array.isArray(_vm.selectAll)
-                          ? _vm._i(_vm.selectAll, null) > -1
-                          : _vm.selectAll
-                      },
-                      on: {
-                        click: _vm.select,
-                        change: function($event) {
-                          var $$a = _vm.selectAll,
-                            $$el = $event.target,
-                            $$c = $$el.checked ? true : false
-                          if (Array.isArray($$a)) {
-                            var $$v = null,
-                              $$i = _vm._i($$a, $$v)
-                            if ($$el.checked) {
-                              $$i < 0 && (_vm.selectAll = $$a.concat([$$v]))
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.search,
+                  expression: "search"
+                }
+              ],
+              attrs: { type: "text", placeholder: "Search title.." },
+              domProps: { value: _vm.search },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.search = $event.target.value
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-primary",
+              attrs: { disabled: _vm.isDisabled, type: "button" },
+              on: { click: _vm.makefile }
+            },
+            [_vm._v("Create Json")]
+          ),
+          _vm._v(" "),
+          _c("table", { staticClass: "table table-hoved table-dark " }, [
+            _vm.loading
+              ? _c("div", { staticClass: "d-flex justify-content-center" }, [
+                  _vm._m(0)
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _c("thead", [
+              _c(
+                "tr",
+                [
+                  _c("th", [
+                    _c("label", { staticClass: "form-checkbox" }, [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.selectAll,
+                            expression: "selectAll"
+                          }
+                        ],
+                        attrs: { type: "checkbox" },
+                        domProps: {
+                          checked: Array.isArray(_vm.selectAll)
+                            ? _vm._i(_vm.selectAll, null) > -1
+                            : _vm.selectAll
+                        },
+                        on: {
+                          click: _vm.select,
+                          change: function($event) {
+                            var $$a = _vm.selectAll,
+                              $$el = $event.target,
+                              $$c = $$el.checked ? true : false
+                            if (Array.isArray($$a)) {
+                              var $$v = null,
+                                $$i = _vm._i($$a, $$v)
+                              if ($$el.checked) {
+                                $$i < 0 && (_vm.selectAll = $$a.concat([$$v]))
+                              } else {
+                                $$i > -1 &&
+                                  (_vm.selectAll = $$a
+                                    .slice(0, $$i)
+                                    .concat($$a.slice($$i + 1)))
+                              }
                             } else {
-                              $$i > -1 &&
-                                (_vm.selectAll = $$a
-                                  .slice(0, $$i)
-                                  .concat($$a.slice($$i + 1)))
+                              _vm.selectAll = $$c
                             }
-                          } else {
-                            _vm.selectAll = $$c
                           }
                         }
-                      }
-                    })
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("th", [_vm._v("Type")]),
-                _vm._v(" "),
-                _c("th", [_vm._v("Name")]),
-                _vm._v(" "),
-                _c("th", [_vm._v("Cost")]),
-                _vm._v(" "),
-                _c("th", [_vm._v("Weight")]),
-                _vm._v(" "),
-                _c("th", [_vm._v("Properties")])
-              ]),
-              _vm._v(" "),
+                      })
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _vm._l(_vm.columns, function(column) {
+                    return _c("th", [
+                      _c(
+                        "a",
+                        {
+                          attrs: { href: "#" },
+                          on: {
+                            click: function($event) {
+                              return _vm.sortBy(column)
+                            }
+                          }
+                        },
+                        [
+                          _vm._v(
+                            "\n                        " +
+                              _vm._s(_vm._f("capitalize")(column)) +
+                              "\n                    "
+                          )
+                        ]
+                      )
+                    ])
+                  }),
+                  _vm._v(" "),
+                  _c("th")
+                ],
+                2
+              )
+            ]),
+            _vm._v(" "),
+            _c(
+              "tbody",
               _vm._l(_vm.displayedGear, function(gear) {
                 return _c("tr", { key: gear.id }, [
                   _c("td", [
@@ -41862,10 +41903,10 @@ var render = function() {
                   _vm._v(" "),
                   _c("td", [_vm._v(_vm._s(gear.properties))])
                 ])
-              })
-            ],
-            2
-          ),
+              }),
+              0
+            )
+          ]),
           _vm._v(" "),
           _c(
             "div",

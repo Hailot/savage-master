@@ -5,33 +5,36 @@
         </section>
 
         <section v-else>
-            <table class="table table-hoved table-dark ">
-                <div class="search-wrapper justify-content-center">
-                    <label>Search title:</label>
+            <div class="search-wrapper justify-content-center">
+                <label>Search title:</label>
 
-                    <input type="text" v-model="search" placeholder="Search title.."/>
-                </div>
-                <button :disabled='isDisabled' type="button" class="btn btn-primary" v-on:click="makefile">Create Json</button>
+                <input type="text" v-model="search" placeholder="Search title.."/>
+            </div>
+            <button :disabled='isDisabled' type="button" class="btn btn-primary" v-on:click="makefile">Create Json</button>
+            <table class="table table-hoved table-dark ">
+
                 <div v-if="loading" class="d-flex justify-content-center">
                     <div class="spinner-border" role="status">
                         <span class="sr-only">Loading...</span>
                     </div>
                 </div>
+                <thead>
                 <tr>
                     <th>
                         <label class="form-checkbox">
                             <input type="checkbox" v-model="selectAll" @click="select">
                         </label>
                     </th>
-                    <th>Type</th>
-                    <th>Name</th>
-                    <th>Cost</th>
-                    <th>Weight</th>
-                    <th>Properties</th>
-
+                    <th v-for="column in columns">
+                        <a href="#" @click="sortBy(column)">
+                            {{ column | capitalize }}
+                        </a>
+                    </th>
+                    <th></th>
 
                 </tr>
-
+                </thead>
+                <tbody>
                 <tr v-for="gear in displayedGear" :key="gear.id">
                     <td>
                         <label class="form-checkbox">
@@ -47,6 +50,8 @@
 
 
                 </tr>
+                </tbody>
+
             </table>
             <div class="clearfix btn-group col-md-2 offset-md-5">
                 <button type="button" class="btn btn-sm btn-outline-primary" v-if="page != 1" @click="page--"> <<
@@ -76,13 +81,22 @@
                 selected: [],
                 selectAll: false,
                 disButton: false,
+                sortKey: ['name'],
+                sortDirection: ['asc'],
                 search: '',
+                columns: ['type','name','cost','weight','properties'],
 
 
 
             }
         },
-        filters: {},
+        filters: {
+            capitalize: function (value) {
+                if (!value) return ''
+                value = value.toString()
+                return value.charAt(0).toUpperCase() + value.slice(1)
+            }
+        },
         mounted() {
 
         },
@@ -121,6 +135,17 @@
                     }
                 }
             },
+            sortBy: function(sortKey) {
+                if(this.sortKey === sortKey){
+                    this.sortDirection = (this.sortDirection == 'asc') ? 'desc' : 'asc';
+
+                }
+                else {
+                    this.sortDirection = 'asc';
+                    this.sortKey = sortKey;
+                }
+
+            },
 
 
 
@@ -151,13 +176,22 @@
                 return this.disButton;
             },
             displayedGear() {
-                return this.paginate(this.filteredList);
+                return this.paginate(this.orderedList);
             },
             filteredList() {
-                return this.gears.filter(gear => {
-                    return gear.name.toLowerCase().includes(this.search.toLowerCase())
-                })
+                var self = this;
+
+                return self.gears.filter(function (gear) {
+                    var searchRegex = new RegExp(self.search, 'i')
+                    return  (
+                        searchRegex.test(gear.name) ||
+                        searchRegex.test(gear.type) ||
+                        searchRegex.test(gear.source)
+                    )})
             },
+            orderedList: function () {
+                return _.orderBy(this.filteredList, this.sortKey,this.sortDirection)
+            }
         },
     }
 </script>
