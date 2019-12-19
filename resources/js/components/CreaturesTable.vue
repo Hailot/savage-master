@@ -5,48 +5,52 @@
         </section>
 
         <section v-else>
-            <table class="table table-striped table-hover table-dark ">
-                <div class="search-wrapper justify-content-center">
-                    <label>Search title:</label>
+            <div class="search-wrapper justify-content-center">
+                <label>Search title:</label>
 
-                    <input type="text" v-model="search" placeholder="Search title.."/>
-                </div>
-                <button :disabled='isDisabled' type="button" class="btn btn-primary" v-on:click="makefile">Create Json</button>
+                <input type="text" v-model="search" placeholder="Search title.."/>
+            </div>
+            <button :disabled='isDisabled' type="button" class="btn btn-primary" v-on:click="makefile">Create Json</button>
+            <table class="table table-striped table-hover table-dark ">
+
                 <div v-if="loading" class="d-flex justify-content-center">
                     <div class="spinner-border" role="status">
                         <span class="sr-only">Loading...</span>
                     </div>
                 </div>
+                <thead>
                 <tr>
                     <th>
                         <label class="form-checkbox">
                             <input type="checkbox" v-model="selectAll" @click="select">
                         </label>
                     </th>
-                    <th>CR</th>
-                    <th>Name</th>
-                    <th>Type</th>
-                    <th>Avg. Hitpoints</th>
-                    <th>Source</th>
+                    <th v-for="column in columns">
+                        <a href="#" @click="sortBy(column)">
+                            {{ column | capitalize }}
+                        </a>
+                    </th>
                     <th></th>
-                </tr>
-
-                <tr v-for="creature in displayedCreatures" :key="creature.id">
-                    <td>
-                        <label class="form-checkbox">
-                            <input type="checkbox" :value="creature.id" v-model="selected">
-                            <i class="form-icon"></i>
-                        </label>
-                    </td>
-                    <td>{{ creature.challenge_rating }}</td>
-                    <td>{{ creature.name}}</td>
-                    <td>{{ creature.type.name}}</td>
-                    <td>{{ creature.average_hitpoints}}</td>
-                    <td>{{ creature.source}}</td>
-                    <td> <button id="show-modal" @click="viewModal(creature)">Full Info</button> </td>
-
 
                 </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="creature in displayedCreatures" :key="creature.id">
+                        <td>
+                            <label class="form-checkbox">
+                                <input type="checkbox" :value="creature.id" v-model="selected">
+                            </label>
+                        </td>
+                        <td>{{ creature.challenge_rating }}</td>
+                        <td>{{ creature.name}}</td>
+                        <td>{{ creature.type.name}}</td>
+                        <td>{{ creature.average_hitpoints}}</td>
+                        <td>{{ creature.source}}</td>
+                        <td> <button id="show-modal" @click="viewModal(creature)">Full Info</button> </td>
+                    </tr>
+                </tbody>
+
+
             </table>
             <div class="clearfix btn-group col-md-2 offset-md-5">
                 <button type="button" class="btn btn-sm btn-outline-primary" v-if="page != 1" @click="page--"> << </button>
@@ -73,7 +77,10 @@
                 selected: [],
                 selectAll: false,
                 disButton: false,
+                sortKey: ['challenge_rating'],
+                sortDirection: ['asc'],
                 search: '',
+                columns: ['CR','name','Type','Avg Hitpoints','source'],
                 showedCreature: '',
                 showModal: false
 
@@ -81,7 +88,11 @@
             }
         },
         filters: {
-
+            capitalize: function (value) {
+                if (!value) return ''
+                value = value.toString()
+                return value.charAt(0).toUpperCase() + value.slice(1)
+            }
         },
 
         mounted () {
@@ -133,10 +144,22 @@
                         'dataType': 'creatures'
                     }
                 ).then(response => {
-
                     window.location.replace('/user-files')
-
                 })
+            },
+            sortBy: function(sortKey) {
+
+                if(sortKey === 'CR'){sortKey = 'challenge_rating';}
+                if(sortKey === 'Type'){sortKey = 'type.name';}
+                if(sortKey === 'Avg Hitpoints'){sortKey = 'average_hitpoints';}
+                if(this.sortKey === sortKey){
+                    this.sortDirection = (this.sortDirection == 'asc') ? 'desc' : 'asc';
+
+                }
+                else {
+                    this.sortDirection = 'asc';
+                    this.sortKey = sortKey;
+                }
 
             },
 
@@ -153,13 +176,24 @@
                 return this.disButton;
             },
             displayedCreatures () {
-                return this.paginate(this.filteredList);
+                return this.paginate(this.orderedList);
             },
             filteredList() {
-                return this.creatures.filter(creature => {
-                    return creature.name.toLowerCase().includes(this.search.toLowerCase())
-                })
+                var self = this;
+
+                return self.creatures.filter(function (creature) {
+                    var searchRegex = new RegExp(self.search, 'i')
+                    return  (
+                        searchRegex.test(creature.name) ||
+                        searchRegex.test(creature.type.name) ||
+                        searchRegex.test(creature.source)
+                    )})
+
             },
+
+            orderedList: function () {
+                return _.orderBy(this.filteredList, this.sortKey,this.sortDirection)
+            }
         },
     }
 </script>

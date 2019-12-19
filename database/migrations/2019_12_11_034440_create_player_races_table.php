@@ -15,6 +15,8 @@ class CreatePlayerRacesTable extends Migration
     {
         Schema::create('player_races', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->text('description')->nullable();
+            $table->string('pic');
             $table->timestamps();
         });
     }
