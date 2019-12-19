@@ -10,38 +10,37 @@
             <!--            Search-->
             <!--            <input v-model="query"/>-->
             <!--        </label>-->
-            <table class="table table-striped table-hover table-dark">
-                <div class="search-wrapper justify-content-center">
-                    <label>Search title:</label>
+            <div class="search-wrapper justify-content-center">
+                <label>Search title:</label>
 
-                    <input type="text" v-model="search" placeholder="Search title.."/>
-                </div>
-                <button :disabled='isDisabled' type="button" class="btn btn-primary" v-on:click="makefile">Create Json
-                </button>
+                <input type="text" v-model="search" placeholder="Search title.."/>
+            </div>
+            <button :disabled='isDisabled' type="button" class="btn btn-primary" v-on:click="makefile">Create Json
+            </button>
+            <table class="table table-striped table-hover table-dark">
+
                 <div v-if="loading" class="d-flex justify-content-center">
                     <div class="spinner-border" role="status">
                         <span class="sr-only">Loading...</span>
                     </div>
                 </div>
+                <thead>
                 <tr>
                     <th>
                         <label class="form-checkbox">
                             <input type="checkbox" v-model="selectAll" @click="select">
                         </label>
                     </th>
-                    <th>Level</th>
-                    <th>Name</th>
-                    <th>School</th>
-                    <th>Classes</th>
-                    <th>Components</th>
-                    <th>Casting Time</th>
-                    <th>Duration</th>
-                    <th>Range</th>
-                    <th>Source</th>
+                    <th v-for="column in columns">
+                        <a href="#" @click="sortBy(column)">
+                            {{ column | capitalize }}
+                        </a>
+                    </th>
                     <th></th>
 
                 </tr>
-
+                </thead>
+                <tbody>
                 <tr v-for="spell in displayedSpells" :key="spell.id">
                     <td>
                         <label class="form-checkbox">
@@ -58,9 +57,11 @@
                     <td>{{ spell.duration}}</td>
                     <td>{{ spell.range}}</td>
                     <td>{{ spell.source}}</td>
-                    <td>   <button id="show-modal" @click="viewModal(spell)">Show Modal</button>
+                    <td>   <button class="btn-sm btn-info" id="show-modal" @click="viewModal(spell)">View</button>
                     </td>
                 </tr>
+                </tbody>
+
             </table>
             <div class="clearfix btn-group col-md-2 offset-md-5">
                 <button type="button" class="btn btn-sm btn-outline-primary" v-if="page != 1" @click="page--"> <<
@@ -93,7 +94,10 @@
                 pages: [],
                 selected: [],
                 selectAll: false,
+                sortKey: ['level'],
+                sortDirection: ['asc'],
                 search: '',
+                columns: ['level','name', 'school', 'classes', 'components','casting Time', 'duration', 'range','source'],
                 disButton: false,
                 showModal: false,
                 showedSpell: '',
@@ -101,7 +105,13 @@
 
             }
         },
-        filters: {},
+        filters: {
+            capitalize: function (value) {
+                if (!value) return ''
+                value = value.toString()
+                return value.charAt(0).toUpperCase() + value.slice(1)
+            }
+        },
         mounted() {
 
         },
@@ -161,6 +171,28 @@
                 })
 
             },
+            sortBy: function(sortKey) {
+                if(sortKey === 'level'){
+                    sortKey = 'level_name';
+                }
+                if(sortKey === 'school'){
+                    sortKey = 'school.name'
+                }
+                if(sortKey === 'casting Time'){
+                    sortKey = 'casting_time'
+                }
+
+                if(this.sortKey === sortKey){
+                    console.log(this.sortKey);
+                    this.sortDirection = (this.sortDirection == 'asc') ? 'desc' : 'asc';
+
+                }
+                else {
+                    this.sortDirection = 'asc';
+                    this.sortKey = sortKey;
+                }
+
+            },
 
             forceFileDownload(response) {
                 const url = window.URL.createObjectURL(new Blob([response.data]))
@@ -176,19 +208,30 @@
         watch: {
             spells() {
                 this.setPages();
-            }
+            },
         },
         computed: {
             isDisabled: function () {
                 return this.disButton;
             },
             displayedSpells() {
-                return this.paginate(this.filteredList);
+                return this.paginate(this.orderedList);
             },
             filteredList() {
-               return this.spells.filter(spell => {
-                   return spell.name.toLowerCase().includes(this.search.toLowerCase())
-               })
+                var self = this;
+
+                return self.spells.filter(function (spell) {
+                        var searchRegex = new RegExp(self.search, 'i')
+                        return  (
+                            searchRegex.test(spell.name) ||
+                            searchRegex.test(spell.classes) ||
+                                searchRegex.test(spell.school.name) ||
+                                searchRegex.test(spell.source)
+                        )})
+
+            },
+            orderedList: function () {
+                return _.orderBy(this.filteredList, this.sortKey,this.sortDirection)
             }
         },
     }

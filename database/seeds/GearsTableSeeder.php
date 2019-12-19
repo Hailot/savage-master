@@ -16,7 +16,7 @@ class GearsTableSeeder extends Seeder
 
         $data = new ArrayObject();
 
-        $gearjson = File::get("database/json/gear/gear.json");
+        $gearjson = File::get("database/json/gear/gearNew.json");
         $gear = json_decode($gearjson);
         foreach ($gear as $item) {
             $data->offsetSet(null, $item);
@@ -26,7 +26,7 @@ class GearsTableSeeder extends Seeder
         {
             Gear::create(array(
                 'name' => $gear->gear_name,
-                'description' => '',
+                'description' => ($gear->gear_description == '') ? '' : $gear->gear_description,
                 'damage' => $gear->gear_damage,
                 'cost' => $gear->gear_cost,
                 'weight' => $gear->gear_weight,

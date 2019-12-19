@@ -42,7 +42,7 @@
                     <td>{{ gear.type}}</td>
                     <td>{{ gear.name}}</td>
                     <td>{{ gear.cost}}</td>
-                    <td>{{ gear.weight}} Lbs</td>
+                    <td>{{ gear.weight}}</td>
                     <td>{{ gear.properties}}</td>
 
 
