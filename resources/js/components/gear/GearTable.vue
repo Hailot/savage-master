@@ -25,7 +25,7 @@
 
                 </div>
             </div>
-            <table class="table table-hover table-dark ">
+            <table class="table table-hover table-dark text-center ">
 
                 <div v-if="loading" class="d-flex justify-content-center">
                     <div class="spinner-border" role="status">
@@ -48,8 +48,8 @@
 
                 </tr>
                 </thead>
-                <tbody>
-                <tr v-for="gear in displayedGear" :key="gear.id">
+                <tbody  v-for="gear in displayedGear" :key="gear.id">
+                <tr>
                     <td>
                         <label class="form-checkbox">
                             <input type="checkbox" :value="gear.id" v-model="selected">
@@ -58,6 +58,7 @@
                     </td>
                     <td>{{ gear.type}}</td>
                     <td>{{ gear.name}}</td>
+                    <td>{{ gear.damage}}</td>
                     <td>{{ gear.cost}}</td>
                     <td>{{ gear.weight}}</td>
                     <td>{{ gear.properties}}</td>
@@ -98,7 +99,7 @@
                 sortKey: ['name'],
                 sortDirection: ['asc'],
                 search: '',
-                columns: ['type','name','cost','weight','properties'],
+                columns: ['type','name','damage','cost','weight','properties'],
 
 
 

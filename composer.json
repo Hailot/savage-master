@@ -20,6 +20,7 @@
         "orangehill/iseed": "^2.6",
         "php-http/guzzle6-adapter": "^2.0",
         "spatie/laravel-cookie-consent": "^2.10",
+        "spatie/laravel-permission": "^3.3",
         "yajra/laravel-datatables-oracle": "^9.7"
     },
     "require-dev": {

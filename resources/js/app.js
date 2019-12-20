@@ -20,16 +20,21 @@ Vue.use(require('vue-resource'));
 
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
-
+import VueTabs from 'vue-nav-tabs'
+import 'vue-nav-tabs/themes/vue-tabs.css'
+Vue.use(VueTabs)
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
-Vue.component('spells-table', require('./components/SpellsTable.vue').default);
-Vue.component('gear-table', require('./components/GearTable.vue').default);
-Vue.component('creature-table', require('./components/CreaturesTable.vue').default);
+Vue.component('spells-table', require('./components/spells/SpellsTable.vue').default);
+Vue.component('gear-table', require('./components/gear/GearTable.vue').default);
+Vue.component('creature-table', require('./components/creatures/CreaturesTable.vue').default);
 Vue.component('user-profile', require('./components/UserProfile.vue').default);
 Vue.component('pagination', require('./components/PaginationComponent.vue'));
-Vue.component('spell-modal', require('./components/SpellModal.vue').default);
-Vue.component('creature-modal', require('./components/CreatureModal.vue').default);
+Vue.component('spell-modal', require('./components/spells/SpellModal.vue').default);
+Vue.component('creature-modal', require('./components/creatures/CreatureModal.vue').default);
+Vue.component('source-material-index', require('./components/source-material/Index.vue').default);
+
+
 
 
 /**

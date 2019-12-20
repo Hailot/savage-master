@@ -22,21 +22,25 @@ class SpellsTableSeeder extends Seeder
         $phbjson = File::get("database/json/spells/spellsPHB.json");
         $phb = json_decode($phbjson);
         foreach ($phb as $item) {
+            $item->spell_sources = 'PHB';
             $data->offsetSet(null, $item);
         }
         $srdjson = File::get("database/json/spells/spellsSRD.json");
         $srd = json_decode($srdjson);
         foreach ($srd as $item) {
+            $item->spell_sources = 'SRD';
             $data->offsetSet(null, $item);
         }
         $eejson = File::get("database/json/spells/spellsEE.json");
         $ee = json_decode($eejson);
-        foreach ($phb as $item) {
+        foreach ($ee as $item) {
+            $item->spell_sources = 'EE';
             $data->offsetSet(null, $item);
         }
         $xgtejson = File::get("database/json/spells/spellsXGTE.json");
         $xgte = json_decode($xgtejson);
         foreach ($xgte as $item) {
+            $item->spell_sources = 'XGTE';
             $data->offsetSet(null, $item);
         }
 

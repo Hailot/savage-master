@@ -9,11 +9,16 @@
                 <div class="col-sm-2">
 
                     <div class="form-group mt-4 pt-2" >
-                        <button :disabled='isDisabled' type="button" name="jsonfile" id="jsonfile" class="btn btn-primary btn-block form-control text-center" v-on:click="makefile">Create Json
+                        <button :disabled='isDisabled' type="button" name="jsonfile" id="jsonfile"
+                                class="btn btn-primary btn-block form-control text-center"
+                                data-toggle="tooltip" title="Create Json File from selected Creatures"
+                                v-on:click="makefile">Create Json
                         </button>
                     </div>
 
                 </div>
+                <div class="col-lg-2"></div>
+
                 <div class="col-sm-6">
                     <div class="form-group">
                         <label for="search">Text Search:</label>
@@ -25,7 +30,7 @@
 
                 </div>
             </div>
-            <table class="table table-hover table-dark ">
+            <table class="table table-hover table-dark text-center ">
 
                 <div v-if="loading" class="d-flex justify-content-center">
                     <div class="spinner-border" role="status">
@@ -40,7 +45,7 @@
                         </label>
                     </th>
                     <th scope="col" v-for="column in columns">
-                        <a class="btn btn-block btn-outline-info" href="#" @click="sortBy(column)">
+                        <a class="btn btn-block btn-outline-info" href="#" @click="sortBy(column)" data-toggle="tooltip" title="Click to sort by column">
                             {{ column | capitalize }}
                         </a>
                     </th>
@@ -49,7 +54,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                    <tr v-for="creature in displayedCreatures" :key="creature.id">
+                <tr class="" v-for="creature in displayedCreatures" :key="creature.id" @click="viewModal(creature)" data-toggle="tooltip" title="Click row to see full information" style="cursor: pointer">
                         <td>
                             <label class="form-checkbox">
                                 <input type="checkbox" :value="creature.id" v-model="selected">
@@ -60,7 +65,8 @@
                         <td>{{ creature.type.name}}</td>
                         <td>{{ creature.average_hitpoints}}</td>
                         <td>{{ creature.source}}</td>
-                        <td> <button id="show-modal" @click="viewModal(creature)">Full Info</button> </td>
+                        <td>  </td>
+
                     </tr>
                 </tbody>
 

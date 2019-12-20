@@ -30,7 +30,7 @@
 
                 </div>
             </div>
-            <table class="table table-hover table-dark">
+            <table class="table table-hover table-dark text-center">
 
                 <div v-if="loading" class="d-flex justify-content-center">
                     <div class="spinner-border" role="status">
@@ -54,7 +54,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr v-for="spell in displayedSpells" :key="spell.id">
+                <tr v-for="spell in displayedSpells" :key="spell.id" @click="viewModal(spell)">
                     <td>
                         <label class="form-checkbox">
                             <input type="checkbox" :value="spell.id" v-model="selected">
@@ -70,8 +70,7 @@
                     <td>{{ spell.duration}}</td>
                     <td>{{ spell.range}}</td>
                     <td>{{ spell.source}}</td>
-                    <td>   <button class="btn btn-block btn-info" id="show-modal" @click="viewModal(spell)">View</button>
-                    </td>
+                    <td> </td>
                 </tr>
                 </tbody>
 

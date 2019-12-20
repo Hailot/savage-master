@@ -68,10 +68,12 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/download/{file}','UserJsonFileController@download')->name('json.download');
         Route::post('/make-file','UserJsonFileController@makeJsonFile');
         Route::get('/api-data','UserJsonFileController@getApiData')->name('json.apidata');
-
-
     });
 
+    Route::prefix('source-material')->group(function () {
+        Route::get('/index','SourceMaterialController@index')->name('source.index');
+        Route::get('/api-data/{type}','SourceMaterialController@getFiles')->name('source.api-data');
+    });
 });
 
 Auth::routes();
